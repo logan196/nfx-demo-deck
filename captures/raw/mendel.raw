@@ -1,0 +1,31 @@
+
+  🌱  [2mGregor Mendel — Variant Inheritance[0m
+  [3m[2m"My scientific labors have brought me much satisfaction, and I am co..."[0m
+
+
+[38;2;142;68;207m[1m  ━━ VARIANT: rs104893877 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    [2mName                  [0mrs104893877
+    [2mSource                [0mVariants (including SNPs and indels) imported from dbSNP
+    [2mAncestral Allele      [0m—
+    [2mMAF                   [0m—
+    [2mMinor Allele          [0m—
+    [2mClinical              [0mpathogenic
+
+[38;2;142;68;207m[1m  ━━ MAPPINGS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    [1m4:89828149[0m [2m(GRCh38)[0m
+    [2mC/T  strand: 1[0m
+
+    [38;2;140;180;255mhttps://ensembl.org/Homo_sapiens/Variation/Explore?v=rs104893877[0m
+
+[38;5;135m[1m  ━━ Continue your analysis ━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+  [1m1.[0m [32mnfx pubmed "rs104893877 GWAS association"[0m
+     [2m→ Cross-reference rs104893877 against the GWAS catalog and trait associations[0m
+     [2m(Buniello et al., Nucleic Acids Res 2019)[0m
+
+  [1m2.[0m [32mnfx browser chr4:89823149-89833149[0m
+     [2m→ View regulatory context within ±5000 bp of rs104893877[0m
+     [2m(Ernst & Kellis, Nat Methods 2012)[0m
+

@@ -1,0 +1,174 @@
+
+  🦗  [2mBarbara McClintock — Transposon Analysis[0m
+  [3m[2m"If you know you are on the right track, if you have this inner know..."[0m
+
+
+  [3m[2m"The genome is a book that wrote itself, continually adding, deleting, and amending over four billion years."[0m
+  [2m— Matt Ridley, Genome, 1999[0m
+
+[38;2;142;68;207m[1m  ━━ SEQUENCE ANALYSIS: BRCA1 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+  [38;2;142;68;207m█████[38;2;74;21;130m░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  14% [38;2;140;130;160m0.0s[0m  [2mResolving gene symbol via Ensembl...[0m  [38;2;142;68;207m█████████[38;2;74;21;130m░░░░░░░░░░░░░░░░░░░░░░░[0m  29% [38;2;140;130;160m2.0s[0m  [2mFetching gene overview...          [0m
+[38;2;142;68;207m[1m  ━━ GENE OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    [2mSymbol                [0m[1mBRCA1[0m
+    [2mEnsembl ID            [0mENSG00000012048
+    [2mDescription           [0mBRCA1 DNA repair associated
+    [2mBiotype               [0mprotein_coding
+    [2mLocation              [0mchr17:43,044,292–43,170,245 (-)
+    [2mGene Length           [0m126.0 kb
+    [2mAssembly              [0mGRCh38
+
+[38;2;142;68;207m[1m  ━━ TRANSCRIPTS (47) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    [2mProtein-coding        [0m33
+    [2mNon-coding            [0m14
+    [2mCanonical             [0m[1mENST00000357654[0m
+    [2m  Exons               [0m23
+    [2m  Length              [0m7088 bp
+    [2m  Protein             [0mENSP00000350283 (1863 aa)
+
+    [2mID                   Biotype              Exons  Length     Protein[0m
+    [2m──────────────────── ──────────────────── ────── ────────── ────────────────────[0m
+    ENST00000497488      protein_coding       15     6335       1567 aa
+    ENST00000489037      protein_coding       22     7056       1837 aa
+    ENST00000478531      protein_coding       23     3765       759 aa
+    ENST00000357654      protein_coding       23     7088       1863 aa [38;2;100;230;130m★[0m
+    ENST00000473961      protein_coding       21     6962       1821 aa
+    ENST00000477152      protein_coding       22     7010       1837 aa
+    ENST00000352993      protein_coding       22     3668       721 aa
+    ENST00000493919      protein_coding       22     3757       713 aa
+    [2m... +39 more[0m
+
+  [1mBRCA1[0m  [90mchr17:43,044,292–43,170,245 (-)  23 exons[0m
+  5'[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m[90m─[0m[38;5;37m▓[0m[90m─[0m[90m─[0m[38;5;37m▓[0m[90m─[0m[38;5;37m▓[0m[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m[90m─[0m[38;5;37m▓[0m[90m─[0m[90m─[0m[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m[90m─[0m[90m─[0m[38;5;37m▓[0m[90m─[0m[90m─[0m[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m3'
+  [90m    EEE4 E5 E7E8EEE11E12 EE1EE17EE20 E21 EE23                   [0m
+  [38;2;142;68;207m██████████████[38;2;74;21;130m░░░░░░░░░░░░░░░░░░[0m  43% [38;2;140;130;160m2.0s[0m  [2mFetching genomic sequence...       [0m
+[38;2;142;68;207m[1m  ━━ SEQUENCE COMPOSITION ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    [2mTotal Length          [0m125,954 bp
+    [2mGC Content            [0m44.1%
+    [2mComposition           [0mA=27.9%  T=28.0%  G=22.5%  C=21.6%
+    [2mCpG Count             [0m1909 (O/E ratio: 0.31)
+    [2mTop Dinucleotides     [0mTT:11539  AA:11360  AG:9566  TG:9306  CT:9026
+
+  GC   [38;5;37m█████████████[90m░░░░░░░░░░░░░░░░░[0m 44.1%
+  AT   [38;5;37m█████████████████[90m░░░░░░░░░░░░░[0m 55.9%
+  [38;2;142;68;207m██████████████████[38;2;74;21;130m░░░░░░░░░░░░░░[0m  57% [38;2;140;130;160m3.1s[0m  [2mQuerying protein domains + ClinVar...[0m
+[38;2;142;68;207m[1m  ━━ CLINICAL VARIANTS (2985 pathogenic of 8580 total) ━[0m
+
+    [38;2;255;90;90m[1mrs431825382[0m [2mGACAG/G at 17:43045572[0m
+    [2mpathogenic  consequence: 3_prime_UTR_variant[0m
+
+    [38;2;255;90;90m[1mrs2152474705[0m [2mTGCAGTCAGTAGTGGCTGTGGGGGATCTGGGGTATCAGGTAGGTGTCCAGCTCCTGGCACTGGTAGAGTGCTACACTGTCCAACACCCACTCTCGGGTCACCACAGGTGCCTCACACATCTGCCCAATTGC/TGC at 17:43045673[0m
+    [2mpathogenic  consequence: splice_acceptor_variant[0m
+
+    [38;2;255;90;90m[1mrs2152476215[0m [2mAGTCAGTAGTGGCTGTGGGGGATCTGGGGTATCAGGTAGGTGTCCAGCTCCTGGCACTGGTAGAGTGCTACACTGTCCAACACCCACTCTCGGGTCACCACAGGTGCCTCACACATCTGCCCAATTGCTGGAGACAGAGAACACAAGCAGAGATTAGTGTCAATTCATTCTCCTGGACTAGGCTCTAATCAATCGACTCCAGGGTCCTGGTTGTATGAGTTCTTAGGATTAATGAGGTAGAAGCTAATTTTTTTTTTTTTTTTTTGAGACGGAGTCTTGCTCTGTCGCCGAGGCTAGAGTGTGATGGCGCAATCTCGG/- at 17:43045676[0m
+    [2mpathogenic  consequence: splice_acceptor_variant[0m
+
+    [38;2;255;90;90m[1mrs397507254[0m [2mGGGGG/GGGG/GGGGGG at 17:43045692[0m
+    [2muncertain significance, likely pathogenic  consequence: frameshift_variant[0m
+
+    [38;2;255;90;90m[1mrs886039675[0m [2mGGGG/GGG at 17:43045701[0m
+    [2mlikely pathogenic  consequence: frameshift_variant[0m
+
+    [38;2;255;90;90m[1mrs2050856829[0m [2mGGGGTATCAGGTAGG/GG at 17:43045701[0m
+    [2mlikely pathogenic  consequence: frameshift_variant[0m
+
+    [38;2;255;90;90m[1mrs80359883[0m [2mATCAGGTAGGTGTCCAGCTCCTGGCACTGGTAGAGTGCTACACTGTCCAACACCCACTCTCG/- at 17:43045706[0m
+    [2mpathogenic  consequence: frameshift_variant[0m
+
+    [38;2;255;90;90m[1mrs483353103[0m [2mT/GGATCC/NNNNNN at 17:43045707[0m
+    [2muncertain significance, likely pathogenic  consequence: frameshift_variant[0m
+
+    [38;2;255;90;90m[1mrs80356996[0m [2mA/C/G/T at 17:43045709[0m
+    [2muncertain significance, not provided, likely pathogenic  consequence: missense_variant[0m
+
+    [38;2;255;90;90m[1mrs2152501157[0m [2mA/- at 17:43045709[0m
+    [2muncertain significance, pathogenic  consequence: frameshift_variant[0m
+
+    [2m... +2975 more pathogenic variants[0m
+  [38;2;142;68;207m███████████████████████[38;2;74;21;130m░░░░░░░░░[0m  71% [38;2;140;130;160m5.0s[0m  [2mFetching Gene Ontology from UniProt...[0m
+[38;2;142;68;207m[1m  ━━ GENE ONTOLOGY (77 terms) ━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    [38;2;142;68;207mBiological Process (42)[0m
+      [2mGO:0071681[0m  cellular response to indole-3-methanol
+      [2mGO:0071479[0m  cellular response to ionizing radiation
+      [2mGO:0071356[0m  cellular response to tumor necrosis factor
+      [2mGO:0007098[0m  centrosome cycle
+      [2mGO:0043009[0m  chordate embryonic development
+      [2m... +37 more[0m
+    [38;2;142;68;207mMolecular Function (16)[0m
+      [2mGO:0003684[0m  damaged DNA binding
+      [2mGO:0003677[0m  DNA binding
+      [2mGO:0019899[0m  enzyme binding
+      [2mGO:0140863[0m  histone H2AK127 ubiquitin ligase activity
+      [2mGO:0140864[0m  histone H2AK129 ubiquitin ligase activity
+      [2m... +11 more[0m
+    [38;2;142;68;207mCellular Component (19)[0m
+      [2mGO:0070531[0m  BRCA1-A complex
+      [2mGO:0070532[0m  BRCA1-B complex
+      [2mGO:0031436[0m  BRCA1-BARD1 complex
+      [2mGO:0070533[0m  BRCA1-C complex
+      [2mGO:0005694[0m  chromosome
+      [2m... +14 more[0m
+  [38;2;142;68;207m███████████████████████████[38;2;74;21;130m░░░░░[0m  86% [38;2;140;130;160m6.0s[0m  [2mSearching PubMed...                [0m
+[38;2;142;68;207m[1m  ━━ RECENT PUBLICATIONS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    [1mBRCA1 gene: function and deficiency.[0m
+    [2mInt J Clin Oncol (2018 Feb)  PMID:28884397[0m
+
+    [1mThe BRCA1 and BRCA2 Genes in Early-Onset Breast Cancer Patients.[0m
+    [2mAdv Exp Med Biol (2020)  PMID:29687286[0m
+
+    [1mBRCA1 gene in breast cancer.[0m
+    [2mJ Cell Physiol (2003 Jul)  PMID:12767038[0m
+
+  [38;2;142;68;207m████████████████████████████████[38;2;74;21;130m[0m 100% [38;2;140;130;160m6.6s[0m  [2mGenerating links...                [0m  [38;2;142;68;207m████████████████████████████████[0m 100% [38;2;140;130;160m6.6s[0m  [38;2;100;230;130m✓ Complete[0m                         
+
+[38;2;142;68;207m[1m  ━━ LINKS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    Ensembl     ]8;;https://ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000012048[36mhttps://ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000012048[0m]8;;
+    NCBI Gene   ]8;;https://www.ncbi.nlm.nih.gov/gene/?term=BRCA1[36mhttps://www.ncbi.nlm.nih.gov/gene/?term=BRCA1[0m]8;;
+    UniProt     ]8;;https://www.uniprot.org/uniprotkb?query=gene:BRCA1+organism_id:9606[36mhttps://www.uniprot.org/uniprotkb?query=gene:BRCA1+organism_id:9606[0m]8;;
+    GeneCards   ]8;;https://www.genecards.org/cgi-bin/carddisp.pl?gene=BRCA1[36mhttps://www.genecards.org/cgi-bin/carddisp.pl?gene=BRCA1[0m]8;;
+    OMIM        ]8;;https://omim.org/search?search=BRCA1[36mhttps://omim.org/search?search=BRCA1[0m]8;;
+    AlphaFold   ]8;;https://alphafold.ebi.ac.uk/search/text/BRCA1[36mhttps://alphafold.ebi.ac.uk/search/text/BRCA1[0m]8;;
+
+[38;2;142;68;207m[1m  ━━ novaflow.ai SYNTHESIS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    # BRCA1: Expert Analysis
+    ## Biological Function
+    BRCA1 is the central scaffolding hub of homologous recombination (HR) repair of DNA double-strand breaks. The 1863-aa protein integrates three functional modules: an N-terminal RING domain that heterodimerizes with BARD1 to form an E3 ubiquitin ligase, a central region harboring coiled-coil and DNA-binding activity that nucleates the BRCA1-PALB2-BRCA2-RAD51 axis driving strand invasion, and tandem C-terminal BRCT domains that read phospho-SXXF motifs on Abraxas, BACH1/FANCJ, and CtIP to assemble the A, B, and C complexes governing checkpoint signaling, fork protection, and end resection. The locus is large (~126 kb) and produces 33 protein-coding isoforms, with BRCA1-Δ11q being the most clinically relevant splice variant — it lacks most of exon 11 and confers partial PARP-inhibitor resistance in tumors that retain it. The moderate GC content (44.1%) and presence of Alu-rich introns explain BRCA1's well-documented susceptibility to large genomic rearrangements via non-allelic homologous recombination.
+    ## Key Variants and Mutational Landscape
+    Pathogenic variation is dominated by truncating frameshift and nonsense alleles distributed across the coding sequence, with two Ashkenazi Jewish founder mutations — c.68_69delAG (185delAG) and c.5266dupC (5382insC) — accounting for the majority of hereditary breast/ovarian cancer in that population. Missense variants are pathogenic almost exclusively when they disrupt the RING (e.g., C61G, which abolishes BARD1 binding and ligase activity) or BRCT folds (e.g., M1775R, R1699W), where saturation genome-editing data from Findlay et al. now provide functional scores for nearly every possible SNV. Large genomic rearrangements (BRCA1 exon 13 duplication, exon 8–13 deletions) constitute ~10% of pathogenic alleles and are missed by short-read sequencing without MLPA or CNV-aware pipelines. Promoter hypermethylation is the dominant somatic inactivation mechanism in sporadic basal-like breast and high-grade serous ovarian cancers and produces an HR-deficient phenotype phenocopying germline loss.
+    ## Disease Associations
+    Heterozygous loss-of-function carriers face cumulative lifetime risks of ~65–72% for breast cancer and ~40–45% for ovarian cancer, with elevated risks of fallopian tube, peritoneal, pancreatic, and male breast cancer; prostate cancer risk is more modest than for BRCA2. Tumors are characteristically basal-like, triple-negative, high-grade, and exhibit COSMIC SBS3 and ID6 mutational signatures plus HRD-LOH/TAI/LST genomic scars detectable by Myriad myChoice or equivalent assays. This HR deficiency is therapeutically actionable: PARP inhibitors (olaparib, niraparib, rucaparib, talazoparib) are FDA-approved across breast, ovarian, pancreatic, and prostate indications, and platinum sensitivity is a robust class effect. Resistance mechanisms — reversion mutations restoring the open reading frame, 53BP1/REV7/Shieldin loss, and BRCA1-Δ11q upregulation — are now standard interrogation targets in progressing patients.
+    ## Experimental Recommendations
+    For variant interpretation, anchor classifications in the Findlay SGE functional dataset and the ENIGMA consortium curated database before applying ACMG criteria; for novel VUS, run a HDR-GFP or DR-GFP reporter assay in BRCA1-null HCC1937 or U2OS-derived lines, complemented by RAD51 foci formation after ionizing radiation as an orthogonal HR readout. For tumor profiling, pair targeted sequencing with an HRD genomic-scar assay and BRCA1 promoter methylation calling — mutation status alone misses ~30% of HR-deficient tumors. For mechanistic work, isogenic BRCA1-knockout RPE1 or MCF10A lines reconstituted with variant cDNAs remain the cleanest system; for in vivo studies, the conditional Brca1^fl/fl;K14-Cre or Brg1-driven models recapitulate basal-like mammary tumorigenesis. Given the gene's size and rearrangement burden, any clinical-grade pipeline must include long-read or MLPA-based CNV detection — short-read SNV calling alone is insufficient.
+
+[38;5;135m[1m  ━━ Continue your analysis ━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+  [1m1.[0m [32mnfx browser chr17:43044292-43170245[0m
+     [2m→ Visualize the locus with conservation, regulation, and chromatin tracks[0m
+     [2m(Kent et al., Genome Res 2002)[0m
+
+  [1m2.[0m [32mnfx gene BRCA1[0m
+     [2m→ Pull the full multi-database gene record (NCBI + Ensembl + UniProt) for BRCA1[0m
+     [2m(GTEx Consortium, Science 2020)[0m
+
+  [1m3.[0m [32mnfx variant BRCA1[0m
+     [2m→ Review clinically-curated variants in BRCA1[0m
+     [2m(Landrum et al., Nucleic Acids Res 2018)[0m
+
+  [1m4.[0m [32mnfx open https://jaspar.genereg.net/search?q=BRCA1[0m
+     [2m→ Scan BRCA1's promoter for transcription factor binding sites with JASPAR[0m
+     [2m(Castro-Mondragon et al., Nucleic Acids Res 2022)[0m
+
+  [1m5.[0m [32mnfx pubmed "BRCA1 positive selection dN/dS"[0m
+     [2m→ Investigate evolutionary conservation and selection pressure on BRCA1[0m
+     [2m(Yang, Mol Biol Evol 2007)[0m
+
+
+  [2m── 38.6s | Ensembl + UniProt + ClinVar + PubMed + novaflow.ai ──[0m
+

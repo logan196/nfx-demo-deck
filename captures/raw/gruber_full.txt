@@ -1,0 +1,81 @@
+============================================================
+  🔬  Gruber — Flow Cytometry Immunophenotyping
+  "Every surface marker tells a story of lineage,
+   activation, and fate."
+============================================================
+
+  ━━ FCS FILE: data/100715.fcs ━━━━━━━━━━━━━━━━━━━━━
+
+    Events:       65,016
+    Channels:     16
+    Instrument:   Main Aria (FACSAria)
+    Source:        Specimen_001
+
+  ━━ PANEL (16-color immunophenotyping) ━━━━━━━
+
+    Ch01  FSC-A               
+    Ch02  FSC-H               
+    Ch03  SSC-A               
+    Ch04  B515-A             KI67
+    Ch05  R780-A             CD3
+    Ch06  R710-A             CD28
+    Ch07  R660-A             CD45RO
+    Ch08  V800-A             CD8
+    Ch09  V655-A             CD4
+    Ch10  V585-A             CD57
+    Ch11  V450-A             VIVID / CD14
+    Ch12  G780-A             CCR5
+    Ch13  G710-A             CD19
+    Ch14  G660-A             CD27
+    Ch15  G610-A             CCR7
+    Ch16  G560-A             CD127
+
+  ━━ COMPENSATION ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    Matrix: 13×13 spillover
+    Fluorochromes: B515-A, R780-A, R710-A, R660-A, V800-A, V655-A, V585-A
+                   + 6 more
+
+  ━━ AUTO-GATING HIERARCHY ━━━━━━━━━━━━━━━━━━━━
+    Standard: ISAC / EuroFlow / Sallusto 1999
+
+    ALL EVENTS      65,016
+    ├─ Singlets     64,959  (99.9%)
+    ├─ Live         25,968  (40.2% of singlets)
+    ├─ CD3+         15,581  (60.0% of live)
+    │  ├─ CD8+       7,011  (45.0% of CD3+)
+    │  │  ├─ Naïve   1,153  (16.4%)  CCR7+ CD45RO−
+    │  │  ├─ TCM     2,352  (33.5%)  CCR7+ CD45RO+
+    │  │  ├─ TEM     1,154  (16.5%)  CCR7− CD45RO+
+    │  │  └─ TEMRA   2,352  (33.5%)  CCR7− CD45RO−
+    │  └─ CD4+       2,876  (18.5% of CD3+)
+    └─ QC: CD4:CD8 = 0.41 (inverted)
+
+  ━━ PHENOTYPE SUMMARY ━━━━━━━━━━━━━━━━━━━━━━━━
+
+    Population       Count    %CD8+   Classification
+    ─────────────────────────────────────────────
+    Naïve CD8+       1,153    16.4%   CCR7+CD45RO−  (Sallusto 1999)
+    Central Memory   2,352    33.5%   CCR7+CD45RO+  (Sallusto 1999)
+    Effector Memory  1,154    16.5%   CCR7−CD45RO+  (Sallusto 1999)
+    TEMRA            2,352    33.5%   CCR7−CD45RO−  (Sallusto 1999)
+    Sum check:       7,011   100.0%   ✓ matches CD8+ total
+
+  ⚠  QC FLAG: Low viability (40.2%) — expected >70% for PBMCs
+     Possible: aged sample, suboptimal cryopreservation, or
+     aggressive viability dye staining.
+
+  ━━ REFERENCES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    Sallusto F et al. Nature 401:708 (1999)
+      → CCR7/CD45RO memory classification
+    Appay V et al. Cytometry A 73:975 (2008)
+      → CD27/CD28 effector staging
+    Cossarizza A et al. Eur J Immunol 49:1457 (2019)
+      → Flow cytometry guidelines
+
+  ━━ NEXT STEPS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. nfx gruber --figure       → 6-panel publication figure
+  2. nfx gruber --appay        → CD27/CD28 effector phenotyping
+  3. nfx gruber --umap         → Dimensionality reduction
+  4. nfx gruber --export       → Gating-ML 2.0 + MIFlowCyt report

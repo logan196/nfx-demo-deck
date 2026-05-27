@@ -1,0 +1,77 @@
+[08:38:28] SKIP: crick
+[08:38:28] REC: nfx rosalind SNCA
+::: TTY not available, recording in headless mode
+::: asciinema session started
+::: Recording to asciicasts/rosalind.cast
+::: asciinema session ended
+::: Recorded to asciicasts/rosalind.cast
+[08:39:58] DONE: rosalind (680 bytes)
+[08:39:58] REC: nfx mendel rs104893877
+::: TTY not available, recording in headless mode
+::: asciinema session started
+::: Recording to asciicasts/mendel.cast
+::: asciinema session ended
+::: Recorded to asciicasts/mendel.cast
+[08:41:28] DONE: mendel (3002 bytes)
+[08:41:28] REC: nfx mcclintock BRCA1
+::: TTY not available, recording in headless mode
+::: asciinema session started
+::: Recording to asciicasts/mcclintock.cast
+::: asciinema session ended
+::: Recorded to asciicasts/mcclintock.cast
+[08:42:58] DONE: mcclintock (21059 bytes)
+[08:42:58] REC: nfx sanger BRCA1
+::: TTY not available, recording in headless mode
+::: asciinema session started
+::: Recording to asciicasts/sanger.cast
+::: asciinema session ended
+::: Recorded to asciicasts/sanger.cast
+[08:44:28] DONE: sanger (20898 bytes)
+[08:44:28] REC: nfx cajal TH
+::: TTY not available, recording in headless mode
+::: asciinema session started
+::: Recording to asciicasts/cajal.cast
+::: asciinema session ended
+::: Recorded to asciicasts/cajal.cast
+[08:45:58] DONE: cajal (18487 bytes)
+[08:45:58] REC: nfx pasteur gut
+::: TTY not available, recording in headless mode
+::: asciinema session started
+::: Recording to asciicasts/pasteur.cast
+::: asciinema session ended
+::: Recorded to asciicasts/pasteur.cast
+[08:47:28] DONE: pasteur (6103 bytes)
+[08:47:28] REC: nfx watson BRCA1
+::: TTY not available, recording in headless mode
+::: asciinema session started
+::: Recording to asciicasts/watson.cast
+::: asciinema session ended
+::: Recorded to asciicasts/watson.cast
+[08:48:58] DONE: watson (21046 bytes)
+[08:48:58] REC: nfx gruber CD8A
+::: TTY not available, recording in headless mode
+::: asciinema session started
+::: Recording to asciicasts/gruber.cast
+::: asciinema session ended
+::: Recorded to asciicasts/gruber.cast
+[08:50:28] DONE: gruber (598 bytes)
+[08:50:28] REC: nfx leeuwenhoek nucleus
+::: TTY not available, recording in headless mode
+::: asciinema session started
+::: Recording to asciicasts/leeuwenhoek.cast
+::: asciinema session ended
+::: Recorded to asciicasts/leeuwenhoek.cast
+[08:51:58] DONE: leeuwenhoek (1449 bytes)
+
+=== Final cast inventory ===
+-rw-r--r--  1 loganbeharry_novaflow  staff    18K May 26 08:45 asciicasts/cajal.cast
+-rw-r--r--  1 loganbeharry_novaflow  staff    19K May 26 08:23 asciicasts/crick.cast
+-rw-r--r--  1 loganbeharry_novaflow  staff    24K May 26 08:22 asciicasts/darwin.cast
+-rw-r--r--  1 loganbeharry_novaflow  staff   598B May 26 08:48 asciicasts/gruber.cast
+-rw-r--r--  1 loganbeharry_novaflow  staff   1.4K May 26 08:50 asciicasts/leeuwenhoek.cast
+-rw-r--r--  1 loganbeharry_novaflow  staff    21K May 26 08:42 asciicasts/mcclintock.cast
+-rw-r--r--  1 loganbeharry_novaflow  staff   2.9K May 26 08:41 asciicasts/mendel.cast
+-rw-r--r--  1 loganbeharry_novaflow  staff   6.0K May 26 08:47 asciicasts/pasteur.cast
+-rw-r--r--  1 loganbeharry_novaflow  staff   680B May 26 08:38 asciicasts/rosalind.cast
+-rw-r--r--  1 loganbeharry_novaflow  staff    20K May 26 08:44 asciicasts/sanger.cast
+-rw-r--r--  1 loganbeharry_novaflow  staff    21K May 26 08:48 asciicasts/watson.cast

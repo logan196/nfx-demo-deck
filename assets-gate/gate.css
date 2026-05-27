@@ -1,0 +1,119 @@
+/* Password-gate overlay · nfx dark theme */
+#gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 20%, rgba(142, 68, 207, .25), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 85% 75%, rgba(0, 200, 180, .12), transparent 50%),
+    #07060d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  color: #f4f0ff;
+}
+#gate.shake .gate-card {
+  animation: gate-shake 0.42s cubic-bezier(.36,.07,.19,.97);
+}
+@keyframes gate-shake {
+  10%,90%{transform:translateX(-2px)}
+  20%,80%{transform:translateX(4px)}
+  30%,50%,70%{transform:translateX(-8px)}
+  40%,60%{transform:translateX(8px)}
+}
+.gate-card {
+  width: 100%;
+  max-width: 440px;
+  background: #0c0a17;
+  border: 1px solid rgba(192,144,235,.2);
+  border-radius: 12px;
+  padding: 36px 36px 28px;
+  box-shadow: 0 1px 0 rgba(142,68,207,.06), 0 20px 60px -20px rgba(0,0,0,.5);
+}
+.gate-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #c090eb;
+  margin-bottom: 12px;
+}
+#gate h1 {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  background: linear-gradient(135deg, #c090eb 0%, #8e44cf 50%, #64b4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 12px;
+}
+#gate p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #cdc5e4;
+  margin: 0 0 22px;
+}
+#gate-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+#gate-input {
+  flex: 1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  padding: 12px 14px;
+  background: #14112a;
+  border: 1px solid rgba(192,144,235,.2);
+  border-radius: 6px;
+  color: #f4f0ff;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+#gate-input:focus {
+  border-color: #8e44cf;
+  box-shadow: 0 0 0 3px rgba(142,68,207,.25);
+}
+#gate-form button {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: 12px 22px;
+  background: #8e44cf;
+  color: #fff;
+  border: 1px solid #8e44cf;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+#gate-form button:hover {
+  background: #a767de;
+  border-color: #a767de;
+}
+#gate-error {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #ff6496;
+  min-height: 18px;
+  margin-bottom: 4px;
+}
+.gate-foot {
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #6a6188;
+  border-top: 1px solid rgba(192,144,235,.15);
+  padding-top: 14px;
+  margin-top: 10px;
+}
+.gate-foot a {
+  color: #c090eb;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(192,144,235,.3);
+}
+.gate-foot a:hover { color: #a767de; }

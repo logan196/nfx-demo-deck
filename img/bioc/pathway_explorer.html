@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Pathway Explorer — nfx-flow Bioconductor</title>
+<style>
+:root {
+    --bg: #0f0f23;
+    --surface: #1a1a3e;
+    --text: #e8e8f0;
+    --accent: #4ECDC4;
+    --accent2: #FF6B6B;
+    --border: rgba(255,255,255,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Pro Display', -apple-system, sans-serif;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    grid-template-rows: 60px 1fr;
+    height: 100vh;
+    overflow: hidden;
+}
+header {
+    grid-column: 1 / -1;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 16px;
+}
+header h1 { font-size: 18px; font-weight: 600; }
+header .badge {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+}
+.sidebar {
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 16px;
+}
+.search-box {
+    width: 100%;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+.search-box:focus { outline: none; border-color: var(--accent); }
+.pathway-item {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+.pathway-item:hover { background: rgba(255,255,255,0.05); border-color: var(--border); }
+.pathway-item.active { background: rgba(78,205,196,0.1); border-color: var(--accent); }
+.pathway-item .name { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+.pathway-item .meta { font-size: 11px; opacity: 0.6; display: flex; gap: 12px; }
+.pathway-item .pval { color: var(--accent); }
+.main-view {
+    padding: 24px;
+    overflow-y: auto;
+}
+.detail-card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+}
+.detail-card h2 { font-size: 16px; margin-bottom: 12px; color: var(--accent); }
+.gene-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.gene-chip {
+    background: rgba(78,205,196,0.15);
+    border: 1px solid rgba(78,205,196,0.3);
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-family: 'SF Mono', monospace;
+}
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.stat-box {
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+}
+.stat-box .value { font-size: 24px; font-weight: 700; color: var(--accent); }
+.stat-box .label { font-size: 11px; opacity: 0.6; margin-top: 4px; }
+.bar-chart {
+    margin-top: 16px;
+}
+.bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.bar-label { width: 200px; font-size: 12px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+.bar-track { flex: 1; height: 20px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s; }
+.bar-value { width: 60px; text-align: right; font-size: 11px; opacity: 0.7; }
+</style>
+</head>
+<body>
+<header>
+    <h1>🧬 Pathway Explorer</h1>
+    <span class="badge">nfx-flow × Bioconductor</span>
+    <span style="margin-left:auto;opacity:0.5;font-size:12px;">
+        0 pathways · KEGG
+    </span>
+</header>
+
+<div class="sidebar">
+    <input type="text" class="search-box" placeholder="Search pathways..." oninput="filterPathways(this.value)">
+    <div id="pathwayList"></div>
+</div>
+
+<div class="main-view" id="mainView">
+    <div class="detail-card">
+        <h2>Overview</h2>
+        <div class="stat-grid">
+            <div class="stat-box">
+                <div class="value">0</div>
+                <div class="label">Total Pathways</div>
+            </div>
+            <div class="stat-box">
+                <div class="value">0</div>
+                <div class="label">Significant (q<0.1)</div>
+            </div>
+            <div class="stat-box">
+                <div class="value">17</div>
+                <div class="label">Genes Tested</div>
+            </div>
+        </div>
+    </div>
+    <div class="detail-card">
+        <h2>Top Enriched Pathways</h2>
+        <div class="bar-chart" id="barChart"></div>
+    </div>
+</div>
+
+<script>
+const pathways = [];
+
+function renderList(items) {
+    const list = document.getElementById('pathwayList');
+    list.innerHTML = items.map((p, i) => `
+        <div class="pathway-item" onclick="selectPathway(${i})" id="pw_${i}">
+            <div class="name">${p.name || p.id}</div>
+            <div class="meta">
+                <span class="pval">p=${p.pvalue.toExponential(2)}</span>
+                <span>${p.count} genes</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderBarChart() {
+    const chart = document.getElementById('barChart');
+    const maxP = Math.max(...pathways.slice(0, 15).map(p => -Math.log10(p.pvalue + 1e-50)));
+    chart.innerHTML = pathways.slice(0, 15).map(p => {
+        const val = -Math.log10(p.pvalue + 1e-50);
+        const pct = (val / maxP * 100).toFixed(1);
+        const hue = 180 - (val / maxP) * 120;
+        return `
+            <div class="bar">
+                <div class="bar-label" title="${p.name}">${p.name}</div>
+                <div class="bar-track">
+                    <div class="bar-fill" style="width:${pct}%;background:hsl(${hue},70%,55%)"></div>
+                </div>
+                <div class="bar-value">${val.toFixed(1)}</div>
+            </div>
+        `;
+    }).join('');
+}
+
+function selectPathway(idx) {
+    document.querySelectorAll('.pathway-item').forEach(el => el.classList.remove('active'));
+    document.getElementById(`pw_${idx}`).classList.add('active');
+    
+    const p = pathways[idx];
+    document.getElementById('mainView').innerHTML = `
+        <div class="detail-card">
+            <h2>${p.name}</h2>
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="value">${p.pvalue.toExponential(2)}</div>
+                    <div class="label">P-value</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">${p.count}</div>
+                    <div class="label">Genes in Set</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">${p.ratio || 'N/A'}</div>
+                    <div class="label">Gene Ratio</div>
+                </div>
+            </div>
+        </div>
+        <div class="detail-card">
+            <h2>Member Genes</h2>
+            <div class="gene-grid">
+                ${p.genes.map(g => `<span class="gene-chip">${g}</span>`).join('')}
+            </div>
+        </div>
+    `;
+}
+
+function filterPathways(query) {
+    const filtered = pathways.filter(p => 
+        (p.name || '').toLowerCase().includes(query.toLowerCase()) ||
+        p.genes.some(g => g.toLowerCase().includes(query.toLowerCase()))
+    );
+    renderList(filtered);
+}
+
+renderList(pathways);
+renderBarChart();
+</script>
+</body>
+</html>

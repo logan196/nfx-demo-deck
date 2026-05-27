@@ -1,0 +1,55 @@
+============================================================
+  🔬  Leeuwenhoek — Microscopy & Image Analysis
+  "I then most always saw, with great wonder, that in the
+   said matter there were many very little living animalcules."
+   — Antonie van Leeuwenhoek, Letter to Royal Society, 1683
+============================================================
+
+  ━━ IMAGE: xenium_gfap_spatial.png ━━━━━━━━━━━━━━━━━━
+
+    Format:       PNG
+    Dimensions:   2815 × 2949 pixels
+    Mode:         RGBA
+    Bit depth:    8-bit per channel
+    File size:    3,090,917 bytes
+
+  ━━ IMAGE METADATA ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    Platform:     10x Genomics Xenium In Situ
+    Tissue:       Mouse brain striatum
+    Stain:        GFAP (Glial Fibrillary Acidic Protein)
+    Model:        FVB/NJ wildtype
+    Modality:     Spatial transcriptomics
+
+  ━━ VISION ANALYSIS ━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    Novaflow Vision sees:
+
+    1. GFAP+ astrocyte clusters:
+       → Dorsal striatum: 340 cells/mm² (dense)
+       → Ventral striatum: 120 cells/mm² (sparse)
+       → Ratio: 2.8× enrichment at dorsal boundary
+
+    2. Spatial patterns:
+       → Astrocytes concentrate within ~60 μm of white matter
+       → Stellate morphology suggests reactive state
+       → Two distinct high-density foci visible
+
+    3. Quality assessment:
+       → Signal-to-noise: excellent (GFAP bright, background low)
+       → No obvious tissue tears or folds
+       → Uniform staining across section
+
+  ━━ SEGMENTATION PIPELINE ━━━━━━━━━━━━━━━━━━━━
+
+    Legacy:    ImageJ manual ROI → CellProfiler pipeline
+    Current:   CellPose gradient flow → instance masks
+    Next-gen:  SAM/μSAM foundation model (Nature Methods 2024)
+    Novaflow:  LLM + μSAM → natural language spatial queries
+
+  ━━ SUGGESTED QUERIES ━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. "Where are the GFAP+ astrocytes relative to the striatum?"
+  2. "Count cells per region and compare density"
+  3. "Is there evidence of reactive astrogliosis?"
+  4. "Segment all GFAP+ cells and export coordinates"

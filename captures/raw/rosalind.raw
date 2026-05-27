@@ -1,0 +1,36 @@
+
+  🔬  [2mRosalind Franklin — Structure Prediction[0m
+  [3m[2m"Science and everyday life cannot and should not be separated."[0m
+
+
+[38;2;142;68;207m[1m  ━━ STRUCTURE: 4HHB ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    [2mTitle                 [0mTHE CRYSTAL STRUCTURE OF HUMAN DEOXYHAEMOGLOBIN AT 1.74 ANGSTROMS RESOLUTION
+    [2mPDB ID                [0m4HHB
+    [2mMethod                [0mX-RAY DIFFRACTION
+    [2mResolution            [0m1.74 Å
+    [2mDeposition            [0m1984-03-07T00:00:00.000+00:00
+    [2mPolymer Count         [0m2
+    [2mMolecular Weight      [0m0.1 kDa
+
+    [38;2;140;180;255mhttps://www.rcsb.org/structure/4HHB[0m
+    [38;2;140;180;255mhttps://alphafold.ebi.ac.uk/search/text/4HHB[0m
+
+[38;5;135m[1m  ━━ Continue your analysis ━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+  [1m1.[0m [32mnfx open https://alphafold.ebi.ac.uk/search/text/4HHB[0m
+     [2m→ Compare the crystal structure against the AlphaFold full-length prediction[0m
+     [2m(Jumper et al., Nature 2021)[0m
+
+  [1m2.[0m [32mnfx open https://www.ebi.ac.uk/pdbe/pisa/[0m
+     [2m→ Compute the binding interface and oligomeric assembly with PDBePISA[0m
+     [2m(Krissinel & Henrick, J Mol Biol 2007)[0m
+
+  [1m3.[0m [32mnfx open http://ekhidna2.biocenter.helsinki.fi/dali/[0m
+     [2m→ Search for structurally similar folds across the PDB with DALI[0m
+     [2m(Holm, Bioinformatics 2022)[0m
+
+  [1m4.[0m [32mnfx pubmed "4HHB crystal structure"[0m
+     [2m→ Find the publication and follow-up studies for 4HHB[0m
+     [2m(Altschul et al., J Mol Biol 1990)[0m
+

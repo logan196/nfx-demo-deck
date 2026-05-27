@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<title>Fishersci is Currently Unavailable</title>
+<head>
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="cache-control" content="no-store">
+<META name="robots" content="noindex,nofollow">
+</head>
+<style>
+body {
+	background-color: #fff;
+	margin: 0 auto 0 auto;
+	padding: 0;
+	background-position: left top;
+	background-repeat: repeat-x;
+	text-align:left;
+	FONT-FAMILY: Verdana, Arial, Helvetica,sans-serif;
+	font-size:11px;
+}
+
+td {
+	FONT-FAMILY: Verdana, Arial, Helvetica,sans-serif;
+	font-size:11px;
+	color:#000;
+	text-decoration:none;
+	line-height:140%;
+}
+
+a:link { color:#0f6ab9; text-decoration:underline; }
+a:visited, a:active { color:#637788; text-decoration:underline; }
+a:hover { color:#003C6E; text-decoration : underline; }
+
+h1 {
+	FONT-FAMILY: Verdana, Arial, Helvetica,sans-serif;
+	font-weight: bold;
+	margin: 2px 0 2px 0;
+	font-size:14px;
+	color:#4475ce;
+}
+
+h2 {
+	FONT-FAMILY: Verdana, Arial, Helvetica,sans-serif;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	font-size:12px;
+	color:#37568d;
+	white-space: nowrap;
+}
+
+.smtxt {
+	FONT-FAMILY: Verdana, Arial, Helvetica,sans-serif;
+	font-size: 10px;
+	letter-spacing : normal;
+	padding-top: 100px;
+	color:#999999;
+	}
+
+img {
+	border: none;
+}
+</style>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#004f91">
+	<tr>
+		<td width="467"><img src="https://downloads.fishersci.com/maintenance_page_fs/images/header.jpg" width="469" height="99"></td>
+	</tr>
+	<tr>
+		<td width="100%"><img src="https://downloads.fishersci.com/maintenance_page_fs/images/shadow.jpg" width="100%" height="6"></td>
+	</tr>
+</table><br><br>
+<TABLE CELLSPACING="1" CELLPADDING="5" BORDER="0" width="600" align="center">
+	<tr>
+		<td valign="top" style="padding-right:25px;"><img src="https://downloads.fishersci.com/maintenance_page_fs/images/alert.jpg" alt="Site Alert" width="69" height="70"></td>
+		<td><h1>FisherSci.com is currently unavailable</h1><br>
+
+		<b>FisherSci.com website is temporarily unavailable. We regret the inconvenience caused and are actively working to restore service as soon as possible. Please come back again soon. </b>
+		<p><b>If you need immediate ordering assistance, please contact our Customer Service line at 800-766-7000, Monday through Friday, 8:00 AM to 09:00 PM EST. From Puerto Rico, call 1-800-766-7000. </b></p>
+
+<p><b> We appreciate your patience.
+		</b></p>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" class="smtxt">&copy;2025 Thermo Fisher Scientific Inc - All rights reserved.</td>
+</tr>
+</table>
+<head>
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="cache-control" content="no-store">
+</head>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Pathway Enrichment Map — nfx-flow Bioconductor</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    background: #1a1a2e; 
+    color: #ffffff; 
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: hidden;
+}
+#header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(26,26,46,0.9); backdrop-filter: blur(10px);
+    padding: 12px 24px; display: flex; align-items: center; gap: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+#header h1 { font-size: 18px; font-weight: 600; }
+#header .badge {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 4px 12px; border-radius: 12px; font-size: 11px;
+    font-weight: 500; letter-spacing: 0.5px;
+}
+#controls {
+    position: fixed; top: 60px; right: 16px; z-index: 100;
+    background: rgba(26,26,46,0.85); backdrop-filter: blur(10px);
+    border-radius: 12px; padding: 16px; width: 280px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+#controls label { font-size: 12px; display: block; margin-bottom: 4px; opacity: 0.7; }
+#controls input[type=range] { width: 100%; margin-bottom: 12px; }
+#stats {
+    position: fixed; bottom: 16px; left: 16px; z-index: 100;
+    background: rgba(26,26,46,0.85); backdrop-filter: blur(10px);
+    border-radius: 12px; padding: 16px; font-size: 13px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+#stats .stat-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+#stats .stat-value { color: #4ECDC4; font-weight: 600; }
+#tooltip {
+    position: fixed; display: none; background: rgba(0,0,0,0.9);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 8px;
+    padding: 12px; font-size: 12px; max-width: 300px; z-index: 200;
+    pointer-events: none;
+}
+canvas { display: block; }
+</style>
+</head>
+<body>
+<div id="header">
+    <h1>🧬 Pathway Enrichment Map</h1>
+    <span class="badge">nfx-flow × Bioconductor</span>
+</div>
+
+<div id="controls">
+    <label>Edge Threshold</label>
+    <input type="range" id="threshold" min="0" max="100" value="25" 
+           oninput="updateThreshold(this.value)">
+    <label>Node Size Scale</label>
+    <input type="range" id="nodeScale" min="50" max="200" value="100"
+           oninput="updateNodeScale(this.value)">
+    <label>Physics Strength</label>
+    <input type="range" id="physics" min="0" max="100" value="50"
+           oninput="updatePhysics(this.value)">
+    <div style="margin-top: 12px;">
+        <button onclick="resetView()" style="
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none; color: white; padding: 8px 16px;
+            border-radius: 8px; cursor: pointer; font-size: 12px;
+        ">Reset View</button>
+        <button onclick="exportPNG()" style="
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2); color: white;
+            padding: 8px 16px; border-radius: 8px; cursor: pointer;
+            font-size: 12px; margin-left: 8px;
+        ">Export PNG</button>
+    </div>
+</div>
+
+<div id="stats">
+    <div class="stat-row"><span>Nodes</span><span class="stat-value" id="nNodes">0</span></div>
+    <div class="stat-row"><span>Edges</span><span class="stat-value" id="nEdges">0</span></div>
+    <div class="stat-row"><span>Components</span><span class="stat-value" id="nComp">0</span></div>
+    <div class="stat-row"><span>Density</span><span class="stat-value" id="density">0</span></div>
+</div>
+
+<div id="tooltip"></div>
+
+<canvas id="canvas"></canvas>
+
+<script>
+const rawNodes = [
+  {
+    "id": "hsa04650",
+    "label": "Natural killer cell mediated cytotoxicity",
+    "size": 14.667679131038202,
+    "significance": 2.9335358262076405,
+    "genes": [
+      "FCGR3A",
+      "GZMB",
+      "IFNG",
+      "KLRK1",
+      "NCAM1",
+      "PRF1",
+      "TNF"
+    ],
+    "count": 7,
+    "color": "#FF6B6B"
+  }
+];
+const rawEdges = [];
+
+// Force-directed layout engine
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let W, H;
+
+function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// Initialize node positions
+const nodes = rawNodes.map((n, i) => ({
+    ...n,
+    x: W/2 + (Math.random() - 0.5) * 400,
+    y: H/2 + (Math.random() - 0.5) * 400,
+    vx: 0, vy: 0,
+    radius: (n.size || 15) * 0.8,
+}));
+
+let edges = rawEdges.map(e => ({
+    ...e,
+    sourceIdx: nodes.findIndex(n => n.id === e.source),
+    targetIdx: nodes.findIndex(n => n.id === e.target),
+})).filter(e => e.sourceIdx >= 0 && e.targetIdx >= 0);
+
+let edgeThreshold = 0.25;
+let nodeScale = 1.0;
+let physicsStrength = 0.5;
+let hoveredNode = null;
+let dragNode = null;
+let offsetX = 0, offsetY = 0;
+
+// Stats
+document.getElementById('nNodes').textContent = nodes.length;
+document.getElementById('nEdges').textContent = edges.length;
+document.getElementById('density').textContent = 
+    (2 * edges.length / (nodes.length * (nodes.length - 1))).toFixed(3);
+
+// Physics simulation
+function simulate() {
+    const repulsion = 2000 * physicsStrength;
+    const attraction = 0.005 * physicsStrength;
+    const damping = 0.85;
+    const centerGravity = 0.01;
+    
+    // Repulsion between all nodes
+    for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+            const dx = nodes[j].x - nodes[i].x;
+            const dy = nodes[j].y - nodes[i].y;
+            const dist = Math.sqrt(dx*dx + dy*dy) + 1;
+            const force = repulsion / (dist * dist);
+            const fx = (dx / dist) * force;
+            const fy = (dy / dist) * force;
+            nodes[i].vx -= fx; nodes[i].vy -= fy;
+            nodes[j].vx += fx; nodes[j].vy += fy;
+        }
+    }
+    
+    // Attraction along edges
+    const visibleEdges = edges.filter(e => (e.weight || 0.5) >= edgeThreshold);
+    for (const e of visibleEdges) {
+        const s = nodes[e.sourceIdx], t = nodes[e.targetIdx];
+        const dx = t.x - s.x, dy = t.y - s.y;
+        const dist = Math.sqrt(dx*dx + dy*dy) + 1;
+        const force = attraction * dist * (e.weight || 0.5);
+        s.vx += (dx/dist) * force; s.vy += (dy/dist) * force;
+        t.vx -= (dx/dist) * force; t.vy -= (dy/dist) * force;
+    }
+    
+    // Center gravity + update positions
+    for (const n of nodes) {
+        n.vx += (W/2 - n.x) * centerGravity;
+        n.vy += (H/2 - n.y) * centerGravity;
+        n.vx *= damping; n.vy *= damping;
+        if (n !== dragNode) {
+            n.x += n.vx; n.y += n.vy;
+        }
+    }
+}
+
+// Rendering
+function draw() {
+    ctx.fillStyle = '#1a1a2e';
+    ctx.fillRect(0, 0, W, H);
+    
+    // Draw edges
+    const visibleEdges = edges.filter(e => (e.weight || 0.5) >= edgeThreshold);
+    for (const e of visibleEdges) {
+        const s = nodes[e.sourceIdx], t = nodes[e.targetIdx];
+        const alpha = Math.min(0.6, (e.weight || 0.3) * 0.8);
+        
+        ctx.beginPath();
+        ctx.moveTo(s.x, s.y);
+        ctx.lineTo(t.x, t.y);
+        ctx.strokeStyle = hoveredNode && (e.sourceIdx === nodes.indexOf(hoveredNode) || e.targetIdx === nodes.indexOf(hoveredNode))
+            ? 'rgba(255, 215, 0, 0.8)'
+            : `rgba(255, 255, 255, ${alpha})`;
+        ctx.lineWidth = hoveredNode && (e.sourceIdx === nodes.indexOf(hoveredNode) || e.targetIdx === nodes.indexOf(hoveredNode)) ? 2 : 1;
+        ctx.stroke();
+    }
+    
+    // Draw nodes
+    for (const n of nodes) {
+        const r = n.radius * nodeScale;
+        
+        // Glow effect for hovered node
+        if (n === hoveredNode) {
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, r + 8, 0, Math.PI * 2);
+            const glow = ctx.createRadialGradient(n.x, n.y, r, n.x, n.y, r + 8);
+            glow.addColorStop(0, n.color + '80');
+            glow.addColorStop(1, 'transparent');
+            ctx.fillStyle = glow;
+            ctx.fill();
+        }
+        
+        // Node circle
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = n.color || '#4A90D9';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        
+        // Label
+        if (r * nodeScale > 12 || n === hoveredNode) {
+            ctx.font = `${Math.max(9, r * 0.6)}px -apple-system, sans-serif`;
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            const label = n.label.length > 25 ? n.label.slice(0, 22) + '…' : n.label;
+            ctx.fillText(label, n.x, n.y + r + 12);
+        }
+    }
+    
+    document.getElementById('nEdges').textContent = visibleEdges.length;
+}
+
+// Animation loop
+function animate() {
+    simulate();
+    draw();
+    requestAnimationFrame(animate);
+}
+animate();
+
+// Interaction
+canvas.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    
+    hoveredNode = null;
+    for (const n of nodes) {
+        const dx = mx - n.x, dy = my - n.y;
+        if (dx*dx + dy*dy < (n.radius * nodeScale + 5) ** 2) {
+            hoveredNode = n;
+            break;
+        }
+    }
+    
+    const tooltip = document.getElementById('tooltip');
+    if (hoveredNode) {
+        canvas.style.cursor = 'pointer';
+        tooltip.style.display = 'block';
+        tooltip.style.left = (e.clientX + 16) + 'px';
+        tooltip.style.top = (e.clientY + 16) + 'px';
+        tooltip.innerHTML = `
+            <strong>${hoveredNode.label}</strong><br>
+            <span style="opacity:0.7">ID: ${hoveredNode.id}</span><br>
+            ${hoveredNode.significance ? `<span style="color:#4ECDC4">-log₁₀(p) = ${hoveredNode.significance.toFixed(2)}</span><br>` : ''}
+            ${hoveredNode.genes && hoveredNode.genes.length ? `<span style="opacity:0.7">Genes: ${hoveredNode.genes.slice(0,8).join(', ')}</span>` : ''}
+        `;
+    } else {
+        canvas.style.cursor = 'default';
+        tooltip.style.display = 'none';
+    }
+    
+    if (dragNode) {
+        dragNode.x = mx; dragNode.y = my;
+        dragNode.vx = 0; dragNode.vy = 0;
+    }
+});
+
+canvas.addEventListener('mousedown', () => { if (hoveredNode) dragNode = hoveredNode; });
+canvas.addEventListener('mouseup', () => { dragNode = null; });
+
+function updateThreshold(v) { edgeThreshold = v / 100; }
+function updateNodeScale(v) { nodeScale = v / 100; }
+function updatePhysics(v) { physicsStrength = v / 100; }
+function resetView() {
+    nodes.forEach((n, i) => {
+        n.x = W/2 + (Math.random() - 0.5) * 400;
+        n.y = H/2 + (Math.random() - 0.5) * 400;
+        n.vx = 0; n.vy = 0;
+    });
+}
+function exportPNG() {
+    const link = document.createElement('a');
+    link.download = 'pathway_network.png';
+    link.href = canvas.toDataURL();
+    link.click();
+}
+
+// Compute connected components
+function countComponents() {
+    const visited = new Set();
+    let count = 0;
+    const adj = {};
+    nodes.forEach((n, i) => adj[i] = []);
+    const visibleEdges = edges.filter(e => (e.weight || 0.5) >= edgeThreshold);
+    visibleEdges.forEach(e => {
+        adj[e.sourceIdx].push(e.targetIdx);
+        adj[e.targetIdx].push(e.sourceIdx);
+    });
+    for (let i = 0; i < nodes.length; i++) {
+        if (visited.has(i)) continue;
+        count++;
+        const stack = [i];
+        while (stack.length) {
+            const cur = stack.pop();
+            if (visited.has(cur)) continue;
+            visited.add(cur);
+            for (const nb of (adj[cur] || [])) stack.push(nb);
+        }
+    }
+    document.getElementById('nComp').textContent = count;
+}
+setTimeout(countComponents, 1000);
+</script>
+</body>
+</html>

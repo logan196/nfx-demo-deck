@@ -1,0 +1,152 @@
+
+  🔍  [2mAntonie van Leeuwenhoek — Cell Visualization[0m
+  [3m[2m"I then most always saw, with great wonder, that in the said matter ..."[0m
+
+
+  [3m[2m"Nothing in biology makes sense except in the light of evolution."[0m
+  [2m— Theodosius Dobzhansky, The American Biology Teacher, 1973[0m
+
+[38;2;142;68;207m[1m  ━━ SEQUENCE ANALYSIS: TH ━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+  [38;2;142;68;207m█████[38;2;74;21;130m░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  14% [38;2;140;130;160m0.0s[0m  [2mResolving gene symbol via Ensembl...[0m  [38;2;142;68;207m█████████[38;2;74;21;130m░░░░░░░░░░░░░░░░░░░░░░░[0m  29% [38;2;140;130;160m1.3s[0m  [2mFetching gene overview...          [0m
+[38;2;142;68;207m[1m  ━━ GENE OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    [2mSymbol                [0m[1mTH[0m
+    [2mEnsembl ID            [0mENSG00000180176
+    [2mDescription           [0mtyrosine hydroxylase
+    [2mBiotype               [0mprotein_coding
+    [2mLocation              [0mchr11:2,163,929–2,171,968 (-)
+    [2mGene Length           [0m8.0 kb
+    [2mAssembly              [0mGRCh38
+
+[38;2;142;68;207m[1m  ━━ TRANSCRIPTS (14) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    [2mProtein-coding        [0m8
+    [2mNon-coding            [0m6
+    [2mCanonical             [0m[1mENST00000352909[0m
+    [2m  Exons               [0m13
+    [2m  Length              [0m1827 bp
+    [2m  Protein             [0mENSP00000325951 (497 aa)
+
+    [2mID                   Biotype              Exons  Length     Protein[0m
+    [2m──────────────────── ──────────────────── ────── ────────── ────────────────────[0m
+    ENST00000333684      protein_coding       11     1535       403 aa
+    ENST00000381175      protein_coding       14     1898       524 aa
+    ENST00000381178      protein_coding       14     1910       528 aa
+    ENST00000352909      protein_coding       13     1827       497 aa [38;2;100;230;130m★[0m
+    ENST00000324155      nonsense_mediated_decay 12     1115       44 aa
+    ENST00000479437      retained_intron      5      745        —
+    ENST00000412076      protein_coding       6      347        116 aa
+    ENST00000416223      nonsense_mediated_decay 7      483        45 aa
+    [2m... +6 more[0m
+
+  [1mTH[0m  [90mchr11:2,163,929–2,171,968 (-)  13 exons[0m
+  5'[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[90m─[0m[38;5;37m▓[0m[38;5;37m▓[0m[90m─[0m3'
+  [90m     E1       E2 E3E4  EE6E7  E8 E9E10E11      E12            E1[0m
+  [38;2;142;68;207m██████████████[38;2;74;21;130m░░░░░░░░░░░░░░░░░░[0m  43% [38;2;140;130;160m1.4s[0m  [2mFetching genomic sequence...       [0m
+[38;2;142;68;207m[1m  ━━ SEQUENCE COMPOSITION ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    [2mTotal Length          [0m8,040 bp
+    [2mGC Content            [0m65.3%
+    [2mComposition           [0mA=16.7%  T=18.1%  G=31.9%  C=33.4%
+    [2mCpG Count             [0m313 (O/E ratio: 0.37)
+    [2mTop Dinucleotides     [0mCC:1121  GG:998  GC:736  CT:668  TG:646
+
+  GC   [38;5;37m████████████████████[90m░░░░░░░░░░[0m 65.3%
+  AT   [38;5;37m██████████[90m░░░░░░░░░░░░░░░░░░░░[0m 34.7%
+  [38;2;142;68;207m██████████████████[38;2;74;21;130m░░░░░░░░░░░░░░[0m  57% [38;2;140;130;160m2.1s[0m  [2mQuerying protein domains + ClinVar...[0m
+[38;2;142;68;207m[1m  ━━ CLINICAL VARIANTS (93 pathogenic of 792 total) ━━━━[0m
+
+    [38;2;255;90;90m[1mrs200751977[0m [2mC/A/T at 11:2164328[0m
+    [2mlikely pathogenic  consequence: missense_variant[0m
+
+    [38;2;255;90;90m[1mrs45471299[0m [2mG/A at 11:2164339[0m
+    [2muncertain significance, likely pathogenic, pathogenic  consequence: missense_variant[0m
+
+    [38;2;255;90;90m[1mrs767635052[0m [2mG/A/C at 11:2164345[0m
+    [2muncertain significance, likely pathogenic, pathogenic  consequence: missense_variant[0m
+
+    [38;2;255;90;90m[1mrs759599321[0m [2mC/T at 11:2164369[0m
+    [2muncertain significance, likely pathogenic  consequence: missense_variant[0m
+
+    [38;2;255;90;90m[1mrs755922032[0m [2mG/A at 11:2164370[0m
+    [2mlikely pathogenic  consequence: missense_variant[0m
+
+    [38;2;255;90;90m[1mrs2133686936[0m [2mG/A at 11:2164373[0m
+    [2mpathogenic  consequence: stop_gained[0m
+
+    [38;2;255;90;90m[1mrs781411638[0m [2mC/T at 11:2165231[0m
+    [2mlikely pathogenic  consequence: splice_donor_variant[0m
+
+    [38;2;255;90;90m[1mrs1367289835[0m [2mA/G at 11:2165266[0m
+    [2mlikely pathogenic  consequence: missense_variant[0m
+
+    [38;2;255;90;90m[1mrs786204540[0m [2mG/A at 11:2165284[0m
+    [2mlikely pathogenic, pathogenic  consequence: stop_gained[0m
+
+    [38;2;255;90;90m[1mrs1554922434[0m [2mGG/G at 11:2165284[0m
+    [2mlikely pathogenic  consequence: frameshift_variant[0m
+
+    [2m... +83 more pathogenic variants[0m
+  [38;2;142;68;207m███████████████████████[38;2;74;21;130m░░░░░░░░░[0m  71% [38;2;140;130;160m3.4s[0m  [2mFetching Gene Ontology from UniProt...[0m
+[38;2;142;68;207m[1m  ━━ GENE ONTOLOGY (1 terms) ━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    [38;2;142;68;207mMolecular Function (1)[0m
+      [2mGO:0004511[0m  tyrosine 3-monooxygenase activity
+  [38;2;142;68;207m███████████████████████████[38;2;74;21;130m░░░░░[0m  86% [38;2;140;130;160m4.1s[0m  [2mSearching PubMed...                [0m
+[38;2;142;68;207m[1m  ━━ RECENT PUBLICATIONS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    [1mOsteogenesis imperfecta: an update on clinical features and therapies.[0m
+    [2mEur J Endocrinol (2020 Oct)  PMID:32621590[0m
+
+    [1mThe Emerging Nature of Astrocyte Diversity.[0m
+    [2mAnnu Rev Neurosci (2019 Jul 8)  PMID:31283899[0m
+
+    [1mIntegrative analysis of pooled CRISPR genetic screens using MAGeCKFlute.[0m
+    [2mNat Protoc (2019 Mar)  PMID:30710114[0m
+
+  [38;2;142;68;207m████████████████████████████████[38;2;74;21;130m[0m 100% [38;2;140;130;160m5.3s[0m  [2mGenerating links...                [0m  [38;2;142;68;207m████████████████████████████████[0m 100% [38;2;140;130;160m5.3s[0m  [38;2;100;230;130m✓ Complete[0m                         
+
+[38;2;142;68;207m[1m  ━━ LINKS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    Ensembl     ]8;;https://ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000180176[36mhttps://ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000180176[0m]8;;
+    NCBI Gene   ]8;;https://www.ncbi.nlm.nih.gov/gene/?term=TH[36mhttps://www.ncbi.nlm.nih.gov/gene/?term=TH[0m]8;;
+    UniProt     ]8;;https://www.uniprot.org/uniprotkb?query=gene:TH+organism_id:9606[36mhttps://www.uniprot.org/uniprotkb?query=gene:TH+organism_id:9606[0m]8;;
+    GeneCards   ]8;;https://www.genecards.org/cgi-bin/carddisp.pl?gene=TH[36mhttps://www.genecards.org/cgi-bin/carddisp.pl?gene=TH[0m]8;;
+    OMIM        ]8;;https://omim.org/search?search=TH[36mhttps://omim.org/search?search=TH[0m]8;;
+    AlphaFold   ]8;;https://alphafold.ebi.ac.uk/search/text/TH[36mhttps://alphafold.ebi.ac.uk/search/text/TH[0m]8;;
+
+[38;2;142;68;207m[1m  ━━ CLAUDE SYNTHESIS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+    # TH (Tyrosine Hydroxylase) — Expert Analysis
+    **Biological function.** TH catalyzes the rate-limiting step in catecholamine biosynthesis: conversion of L-tyrosine to L-DOPA using tetrahydrobiopterin (BH4), Fe²⁺, and O₂ as cofactors. L-DOPA is the obligate precursor to dopamine, norepinephrine, and epinephrine. The enzyme operates as a homotetramer with an N-terminal regulatory domain (containing the autoinhibitory Ser19/Ser31/Ser40 phosphosites — substrates for PKA, CaMKII, ERK1/2, and CDK5) and a C-terminal catalytic domain harboring the Fe²⁺ binding pocket. Activity is gated by feedback inhibition from catecholamine binding to the regulatory domain, BH4 availability, and phosphorylation-driven relief of autoinhibition. Expression is restricted to catecholaminergic neurons (substantia nigra pars compacta, VTA, locus coeruleus) and chromaffin cells of the adrenal medulla.
+    **Transcript landscape.** The 14 annotated transcripts (8 protein-coding) reflect well-characterized human-specific alternative splicing in exons 1–2 that yields four major isoforms (hTH1–hTH4), differing in N-terminal regulatory domain length and phosphorylation kinetics. hTH1 and hTH2 are the dominant brain isoforms; hTH3/hTH4 carry additional 27- and 31-aa insertions absent from rodent orthologs — a critical caveat when extrapolating mouse Th biology to human disease. The 497-aa canonical isoform corresponds to hTH1.
+    **Disease associations.** Biallelic loss-of-function TH variants cause autosomal recessive DOPA-responsive dystonia / Segawa syndrome and infantile parkinsonism (OMIM 605407) — Arg233His, Leu205Pro, and the promoter -71C>T variant are recurrent. Phenotype severity tracks residual enzymatic activity: <15% yields infantile encephalopathy, 15–40% yields the levodopa-responsive dystonic phenotype. TH is not a Mendelian Parkinson's gene, but nigral TH⁺ neuron loss is the defining pathological feature of idiopathic PD, and TH immunoreactivity is the standard quantitative endpoint for nigrostriatal degeneration in 6-OHDA, MPTP, and α-synuclein PFF models. Reduced striatal TH activity is also implicated in schizophrenia-associated dopaminergic dysregulation and ADHD pharmacogenomics (TH VNTR in intron 1).
+    **Experimental recommendations.** For expression quantification, use isoform-discriminating primers spanning the exon 1–2 junction rather than pan-TH qPCR if human samples are involved — total TH mRNA can mask isoform shifts that alter phosphoregulation. For protein-level work, phospho-specific antibodies (pSer31, pSer40) report activity state more faithfully than total TH; pair with HPLC-ECD measurement of tissue DOPA/dopamine to confirm flux. In stereotaxic lesion or AAV-α-syn rodent models, stereological TH⁺ cell counts in SNc must be paired with striatal TH terminal density (optical densitometry) — terminals degenerate before somata, and soma counts alone underestimate early pathology. For variant functional characterization, recombinant expression in Sf9 or E. coli followed by L-DOPA production assay with BH4 cofactor is the standard; include thermal stability (DSF) since many disease variants are folding/stability mutants rather than catalytic-site lesions.
+    **Clinical relevance.** TH-deficient patients are the cleanest example of "treatable neurotransmitter disease" — early L-DOPA/carbidopa initiation in Segawa syndrome produces near-complete phenotypic rescue, making newborn CSF neurotransmitter screening (HVA/5-HIAA ratio) high-yield in unexplained infantile dystonia. Gene therapy efforts (AAV2-AADC for AADC deficiency, Eladocagene exuparvovec, approved 2022) have established the regulatory and surgical playbook that AAV-TH or combined AAV-TH/GCH1/AADC strategies for PD are now leveraging in active trials.
+
+  [2m── 33.6s | Ensembl + UniProt + ClinVar + PubMed + Claude ──[0m
+
+
+[38;5;135m[1m  ━━ Continue your analysis ━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+  [1m1.[0m [32mnfx browser chr11:2163929-2171968[0m
+     [2m→ Visualize the locus with conservation, regulation, and chromatin tracks[0m
+     [2m(Kent et al., Genome Res 2002)[0m
+
+  [1m2.[0m [32mnfx gene TH[0m
+     [2m→ Pull the full multi-database gene record (NCBI + Ensembl + UniProt) for TH[0m
+     [2m(GTEx Consortium, Science 2020)[0m
+
+  [1m3.[0m [32mnfx variant TH[0m
+     [2m→ Review clinically-curated variants in TH[0m
+     [2m(Landrum et al., Nucleic Acids Res 2018)[0m
+
+  [1m4.[0m [32mnfx open https://jaspar.genereg.net/search?q=TH[0m
+     [2m→ Scan TH's promoter for transcription factor binding sites with JASPAR[0m
+     [2m(Castro-Mondragon et al., Nucleic Acids Res 2022)[0m
+
+  [1m5.[0m [32mnfx pubmed "TH positive selection dN/dS"[0m
+     [2m→ Investigate evolutionary conservation and selection pressure on TH[0m
+     [2m(Yang, Mol Biol Evol 2007)[0m
+

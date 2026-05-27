@@ -1,0 +1,12 @@
+
+  🏗️  James Watson — Genome Assembly
+  "We have discovered the secret of life."
+
+
+  "To understand the cell, we must turn to chemistry."
+  — Albert Lehninger, Principles of Biochemistry, 1982
+
+  ━━ SEQUENCE ANALYSIS: GRCh38 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  █████░░░░░░░░░░░░░░░░░░░░░░░░░░░  14% 0.0s  Resolving gene symbol via Ensembl...  ████████████████████████████████ 100% 4.2s  ✓ Complete                         
+  ✗ Could not resolve "GRCh38" via Ensembl. Try an Ensembl ID directly.
