@@ -1,12 +1,0 @@
-
-  🏗️  [2mJames Watson — Genome Assembly[0m
-  [3m[2m"We have discovered the secret of life."[0m
-
-
-  [3m[2m"One gene, one enzyme."[0m
-  [2m— Beadle & Tatum, PNAS, 1941[0m
-
-[38;2;142;68;207m[1m  ━━ SEQUENCE ANALYSIS: GRCh38 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
-
-  [38;2;142;68;207m█████[38;2;74;21;130m░░░░░░░░░░░░░░░░░░░░░░░░░░░[0m  14% [38;2;140;130;160m0.0s[0m  [2mResolving gene symbol via Ensembl...[0m  [38;2;142;68;207m████████████████████████████████[0m 100% [38;2;140;130;160m4.0s[0m  [38;2;100;230;130m✓ Complete[0m                         
-  [38;2;255;90;90m✗ Could not resolve "GRCh38" via Ensembl. Try an Ensembl ID directly.[0m
