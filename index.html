@@ -1525,6 +1525,132 @@
   }
   .cmd-modal-capture-toggle.visible { display: inline-block; }
 
+  /* ─── Slide 06: single scientist (Cajal) ─── */
+  .cajal-slide { padding: 5vh 6vw; }
+  .cj-wrap {
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1fr);
+    gap: 6vw;
+    align-items: center;
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .cj-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: .26em; text-transform: uppercase;
+    color: var(--ink-3); margin-bottom: 26px;
+  }
+  .cj-id { display: flex; align-items: center; gap: 16px; margin-bottom: 30px; }
+  .cj-portrait {
+    width: 60px; height: 60px; border-radius: 50%;
+    background-size: cover; background-position: center top;
+    filter: grayscale(1) contrast(1.04);
+    border: 1px solid rgba(192,144,235,.28);
+    flex-shrink: 0;
+  }
+  .cj-name { font-size: 23px; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+  .cj-meta { font-size: 12.5px; color: var(--ink-3); margin-top: 3px; }
+  .cj-field {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: .04em; color: var(--lavender); margin-top: 5px;
+  }
+  .cj-head {
+    font-size: clamp(30px, 3.4vw, 50px);
+    font-weight: 800; letter-spacing: -.03em; line-height: 1.06;
+    color: var(--ink-0); margin-bottom: 22px;
+  }
+  .cj-head .cj-em { color: var(--lavender); }
+  .cj-lede {
+    font-size: clamp(14px, 1.1vw, 16.5px); line-height: 1.6;
+    color: var(--ink-2); max-width: 460px; margin-bottom: 24px;
+  }
+  .cj-case {
+    border-left: 2px solid rgba(192,144,235,.35);
+    padding: 2px 0 2px 16px; margin-bottom: 26px; max-width: 480px;
+  }
+  .cj-case-k {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-3); margin-bottom: 7px;
+  }
+  .cj-case p { font-size: 14px; line-height: 1.55; color: var(--ink-1); }
+  .cj-case strong { color: var(--ink-0); font-weight: 700; }
+  .cj-cmd {
+    font-family: 'JetBrains Mono', monospace; font-size: 15px;
+    color: var(--ink-0);
+    background: rgba(0,0,0,.35);
+    border: 1px solid rgba(192,144,235,.16);
+    border-radius: 9px; padding: 12px 16px;
+    display: inline-block; margin-bottom: 20px; letter-spacing: .01em;
+  }
+  .cj-cmd .p { color: var(--teal); margin-right: 9px; }
+  .cj-replay {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+    letter-spacing: .04em; color: var(--ink-2);
+    background: none; border: none; cursor: pointer;
+    padding: 4px 0; transition: color .2s; margin-left: 4px;
+  }
+  .cj-replay:hover { color: var(--lavender); }
+  .cj-replay .tri {
+    width: 22px; height: 22px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 9px; color: var(--lavender);
+    border: 1px solid rgba(192,144,235,.4);
+  }
+
+  /* Terminal */
+  .cj-term {
+    background: #060510;
+    border: 1px solid rgba(192,144,235,.16);
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 40px 90px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(0,0,0,.4);
+  }
+  .cj-term-bar {
+    display: flex; align-items: center; gap: 7px;
+    padding: 11px 16px;
+    background: rgba(20,17,42,.5);
+    border-bottom: 1px solid rgba(192,144,235,.08);
+  }
+  .cj-term-bar .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .cj-term-bar .dot.r { background: #ff5f57; }
+  .cj-term-bar .dot.y { background: #febc2e; }
+  .cj-term-bar .dot.g { background: #28c840; }
+  .cj-term-title {
+    font-family: 'JetBrains Mono', monospace; font-size: 11.5px;
+    color: var(--ink-3); margin-left: 10px;
+  }
+  .cj-term-live {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--teal);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .cj-term-live::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--teal); box-shadow: 0 0 8px var(--teal);
+  }
+  .cj-term-body { padding: 20px 22px; }
+  .cj-term-body pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(10.5px, 0.84vw, 13px);
+    line-height: 1.62; color: var(--ink-1);
+    margin: 0; white-space: pre; overflow-x: auto;
+  }
+  .cj-term-body .c-h { color: var(--lavender); font-weight: 500; }
+  .cj-term-body .c-k { color: var(--ink-3); }
+  .cj-term-body .c-star { color: var(--gold); }
+  .cj-term-body .c-path { color: var(--pink); }
+  .cj-term-body .c-ok { color: var(--green); }
+  .cj-term-body .c-dim { color: var(--ink-3); }
+
+  @media (max-width: 900px) {
+    .cj-wrap { grid-template-columns: 1fr; gap: 4vh; }
+  }
+
   </style>
   <!-- asciinema-player for real terminal recordings -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/asciinema-player@3.8.0/dist/bundle/asciinema-player.css" integrity="sha384-VAIywtUJJ6n5TJ2byhF+zitDG0mvuNWwRS2gSv1QtEZiVw+c/T/gdOXGwyP2OeJK" crossorigin="anonymous" />
@@ -1936,359 +2062,91 @@
   </section>
 
   <!-- ═══ SLIDE 7 - SCIENTIST AGENTS ═══ -->
-  <!-- ═══ SLIDE 06 — REIMAGINED SCIENTIST AGENTS ═══ -->
-  <section class="slide slide-content" style="overflow-y:auto;">
+  <!-- ═══ SLIDE 06 — ONE SCIENTIST: CAJAL ═══ -->
+  <section class="slide cajal-slide">
     <div class="brand-chip">
       <img src="img/logo-wordmark.png" alt="" />
       <span class="sep"></span>
-      <span class="kicker">nfx · scientist agents</span>
-    </div>
-    <div class="section-head">
-      <div class="num">06 — Domain experts on tap</div>
-      <h2>Eleven <span class="grad-text">scientist agents</span>. Each one a specialist.<br/>All of them composable.</h2>
-      <p class="sub">When a question crosses domains, call the scientist who'd know — or chain them. Each agent is a Novaflow.ai persona grounded in one field. Click any card to see the quote, novel analysis, and a real dataset it runs on today.</p>
+      <span class="kicker">nfx · scientist agent</span>
     </div>
 
-    <!-- Domain filter pills -->
-    <div class="domain-lanes" id="domain-lanes">
-      <div class="domain-pill active" data-domain="all"><span class="dot" style="background:var(--lavender)"></span>All</div>
-      <div class="domain-pill" data-domain="genomics"><span class="dot" style="background:var(--blue)"></span>Genomics</div>
-      <div class="domain-pill" data-domain="structure"><span class="dot" style="background:var(--teal)"></span>Structure</div>
-      <div class="domain-pill" data-domain="evolution"><span class="dot" style="background:var(--gold)"></span>Evolution &amp; Variants</div>
-      <div class="domain-pill" data-domain="spatial"><span class="dot" style="background:var(--pink)"></span>Spatial &amp; Imaging</div>
-      <div class="domain-pill" data-domain="omics"><span class="dot" style="background:var(--green)"></span>Multi-omics &amp; QC</div>
-      <div class="domain-pill" data-domain="immuno"><span class="dot" style="background:#ff6b6b"></span>Immunology</div>
-    </div>
+    <div class="cj-wrap">
+      <!-- LEFT — the story -->
+      <div class="cj-left">
+        <div class="cj-eyebrow">06 · One agent, one question</div>
 
-    <div class="sci-grid" id="sci-grid-v2">
-
-      <!-- DARWIN -->
-      <button class="sci-card has-portrait" data-sci="darwin" data-domain="evolution" style="--agent-color:var(--gold);"
-              data-gif="gifs/nfx-sci-darwin.gif"
-              data-quote="There is grandeur in this view of life… from so simple a beginning endless forms most beautiful and most wonderful have been, and are being, evolved."
-              data-source="On the Origin of Species, last paragraph, 1859">
-        <div class="card-top">
-          <div class="ico" style="background-image:url('img/scientists/darwin.jpg')">CD</div>
-          <div class="meta">
-            <div class="name">Darwin</div>
-            <div class="dates">1809–1882 · Molecular Evolution</div>
-            <div class="field-tag">dN/dS · phylogenetics</div>
+        <div class="cj-id">
+          <div class="cj-portrait" style="background-image:url('img/scientists/cajal.jpg')"></div>
+          <div class="cj-id-text">
+            <div class="cj-name">Cajal</div>
+            <div class="cj-meta">Santiago Ramón y Cajal · 1852–1934</div>
+            <div class="cj-field">Spatial transcriptomics</div>
           </div>
         </div>
-        <div class="tools-row">
-          <span class="tool-chip">PAML</span><span class="tool-chip">IQ-TREE</span><span class="tool-chip">OrthoFinder</span>
-        </div>
-        <div class="cmd-line"><span class="prompt">$</span> nfx darwin BRCA1</div>
-        <div class="dataset-showcase">
-          <div class="ds-label">🔬 Novel dataset</div>
-          <div class="ds-text">T2T-CHM13 pangenome ortholog set — dN/dS across 47 primate genomes with telomere-to-telomere resolution<br/><span class="ds-id">HPRC 2023 · Nature</span></div>
-        </div>
-        <div class="detail-panel">
-          <div class="quote">"There is grandeur in this view of life… from so simple a beginning endless forms most beautiful and most wonderful have been, and are being, evolved."<div class="quote-src">— On the Origin of Species, 1859</div></div>
-          <div class="novel-analysis"><div class="na-label">🧬 Future analysis</div><p><strong>Pangenome-aware selection scans.</strong> With T2T assemblies and HPRC (47 diploid assemblies), Darwin computes dN/dS on previously unresolvable centromeric genes, segmental duplications, and satellite-adjacent ORFs.</p></div>
-        </div>
-      </button>
 
-      <!-- CRICK -->
-      <button class="sci-card has-portrait" data-sci="crick" data-domain="genomics" style="--agent-color:var(--blue);"
-              data-gif="gifs/nfx-sci-crick.gif"
-              data-quote="The central dogma of molecular biology deals with the detailed residue-by-residue transfer of sequential information."
-              data-source="Nature, 1970">
-        <div class="card-top">
-          <div class="ico" style="background-image:url('img/scientists/crick.jpg')">FC</div>
-          <div class="meta">
-            <div class="name">Crick</div>
-            <div class="dates">1916–2004 · Translation &amp; Sequence</div>
-            <div class="field-tag">codon usage · ORF finding</div>
+        <h2 class="cj-head">Name a gene.<br/>Get its biology back —<br/><span class="cj-em">placed in tissue.</span></h2>
+
+        <p class="cj-lede">Cajal resolves the gene across Ensembl, ClinVar, UniProt and PubMed,
+        then maps where it sits in the section. No notebooks, no glue code, no tab-hopping.</p>
+
+        <div class="cj-case">
+          <div class="cj-case-k">The run</div>
+          <p><strong>TH</strong> — tyrosine hydroxylase, the enzyme that defines the
+          dopaminergic neurons lost in Parkinson's. One command resolves the gene and
+          surfaces its 93 pathogenic variants in&nbsp;~4&nbsp;seconds.</p>
+        </div>
+
+        <div class="cj-cmd"><span class="p">$</span> nfx cajal TH</div>
+
+        <button class="cj-replay"
+                data-sci="cajal"
+                data-gif="gifs/nfx-sci-cajal.gif"
+                data-quote="Every man can, if he so desires, become the sculptor of his own brain."
+                data-source="Advice for a Young Investigator, 1897"
+                onclick="openSci(this)">
+          <span class="tri">▶</span> Replay the live run
+        </button>
+      </div>
+
+      <!-- RIGHT — the real output -->
+      <div class="cj-right">
+        <div class="cj-term">
+          <div class="cj-term-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <span class="cj-term-title">~/lab — nfx cajal TH</span>
+            <span class="cj-term-live">live</span>
           </div>
-        </div>
-        <div class="tools-row">
-          <span class="tool-chip">BioPython</span><span class="tool-chip">CAI</span><span class="tool-chip">ORFfinder</span>
-        </div>
-        <div class="cmd-line"><span class="prompt">$</span> nfx crick SNCA</div>
-        <div class="dataset-showcase">
-          <div class="ds-label">🔬 Novel dataset</div>
-          <div class="ds-text"><a href="https://huggingface.co/datasets/theodoris-lab/Genecorpus-104M" target="_blank">Genecorpus-104M</a> — ~104M single-cell transcriptomes for Geneformer foundation model<br/><span class="ds-id">Theodoris et al. 2023–2026 · Nature</span></div>
-        </div>
-        <div class="detail-panel">
-          <div class="quote">"The central dogma of molecular biology deals with the detailed residue-by-residue transfer of sequential information."<div class="quote-src">— Nature, 1970</div></div>
-          <div class="novel-analysis"><div class="na-label">🧬 Future analysis</div><p><strong>Foundation-model codon embeddings.</strong> Geneformer (pre-trained on ~104M cells) treats genes as tokens and cells as sentences. Crick maps codon usage bias onto learned embeddings — revealing which codon-optimization patterns predict cell-type–specific translation efficiency.</p></div>
-        </div>
-      </button>
+          <div class="cj-term-body"><pre><span class="c-h">━━ GENE OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━━━━</span>
+  <span class="c-k">Symbol</span>        TH
+  <span class="c-k">Ensembl ID</span>    ENSG00000180176
+  <span class="c-k">Description</span>   tyrosine hydroxylase
+  <span class="c-k">Location</span>      chr11:2,163,929–2,171,968 (−)
+  <span class="c-k">Assembly</span>      GRCh38
 
-      <!-- FRANKLIN -->
-      <button class="sci-card has-portrait" data-sci="rosalind" data-domain="structure" style="--agent-color:var(--teal);"
-              data-gif="gifs/nfx-sci-rosalind.gif"
-              data-quote="Science and everyday life cannot and should not be separated."
-              data-source="Letter to Ellis Franklin, 1940">
-        <div class="card-top">
-          <div class="ico" style="background-image:url('img/scientists/rosalind.jpg')">RF</div>
-          <div class="meta">
-            <div class="name">Franklin</div>
-            <div class="dates">1920–1958 · Structural Biology</div>
-            <div class="field-tag">AlphaFold · PDB · Foldseek</div>
-          </div>
-        </div>
-        <div class="tools-row">
-          <span class="tool-chip">AlphaFold3</span><span class="tool-chip">RCSB PDB</span><span class="tool-chip">PISA</span><span class="tool-chip">Foldseek</span>
-        </div>
-        <div class="cmd-line"><span class="prompt">$</span> nfx rosalind 1XQ8</div>
-        <div class="dataset-showcase">
-          <div class="ds-label">🔬 Novel dataset</div>
-          <div class="ds-text">AlphaFold3 + AFDB v4 — 200M+ predicted structures with ligand/DNA/RNA complex modeling<br/><span class="ds-id">Abramson et al. 2024 · Nature · DeepMind</span></div>
-        </div>
-        <div class="detail-panel">
-          <div class="quote">"Science and everyday life cannot and should not be separated."<div class="quote-src">— Letter to Ellis Franklin, 1940</div></div>
-          <div class="novel-analysis"><div class="na-label">🧬 Future analysis</div><p><strong>Proteome-scale virtual screening.</strong> AlphaFold3 predicts protein–ligand complexes. Franklin runs Foldseek across 200M+ folds to find structural analogs, then docks candidates — all from the terminal.</p></div>
-        </div>
-      </button>
+<span class="c-h">━━ TRANSCRIPTS (14) ━━━━━━━━━━━━━━━━━━━━━━</span>
+  <span class="c-k">Protein-coding</span>  8       <span class="c-k">Non-coding</span>  6
+  <span class="c-k">Canonical</span>       ENST00000352909
+                  13 exons · 1,827 bp · 497 aa <span class="c-star">★</span>
 
-      <!-- MENDEL -->
-      <button class="sci-card has-portrait" data-sci="mendel" data-domain="evolution" style="--agent-color:var(--gold);"
-              data-gif="gifs/nfx-sci-mendel.gif"
-              data-quote="My scientific labors have brought me much satisfaction, and I am convinced that before long the entire world will acknowledge the results of these labors."
-              data-source="Letter to Carl Nägeli, 1867">
-        <div class="card-top">
-          <div class="ico" style="background-image:url('img/scientists/mendel.jpg')">GM</div>
-          <div class="meta">
-            <div class="name">Mendel</div>
-            <div class="dates">1822–1884 · Genetic Variation</div>
-            <div class="field-tag">ClinVar · gnomAD · GWAS</div>
-          </div>
-        </div>
-        <div class="tools-row">
-          <span class="tool-chip">ClinVar</span><span class="tool-chip">gnomAD v4</span><span class="tool-chip">GWAS Catalog</span><span class="tool-chip">VEP</span>
-        </div>
-        <div class="cmd-line"><span class="prompt">$</span> nfx mendel rs104893877</div>
-        <div class="dataset-showcase">
-          <div class="ds-label">🔬 Novel dataset</div>
-          <div class="ds-text"><a href="https://gnomad.broadinstitute.org" target="_blank">gnomAD v4</a> — 730,947 exomes + 76,215 genomes. Diverse ancestry, SVs, CNVs, constraint metrics<br/><span class="ds-id">Karczewski et al. · Broad Institute</span></div>
-        </div>
-        <div class="detail-panel">
-          <div class="quote">"My scientific labors have brought me much satisfaction…"<div class="quote-src">— Letter to Carl Nägeli, 1867</div></div>
-          <div class="novel-analysis"><div class="na-label">🧬 Future analysis</div><p><strong>PRS + structural variant integration.</strong> gnomAD v4 adds SV and CNV calls at population scale. Mendel cross-references GWAS hits with SV breakpoints and gene constraint scores.</p></div>
-        </div>
-      </button>
+<span class="c-h">━━ SEQUENCE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>
+  <span class="c-k">Length</span>        8,040 bp      <span class="c-k">GC</span>  65.3%
+  <span class="c-k">CpG islands</span>   313 (O/E 0.37)
 
-      <!-- McCLINTOCK -->
-      <button class="sci-card has-portrait" data-sci="mcclintock" data-domain="genomics" style="--agent-color:var(--blue);"
-              data-gif="gifs/nfx-sci-mcclintock.gif"
-              data-quote="If you know you are on the right track, if you have this inner knowledge, then nobody can turn you off."
-              data-source="Nobel Lecture, 1983">
-        <div class="card-top">
-          <div class="ico" style="background-image:url('img/scientists/mcclintock.jpg')">BM</div>
-          <div class="meta">
-            <div class="name">McClintock</div>
-            <div class="dates">1902–1992 · Transposable Elements</div>
-            <div class="field-tag">RepeatMasker · TE landscape</div>
-          </div>
-        </div>
-        <div class="tools-row">
-          <span class="tool-chip">RepeatMasker</span><span class="tool-chip">Dfam</span><span class="tool-chip">LINE/SINE</span>
-        </div>
-        <div class="cmd-line"><span class="prompt">$</span> nfx mcclintock BRCA1</div>
-        <div class="dataset-showcase">
-          <div class="ds-label">🔬 Novel dataset</div>
-          <div class="ds-text"><a href="https://www.dfam.org" target="_blank">Dfam 3.8</a> + T2T TE annotations — 6,000+ new TE families from centromeric regions<br/><span class="ds-id">Storer et al. 2024 · Dfam Consortium</span></div>
-        </div>
-        <div class="detail-panel">
-          <div class="quote">"If you know you are on the right track, if you have this inner knowledge, then nobody can turn you off."<div class="quote-src">— Nobel Lecture, 1983</div></div>
-          <div class="novel-analysis"><div class="na-label">🧬 Future analysis</div><p><strong>TE-driven regulation in single cells.</strong> With scATAC-seq and T2T TE annotations, McClintock maps which transposable elements carry active chromatin marks in specific cell types.</p></div>
-        </div>
-      </button>
+<span class="c-h">━━ CLINICAL VARIANTS ━━━━━━━━━━━━━━━━━━━━━</span>
+  <span class="c-path">93 pathogenic</span> of 792 total · ClinVar
+  rs2133686936   stop_gained      <span class="c-path">pathogenic</span>
+  rs786204540    stop_gained      <span class="c-path">pathogenic</span>
+  rs1554922434   frameshift       <span class="c-path">pathogenic</span>
 
-      <!-- SANGER -->
-      <button class="sci-card has-portrait" data-sci="sanger" data-domain="omics" style="--agent-color:var(--green);"
-              data-gif="gifs/nfx-sci-sanger.gif"
-              data-quote="Of the three main activities involved in scientific research — thinking, talking, and doing — I much prefer the last."
-              data-source="Nobel Autobiography, 1980">
-        <div class="card-top">
-          <div class="ico" style="background-image:url('img/scientists/sanger.jpg')">FS</div>
-          <div class="meta">
-            <div class="name">Sanger</div>
-            <div class="dates">1918–2013 · Sequencing QC</div>
-            <div class="field-tag">FastQC · adapter trimming</div>
-          </div>
-        </div>
-        <div class="tools-row">
-          <span class="tool-chip">FastQC</span><span class="tool-chip">MultiQC</span><span class="tool-chip">fastp</span>
-        </div>
-        <div class="cmd-line"><span class="prompt">$</span> nfx sanger reads.fastq</div>
-        <div class="dataset-showcase">
-          <div class="ds-label">🔬 Novel dataset</div>
-          <div class="ds-text"><a href="https://www.10xgenomics.com/datasets" target="_blank">10x Visium HD + Flex v2</a> — spatial QC: per-spot UMI density, probe barcode validation<br/><span class="ds-id">10x Genomics 2025 · Public datasets</span></div>
-        </div>
-        <div class="detail-panel">
-          <div class="quote">"Of the three main activities involved in scientific research — thinking, talking, and doing — I much prefer the last."<div class="quote-src">— Nobel Autobiography, 1980</div></div>
-          <div class="novel-analysis"><div class="na-label">🧬 Future analysis</div><p><strong>Spatial-aware QC.</strong> Sanger extends QC to Visium HD spots and Xenium cells — per-tile UMI distribution, spatial autocorrelation of quality scores, tissue-specific dropout patterns.</p></div>
-        </div>
-      </button>
+<span class="c-h">━━ GENE ONTOLOGY ━━━━━━━━━━━━━━━━━━━━━━━━━</span>
+  GO:0004511   tyrosine 3-monooxygenase activity
 
-      <!-- CAJAL -->
-      <button class="sci-card has-portrait" data-sci="cajal" data-domain="spatial" style="--agent-color:var(--pink);"
-              data-gif="gifs/nfx-sci-cajal.gif"
-              data-quote="Every man can, if he so desires, become the sculptor of his own brain."
-              data-source="Advice for a Young Investigator, 1897">
-        <div class="card-top">
-          <div class="ico" style="background-image:url('img/scientists/cajal.jpg')">SC</div>
-          <div class="meta">
-            <div class="name">Cajal</div>
-            <div class="dates">1852–1934 · Spatial Transcriptomics</div>
-            <div class="field-tag">Squidpy · Xenium · MERFISH</div>
-          </div>
+<span class="c-ok">✓</span> Ensembl · ClinVar · UniProt · PubMed     <span class="c-dim">4.1s</span></pre></div>
         </div>
-        <div class="tools-row">
-          <span class="tool-chip">Squidpy</span><span class="tool-chip">Scanpy</span><span class="tool-chip">Xenium</span><span class="tool-chip">CellCharter</span>
-        </div>
-        <div class="cmd-line"><span class="prompt">$</span> nfx cajal TH SLC6A3</div>
-        <div class="dataset-showcase">
-          <div class="ds-label">🔬 Novel dataset</div>
-          <div class="ds-text"><a href="https://www.10xgenomics.com/datasets/xenium-prime-ffpe-human-breast-cancer" target="_blank">Xenium Prime 5K</a> — 5,000-plex in situ + protein co-detection at subcellular resolution<br/><span class="ds-id">10x Genomics 2024 · Xenium Prime</span></div>
-        </div>
-        <div class="detail-panel">
-          <div class="quote">"Every man can, if he so desires, become the sculptor of his own brain."<div class="quote-src">— Advice for a Young Investigator, 1897</div></div>
-          <div class="novel-analysis"><div class="na-label">🧬 Future analysis</div><p><strong>Spatial niches → cell communication graphs.</strong> Xenium Prime gives 5,000-gene resolution with protein co-detection. Cajal builds cell-cell communication graphs from physical neighborhoods — spatially-grounded ligand-receptor interaction mapping.</p></div>
-        </div>
-      </button>
-
-      <!-- PASTEUR -->
-      <button class="sci-card has-portrait" data-sci="pasteur" data-domain="omics" style="--agent-color:var(--green);"
-              data-gif="gifs/nfx-sci-pasteur.gif"
-              data-quote="In the fields of observation, chance favors only the prepared mind."
-              data-source="Lecture, University of Lille, 1854">
-        <div class="card-top">
-          <div class="ico" style="background-image:url('img/scientists/pasteur.jpg')">LP</div>
-          <div class="meta">
-            <div class="name">Pasteur</div>
-            <div class="dates">1822–1895 · Metagenomics</div>
-            <div class="field-tag">16S · shotgun · microbiome</div>
-          </div>
-        </div>
-        <div class="tools-row">
-          <span class="tool-chip">QIIME2</span><span class="tool-chip">DADA2</span><span class="tool-chip">Kraken2</span><span class="tool-chip">MetaPhlAn</span>
-        </div>
-        <div class="cmd-line"><span class="prompt">$</span> nfx pasteur sample.fastq</div>
-        <div class="dataset-showcase">
-          <div class="ds-label">🔬 Novel dataset</div>
-          <div class="ds-text"><a href="https://cellxgene.cziscience.com" target="_blank">CELLxGENE Census</a> + HMP2 — host single-cell atlas cross-referenced with matched microbiome<br/><span class="ds-id">CZI + NIH HMP · 2024–2025</span></div>
-        </div>
-        <div class="detail-panel">
-          <div class="quote">"In the fields of observation, chance favors only the prepared mind."<div class="quote-src">— Lecture, University of Lille, 1854</div></div>
-          <div class="novel-analysis"><div class="na-label">🧬 Future analysis</div><p><strong>Host-microbiome single-cell integration.</strong> Pair metagenome-assembled genomes with matched host scRNA-seq. Pasteur correlates microbial strain-level variation with host epithelial gene programs.</p></div>
-        </div>
-      </button>
-
-      <!-- LEEUWENHOEK -->
-      <button class="sci-card has-portrait" data-sci="leeuwenhoek" data-domain="spatial" style="--agent-color:var(--pink);"
-              data-gif="gifs/nfx-sci-leeuwenhoek.gif"
-              data-quote="I then most always saw, with great wonder, that there were many very little living animalcules, very prettily a-moving."
-              data-source="Letter to the Royal Society, 1676">
-        <div class="card-top">
-          <div class="ico" style="background-image:url('img/scientists/leeuwenhoek.jpg')">AL</div>
-          <div class="meta">
-            <div class="name">Leeuwenhoek</div>
-            <div class="dates">1632–1723 · Cell Segmentation</div>
-            <div class="field-tag">Cellpose · QuPath · nuclei</div>
-          </div>
-        </div>
-        <div class="tools-row">
-          <span class="tool-chip">Cellpose 3</span><span class="tool-chip">QuPath</span><span class="tool-chip">StarDist</span><span class="tool-chip">SAM</span>
-        </div>
-        <div class="cmd-line"><span class="prompt">$</span> nfx leeuwenhoek SNCA</div>
-        <div class="dataset-showcase">
-          <div class="ds-label">🔬 Novel dataset</div>
-          <div class="ds-text"><a href="https://www.10xgenomics.com/datasets/xenium-protein-ffpe-human-renal-carcinoma" target="_blank">Xenium Gene + Protein (RCC)</a> — multimodal segmentation benchmark<br/><span class="ds-id">10x Genomics 2025 · Renal Cell Carcinoma</span></div>
-        </div>
-        <div class="detail-panel">
-          <div class="quote">"I then most always saw, with great wonder, that there were many very little living animalcules…"<div class="quote-src">— Letter to the Royal Society, 1676</div></div>
-          <div class="novel-analysis"><div class="na-label">🧬 Future analysis</div><p><strong>Foundation-model segmentation.</strong> SAM and Cellpose 3 handle diverse tissue morphologies zero-shot. Leeuwenhoek runs multimodal segmentation — nuclei, membranes, and transcript assignment fused into single cell boundaries.</p></div>
-        </div>
-      </button>
-
-      <!-- WATSON -->
-      <button class="sci-card has-portrait" data-sci="watson" data-domain="genomics" style="--agent-color:var(--blue);"
-              data-gif="gifs/nfx-sci-watson.gif"
-              data-quote="We have discovered the secret of life."
-              data-source="The Eagle pub, Cambridge, February 28, 1953">
-        <div class="card-top">
-          <div class="ico" style="background-image:url('img/scientists/watson.jpg')">JW</div>
-          <div class="meta">
-            <div class="name">Watson</div>
-            <div class="dates">1928–2025 · Reference Genomes</div>
-            <div class="field-tag">T2T · BWA-MEM · STAR</div>
-          </div>
-        </div>
-        <div class="tools-row">
-          <span class="tool-chip">T2T-CHM13</span><span class="tool-chip">BWA-MEM2</span><span class="tool-chip">STAR</span><span class="tool-chip">samtools</span>
-        </div>
-        <div class="cmd-line"><span class="prompt">$</span> nfx watson GRCh38</div>
-        <div class="dataset-showcase">
-          <div class="ds-label">🔬 Novel dataset</div>
-          <div class="ds-text"><a href="https://www.10xgenomics.com/datasets/multiome-gemx-10k-human-brain" target="_blank">10k Human Brain Epi Multiome</a> — joint ATAC + gene expression, needs T2T-aware alignment<br/><span class="ds-id">10x Genomics 2025 · Epi Multiome</span></div>
-        </div>
-        <div class="detail-panel">
-          <div class="quote">"We have discovered the secret of life."<div class="quote-src">— The Eagle pub, Cambridge, 1953</div></div>
-          <div class="novel-analysis"><div class="na-label">🧬 Future analysis</div><p><strong>Pangenome-graph alignment.</strong> HPRC pangenome graph captures structural variation across 47+ haplotypes. Watson aligns reads to the graph (vg giraffe) instead of a flat FASTA — recovering variants in complex regions.</p></div>
-        </div>
-      </button>
-
-      <!-- GRUBER -->
-      <button class="sci-card" data-sci="gruber" data-domain="immuno" style="--agent-color:#ff6b6b;"
-              data-gif="gifs/nfx-sci-gruber.gif"
-              data-quote="The immune system is a network of exquisite specificity and memory — every surface marker tells a story of lineage, activation, and fate."
-              data-source="Novaflow Immunology Agent">
-        <div class="card-top">
-          <div class="ico" style="background:linear-gradient(135deg, #00c8b4, #64b4ff); border-color:rgba(100,180,255,.45); color:#fff; line-height:48px; text-align:center;">IG</div>
-          <div class="meta">
-            <div class="name">Gruber</div>
-            <div class="dates">Novaflow · Immunology</div>
-            <div class="field-tag" style="background:rgba(0,200,180,.12); color:var(--teal);">flow cytometry · immunophenotyping</div>
-          </div>
-        </div>
-        <div class="tools-row">
-          <span class="tool-chip">FlowKit</span><span class="tool-chip">FlowSOM</span><span class="tool-chip">CATALYST</span><span class="tool-chip">diffcyt</span>
-        </div>
-        <div class="cmd-line"><span class="prompt">$</span> nfx gruber CD8A</div>
-        <div class="dataset-showcase">
-          <div class="ds-label">🔬 Novel dataset</div>
-          <div class="ds-text"><a href="https://www.10xgenomics.com/datasets/Flexv2_16k_Human_PBMCs_TotalseqC_4plex" target="_blank">Flex v2 + TotalSeq-C 16K PBMCs</a> — protein + transcript co-detection per cell<br/><span class="ds-id">10x Genomics 2025 · Flex v2 + CITE-seq</span></div>
-        </div>
-        <div class="detail-panel">
-          <div class="quote">"The immune system is a network of exquisite specificity and memory — every surface marker tells a story of lineage, activation, and fate."<div class="quote-src">— Novaflow Immunology Agent</div></div>
-          <div class="novel-analysis"><div class="na-label">🧬 Future analysis</div><p><strong>Spectral cytometry meets single-cell multi-omics.</strong> Gruber bridges FlowSOM clustering on 40+ color spectral data with CITE-seq protein+RNA — creating a unified immunophenotype that links surface protein to transcriptional state.</p></div>
-        </div>
-      </button>
-
-    </div><!-- /sci-grid -->
-
-    <!-- Cross-domain workflow -->
-    <div class="cross-domain">
-      <h3>Cross-domain chaining: <span class="grad-text">the real power</span></h3>
-      <div class="cd-sub">Real research doesn't stay in one lane. A Parkinson's workup starts with a variant, hits a structure, crosses into spatial transcriptomics, and ends in immune microenvironment.</div>
-      <div class="wf-demo">
-        <div class="wf-step"><div class="step-agent" style="color:var(--gold)">Mendel</div><div class="step-action">rs104893877 → SNCA A53T pathogenic</div><div class="step-cmd">nfx mendel rs104893877</div><div class="arrow">→</div></div>
-        <div class="wf-step"><div class="step-agent" style="color:var(--teal)">Franklin</div><div class="step-action">Map A53T onto AlphaFold fibril interface</div><div class="step-cmd">nfx rosalind SNCA</div><div class="arrow">→</div></div>
-        <div class="wf-step"><div class="step-agent" style="color:var(--pink)">Cajal</div><div class="step-action">Spatial SNCA in substantia nigra DA neurons</div><div class="step-cmd">nfx cajal TH SNCA</div><div class="arrow">→</div></div>
-        <div class="wf-step"><div class="step-agent" style="color:var(--gold)">Darwin</div><div class="step-action">dN/dS across primates — A53 under purifying selection</div><div class="step-cmd">nfx darwin SNCA</div><div class="arrow">→</div></div>
-        <div class="wf-step"><div class="step-agent" style="color:#ff6b6b">Gruber</div><div class="step-action">Microglial activation markers — neuroinflammation</div><div class="step-cmd">nfx gruber TREM2 CD68</div></div>
       </div>
     </div>
-
-    <!-- Stats -->
-    <div class="stats-row">
-      <div class="stat"><div class="val">11</div><div class="lbl">Scientist agents</div></div>
-      <div class="stat"><div class="val">45+</div><div class="lbl">Tools integrated</div></div>
-      <div class="stat"><div class="val">&lt;2s</div><div class="lbl">Per-agent latency</div></div>
-      <div class="stat"><div class="val">200M+</div><div class="lbl">Structures (AFDB)</div></div>
-      <div class="stat"><div class="val">731K</div><div class="lbl">Exomes (gnomAD v4)</div></div>
-      <div class="stat"><div class="val">104M</div><div class="lbl">Cells (Genecorpus)</div></div>
-    </div>
-
-    <div class="cmd-hint" style="margin-top:1.5vh;">
-      <span class="dot-pulse"></span>
-      Click to expand · Double-click for full terminal recording
-    </div>
   </section>
+
 
   <!-- ═══ SLIDE 06b — LIVE CODE GENERATION ═══ -->
   <section class="slide slide-content" style="overflow-y:auto;">
@@ -3108,9 +2966,17 @@
       <h2>Publication figures + interactive dashboards.<br/><span class="grad-text">All from one CLI command.</span></h2>
     </div>
 
-    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; flex:1; align-items:start;">
+    <style>
+      .bioc-gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 16px;flex:1;align-items:start;overflow:hidden;align-content:start;}
+      .bioc-gallery-grid img{width:100%;height:24vh;object-fit:cover;object-position:top;border-radius:8px;}
+      .bioc-gallery-item{cursor:pointer;transition:transform .18s;}
+      .bioc-gallery-item:hover{transform:translateY(-3px);}
+      .bioc-gallery-label{font-size:13px;font-weight:600;margin-top:6px;}
+      .bioc-gallery-sub{font-size:11px;color:var(--ink-3);}
+    </style>
+    <div class="bioc-gallery-grid">
       <div class="bioc-gallery-item" onclick="openBiocViz('trajectory')">
-        <img src="img/bioc/trajectory_analysis.png" alt="Trajectory" style="width:100%;border-radius:8px;" />
+        <img src="img/bioc/trajectory_analysis.png" alt="Trajectory" />
         <div class="bioc-gallery-label">Differentiation Trajectory</div>
         <div class="bioc-gallery-sub">Cluster + pseudotime dual panel</div>
       </div>
@@ -3561,6 +3427,9 @@
     nav.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === idx));
     cur.textContent = idx + 1;
     window.location.hash = 's' + (idx + 1);
+    var played = window._nfxPlayed || (window._nfxPlayed = {});
+    if (idx === 11 && !played.wf) { played.wf = 1; setTimeout(function(){ if (typeof runWorkflow === 'function') runWorkflow(); }, 650); }
+    if (idx === 13 && !played.bioc) { played.bioc = 1; setTimeout(function(){ if (typeof runBiocPipeline === 'function') runBiocPipeline(); }, 650); }
   }
 
   // Hash-based deep link: #s11 opens slide 11
@@ -3950,6 +3819,109 @@
   function escHtml(s) {
     return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
+
+  // Slide 14: Bioconductor pipeline live demo
+  var biocRunning = false;
+  var BIOC_STEPS = [
+    { step:0, cmd:'nfx bioc report 100715.fcs', lines:[
+      { t:'prompt', text:'$ nfx bioc report 100715.fcs --panel immuno --out bioc_report/' },
+      { t:'dim',  text:'  reading FCS 3.1 · BD FACSAria · 13×13 spillover matrix' },
+      { t:'kv',   text:'  events        65,016' },
+      { t:'kv',   text:'  channels      16  (13 fluorescence + 3 scatter)' },
+      { t:'dim',  text:'  applying logicle transform to fluorescence channels...' },
+      { t:'ok',   text:'  ✓ loaded & compensated in 0.4s' } ]},
+    { step:1, cmd:'FlowSOM clustering', thumbs:['flowsom_star_chart.png'], lines:[
+      { t:'head', text:'  ━━ FlowSOM ━━━━━━━━━━━━━━━━━━━━━━━' },
+      { t:'dim',  text:'  training 10×10 SOM · 10 epochs ............ done' },
+      { t:'dim',  text:'  consensus metaclustering k=8 · silhouette 0.39' },
+      { t:'kv',   text:'  MC1 Naive CD8   18.4%     MC2 TCM        21.7%' },
+      { t:'kv',   text:'  MC3 TEM         16.5%     MC4 TEMRA      14.2%' },
+      { t:'ok',   text:'  ✓ 8 metaclusters → flowsom_star_chart.png' } ]},
+    { step:2, cmd:'Trajectory inference', thumbs:['trajectory_analysis.png'], lines:[
+      { t:'head', text:'  ━━ TRAJECTORY ━━━━━━━━━━━━━━━━━━━━' },
+      { t:'dim',  text:'  MST over metacluster centroids · root = Naive' },
+      { t:'kv',   text:'  Naive → TCM → TEM → TEMRA   (pseudotime r²=0.91)' },
+      { t:'warn', text:'  exhaustion axis: PD-1 up  TIM-3 up  along pseudotime' },
+      { t:'ok',   text:'  ✓ differentiation_trajectory.png' } ]},
+    { step:3, cmd:'Pathway enrichment', thumbs:['kegg_enrichment_dotplot.png','reactome_enrichment_dotplot.png'], lines:[
+      { t:'head', text:'  ━━ ENRICHMENT · KEGG · Reactome · GO BP ━' },
+      { t:'dim',  text:'  mapping 16 markers → 142 genes (CD-antigen→HGNC)' },
+      { t:'kv',   text:'  KEGG      T cell receptor signaling   p=2.1e-7 ✓' },
+      { t:'kv',   text:'  Reactome  PD-1 signaling              p=4.8e-6 ✓' },
+      { t:'kv',   text:'  GO:BP     T cell differentiation      p=9.3e-8 ✓' },
+      { t:'ok',   text:'  ✓ 12 pathways significant (FDR < 0.05)' } ]},
+    { step:4, cmd:'GSEA', thumbs:['gsea_waterfall.png'], lines:[
+      { t:'head', text:'  ━━ GSEA · fgsea ━━━━━━━━━━━━━━━━━━' },
+      { t:'dim',  text:'  ranking 142 genes by TEM-vs-Naive logFC' },
+      { t:'kv',   text:'  EFFECTOR_MEMORY    NES=2.53    p.adj=1e-4 ✓' },
+      { t:'kv',   text:'  EXHAUSTION         NES=1.97    p.adj=3e-3 ✓' },
+      { t:'ok',   text:'  ✓ gsea_waterfall.png' } ]},
+    { step:5, cmd:'Visualizations', thumbs:['pathway_heatmap.png','go_bp_enrichment_dotplot.png','tem_vs_naive_enrichment.png'], lines:[
+      { t:'head', text:'  ━━ RENDER ━━━━━━━━━━━━━━━━━━━━━' },
+      { t:'ok',   text:'  ✓ 8 PNG figures written (300 DPI)' },
+      { t:'ok',   text:'  ✓ 3 interactive HTML dashboards (Plotly / pyvis)' },
+      { t:'dim',  text:'  → output/bioc_report/   ·   0 R packages installed' } ]},
+  ];
+  function biocLineHTML(t, text) {
+    if (t === 'prompt')  return '<span style="color:var(--purple-0);font-weight:600">$</span> <span style="color:var(--lavender)">' + escHtml(text.replace(/^\$ /,'')) + '</span>';
+    if (t === 'head')    return '<span style="color:var(--lavender);font-weight:700;letter-spacing:.04em">' + escHtml(text) + '</span>';
+    if (t === 'ok')      return '<span style="color:var(--green)">' + escHtml(text) + '</span>';
+    if (t === 'warn')    return '<span style="color:var(--gold)">' + escHtml(text) + '</span>';
+    if (t === 'dim')     return '<span style="color:var(--ink-3)">' + escHtml(text) + '</span>';
+    if (t === 'blank')   return '&nbsp;';
+    var m = text.match(/^(\s*\S+(?:\s\S+)*?)(\s{2,})(.*)/);
+    if (m) return '<span style="color:var(--ink-2)">' + escHtml(m[1]) + '</span>' + m[2] + '<span style="color:var(--ink-0)">' + escHtml(m[3]) + '</span>';
+    return '<span style="color:var(--ink-2)">' + escHtml(text) + '</span>';
+  }
+  async function runBiocPipeline() {
+    if (biocRunning) return;
+    biocRunning = true;
+    var btn = document.getElementById('bioc-run-btn');
+    var status = document.getElementById('bioc-status');
+    var output = document.getElementById('bioc-term-output');
+    var body = document.getElementById('bioc-term-body');
+    var summary = document.getElementById('bioc-summary');
+    var elapsed = document.getElementById('bioc-elapsed');
+    var thumbs = document.getElementById('bioc-viz-thumbs');
+    btn.disabled = true; btn.textContent = '▷ Running...';
+    output.innerHTML = ''; summary.style.display = 'none'; thumbs.innerHTML = '';
+    for (var i = 0; i < 6; i++) { var e = document.getElementById('bs-' + i); if (e) e.className = 'sim-step-item'; }
+    function addThumb(file) {
+      var im = document.createElement('img');
+      im.src = 'img/bioc/' + file; im.alt = file; im.title = file;
+      im.style.cssText = 'height:50px;border-radius:6px;border:1px solid rgba(192,144,235,.28);box-shadow:0 6px 16px -8px rgba(0,0,0,.7);opacity:0;transform:translateY(6px) scale(.96);transition:opacity .45s ease, transform .45s ease;background:#0b0918;';
+      thumbs.appendChild(im);
+      requestAnimationFrame(function(){ im.style.opacity = '1'; im.style.transform = 'none'; });
+    }
+    var t0 = performance.now();
+    for (var si = 0; si < BIOC_STEPS.length; si++) {
+      var st = BIOC_STEPS[si];
+      var se = document.getElementById('bs-' + st.step);
+      if (se) se.className = 'sim-step-item active';
+      status.textContent = 'Running: ' + st.cmd;
+      for (var li = 0; li < st.lines.length; li++) {
+        var line = st.lines[li];
+        await new Promise(function(r){ setTimeout(r, line.t === 'prompt' ? 280 : 95); });
+        var div = document.createElement('div');
+        div.className = 'sim-line';
+        div.style.cssText = 'opacity:0;transition:opacity .18s ease;';
+        div.innerHTML = biocLineHTML(line.t, line.text || '');
+        output.appendChild(div);
+        (function(d){ requestAnimationFrame(function(){ d.style.opacity = '1'; }); })(div);
+        if (body) body.scrollTop = body.scrollHeight;
+      }
+      (st.thumbs || []).forEach(addThumb);
+      if (se) se.className = 'sim-step-item done';
+      await new Promise(function(r){ setTimeout(r, 300); });
+    }
+    elapsed.textContent = ((performance.now() - t0) / 1000).toFixed(1) + 's';
+    summary.style.display = 'block';
+    status.textContent = 'Complete';
+    btn.textContent = '↻ Replay';
+    btn.disabled = false;
+    biocRunning = false;
+  }
+  window.runBiocPipeline = runBiocPipeline;
 
   // ─── Scientist agent terminal simulation data ──────────────────
   const SCI_SIMS = {
