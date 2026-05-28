@@ -1525,131 +1525,174 @@
   }
   .cmd-modal-capture-toggle.visible { display: inline-block; }
 
-  /* ─── Slide 06: single scientist (Cajal) ─── */
-  .cajal-slide { padding: 5vh 6vw; }
-  .cj-wrap {
-    flex: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1fr);
-    gap: 6vw;
-    align-items: center;
-    max-width: 1320px;
-    margin: 0 auto;
-    width: 100%;
+  /* ─── Slide 06: Cajal — manual → automated ─── */
+  .cajal-slide { padding: 4.6vh 5vw; justify-content: center; }
+
+  .cj-head-row { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+  .cj-portrait {
+    width: 54px; height: 54px; border-radius: 50%;
+    background-size: cover; background-position: center top;
+    filter: grayscale(1) contrast(1.04);
+    border: 1px solid rgba(192,144,235,.28); flex-shrink: 0;
   }
   .cj-eyebrow {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px; letter-spacing: .26em; text-transform: uppercase;
-    color: var(--ink-3); margin-bottom: 26px;
-  }
-  .cj-id { display: flex; align-items: center; gap: 16px; margin-bottom: 30px; }
-  .cj-portrait {
-    width: 60px; height: 60px; border-radius: 50%;
-    background-size: cover; background-position: center top;
-    filter: grayscale(1) contrast(1.04);
-    border: 1px solid rgba(192,144,235,.28);
-    flex-shrink: 0;
-  }
-  .cj-name { font-size: 23px; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
-  .cj-meta { font-size: 12.5px; color: var(--ink-3); margin-top: 3px; }
-  .cj-field {
-    font-family: 'JetBrains Mono', monospace; font-size: 11px;
-    letter-spacing: .04em; color: var(--lavender); margin-top: 5px;
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-3); margin-bottom: 7px;
   }
   .cj-head {
-    font-size: clamp(30px, 3.4vw, 50px);
-    font-weight: 800; letter-spacing: -.03em; line-height: 1.06;
-    color: var(--ink-0); margin-bottom: 22px;
+    font-size: clamp(26px, 3vw, 42px);
+    font-weight: 800; letter-spacing: -.03em; line-height: 1.05;
+    color: var(--ink-0);
   }
   .cj-head .cj-em { color: var(--lavender); }
   .cj-lede {
-    font-size: clamp(14px, 1.1vw, 16.5px); line-height: 1.6;
-    color: var(--ink-2); max-width: 460px; margin-bottom: 24px;
+    font-size: clamp(13px, 1.02vw, 16px); line-height: 1.55;
+    color: var(--ink-2); max-width: 880px; margin-bottom: 30px;
   }
-  .cj-case {
-    border-left: 2px solid rgba(192,144,235,.35);
-    padding: 2px 0 2px 16px; margin-bottom: 26px; max-width: 480px;
-  }
-  .cj-case-k {
-    font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
-    letter-spacing: .22em; text-transform: uppercase;
-    color: var(--ink-3); margin-bottom: 7px;
-  }
-  .cj-case p { font-size: 14px; line-height: 1.55; color: var(--ink-1); }
-  .cj-case strong { color: var(--ink-0); font-weight: 700; }
-  .cj-cmd {
-    font-family: 'JetBrains Mono', monospace; font-size: 15px;
-    color: var(--ink-0);
-    background: rgba(0,0,0,.35);
-    border: 1px solid rgba(192,144,235,.16);
-    border-radius: 9px; padding: 12px 16px;
-    display: inline-block; margin-bottom: 20px; letter-spacing: .01em;
-  }
-  .cj-cmd .p { color: var(--teal); margin-right: 9px; }
-  .cj-replay {
-    display: inline-flex; align-items: center; gap: 9px;
-    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
-    letter-spacing: .04em; color: var(--ink-2);
-    background: none; border: none; cursor: pointer;
-    padding: 4px 0; transition: color .2s; margin-left: 4px;
-  }
-  .cj-replay:hover { color: var(--lavender); }
-  .cj-replay .tri {
-    width: 22px; height: 22px; border-radius: 50%;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 9px; color: var(--lavender);
-    border: 1px solid rgba(192,144,235,.4);
+  .cj-cmd-inline {
+    font-family: 'JetBrains Mono', monospace; font-size: .92em;
+    color: var(--ink-0); background: rgba(142,68,207,.16);
+    border: 1px solid rgba(192,144,235,.2);
+    padding: 1px 7px; border-radius: 5px; white-space: nowrap;
   }
 
-  /* Terminal */
+  .cj-compare {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) auto minmax(0,1.05fr);
+    gap: 2vw; align-items: stretch;
+  }
+
+  .cj-col-head {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 14px; flex-wrap: wrap;
+  }
+  .cj-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: 4px 11px; border-radius: 999px;
+  }
+  .cj-tag.manual { color: var(--pink); background: rgba(255,100,150,.1); border: 1px solid rgba(255,100,150,.28); }
+  .cj-tag.auto   { color: var(--green); background: rgba(100,230,130,.1); border: 1px solid rgba(100,230,130,.28); }
+  .cj-cost {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: .02em;
+  }
+  .cj-cost.manual { color: var(--ink-3); }
+  .cj-cost.auto   { color: var(--green); opacity: .85; }
+
+  /* Manual column — muted, crossed off */
+  .cj-manual {
+    border: 1px solid rgba(255,100,150,.14);
+    border-radius: 14px; padding: 18px 20px;
+    background: rgba(255,100,150,.025);
+  }
+  .cj-steps { list-style: none; }
+  .cj-steps li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 8.5px 0;
+    border-bottom: 1px solid rgba(192,144,235,.06);
+  }
+  .cj-steps li:last-child { border-bottom: none; }
+  .cj-steps .s-n {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    color: var(--pink); opacity: .65; flex-shrink: 0; margin-top: 2px; min-width: 18px;
+  }
+  .cj-steps .s-t {
+    font-size: 13px; line-height: 1.4; color: var(--ink-3);
+    text-decoration: line-through; text-decoration-color: rgba(255,100,150,.35);
+    text-decoration-thickness: 1px;
+  }
+  .cj-steps .s-t b { color: var(--ink-2); font-weight: 600; text-decoration: none; }
+
+  /* Bridge */
+  .cj-bridge {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 12px; padding: 0 4px;
+  }
+  .cj-bridge-cmd {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--lavender); writing-mode: vertical-rl;
+    letter-spacing: .12em; opacity: .8;
+  }
+  .cj-bridge-arrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 26px;
+    color: var(--purple-0);
+  }
+
+  /* Automated column */
+  .cj-auto { display: flex; flex-direction: column; }
   .cj-term {
     background: #060510;
-    border: 1px solid rgba(192,144,235,.16);
+    border: 1px solid rgba(100,230,130,.18);
     border-radius: 14px; overflow: hidden;
-    box-shadow: 0 40px 90px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(0,0,0,.4);
+    box-shadow: 0 30px 70px -28px rgba(0,0,0,.8);
   }
   .cj-term-bar {
     display: flex; align-items: center; gap: 7px;
-    padding: 11px 16px;
+    padding: 10px 14px;
     background: rgba(20,17,42,.5);
     border-bottom: 1px solid rgba(192,144,235,.08);
   }
-  .cj-term-bar .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .cj-term-bar .dot { width: 10px; height: 10px; border-radius: 50%; }
   .cj-term-bar .dot.r { background: #ff5f57; }
   .cj-term-bar .dot.y { background: #febc2e; }
   .cj-term-bar .dot.g { background: #28c840; }
   .cj-term-title {
-    font-family: 'JetBrains Mono', monospace; font-size: 11.5px;
-    color: var(--ink-3); margin-left: 10px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--ink-3); margin-left: 9px;
   }
   .cj-term-live {
     margin-left: auto;
-    font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
-    letter-spacing: .14em; text-transform: uppercase;
-    color: var(--teal);
+    font-family: 'JetBrains Mono', monospace; font-size: 9px;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--green);
     display: inline-flex; align-items: center; gap: 6px;
   }
   .cj-term-live::before {
     content: ''; width: 6px; height: 6px; border-radius: 50%;
-    background: var(--teal); box-shadow: 0 0 8px var(--teal);
+    background: var(--green); box-shadow: 0 0 8px var(--green);
   }
-  .cj-term-body { padding: 20px 22px; }
+  .cj-term-body { padding: 16px 18px; }
   .cj-term-body pre {
     font-family: 'JetBrains Mono', monospace;
-    font-size: clamp(10.5px, 0.84vw, 13px);
-    line-height: 1.62; color: var(--ink-1);
-    margin: 0; white-space: pre; overflow-x: auto;
+    font-size: clamp(10px, 0.78vw, 12.5px);
+    line-height: 1.5; color: var(--ink-1); margin: 0;
+    white-space: pre; overflow-x: auto;
   }
   .cj-term-body .c-h { color: var(--lavender); font-weight: 500; }
   .cj-term-body .c-k { color: var(--ink-3); }
   .cj-term-body .c-star { color: var(--gold); }
   .cj-term-body .c-path { color: var(--pink); }
   .cj-term-body .c-ok { color: var(--green); }
-  .cj-term-body .c-dim { color: var(--ink-3); }
 
-  @media (max-width: 900px) {
-    .cj-wrap { grid-template-columns: 1fr; gap: 4vh; }
+  .cj-replay {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11.5px;
+    letter-spacing: .04em; color: var(--ink-3);
+    background: none; border: none; cursor: pointer;
+    padding: 10px 0 0; transition: color .2s; align-self: flex-start;
   }
+  .cj-replay:hover { color: var(--lavender); }
+  .cj-replay .tri {
+    width: 20px; height: 20px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 8px; color: var(--lavender);
+    border: 1px solid rgba(192,144,235,.4);
+  }
+
+  .cj-punch {
+    margin-top: 26px; text-align: center;
+    font-size: clamp(15px, 1.5vw, 21px); font-weight: 600;
+    letter-spacing: -.01em; color: var(--ink-1);
+  }
+
+  @media (max-width: 920px) {
+    .cj-compare { grid-template-columns: 1fr; gap: 3vh; }
+    .cj-bridge { flex-direction: row; }
+    .cj-bridge-cmd { writing-mode: horizontal-tb; }
+    .cj-bridge-arrow { transform: rotate(90deg); }
+  }
+
 
   </style>
   <!-- asciinema-player for real terminal recordings -->
@@ -2062,7 +2105,7 @@
   </section>
 
   <!-- ═══ SLIDE 7 - SCIENTIST AGENTS ═══ -->
-  <!-- ═══ SLIDE 06 — ONE SCIENTIST: CAJAL ═══ -->
+  <!-- ═══ SLIDE 06 — CAJAL: MANUAL → AUTOMATED ═══ -->
   <section class="slide cajal-slide">
     <div class="brand-chip">
       <img src="img/logo-wordmark.png" alt="" />
@@ -2070,34 +2113,68 @@
       <span class="kicker">nfx · scientist agent</span>
     </div>
 
-    <div class="cj-wrap">
-      <!-- LEFT — the story -->
-      <div class="cj-left">
-        <div class="cj-eyebrow">06 · One agent, one question</div>
+    <div class="cj-head-row">
+      <div class="cj-portrait" style="background-image:url('img/scientists/cajal.jpg')"></div>
+      <div>
+        <div class="cj-eyebrow">06 · Cajal — spatial transcriptomics</div>
+        <h2 class="cj-head">The annotation you'd do by hand,<br/><span class="cj-em">automated away.</span></h2>
+      </div>
+    </div>
 
-        <div class="cj-id">
-          <div class="cj-portrait" style="background-image:url('img/scientists/cajal.jpg')"></div>
-          <div class="cj-id-text">
-            <div class="cj-name">Cajal</div>
-            <div class="cj-meta">Santiago Ramón y Cajal · 1852–1934</div>
-            <div class="cj-field">Spatial transcriptomics</div>
+    <p class="cj-lede">Characterizing one gene means hopping across six databases and stitching
+      the results together by hand. <span class="cj-cmd-inline">nfx cajal TH</span> does the whole
+      workup — every source resolved, every number cited, reproducible.</p>
+
+    <div class="cj-compare">
+
+      <!-- BY HAND — the work that disappears -->
+      <div class="cj-manual">
+        <div class="cj-col-head">
+          <span class="cj-tag manual">By hand</span>
+          <span class="cj-cost manual">≈ an afternoon · 6 tabs · ~200 lines of glue</span>
+        </div>
+        <ul class="cj-steps">
+          <li><span class="s-n">01</span><span class="s-t">Search <b>NCBI Gene</b>, copy the Ensembl ID</span></li>
+          <li><span class="s-n">02</span><span class="s-t">Paste into <b>Ensembl</b>, reconcile GRCh38 coordinates</span></li>
+          <li><span class="s-n">03</span><span class="s-t">List 14 transcripts, find the canonical one</span></li>
+          <li><span class="s-n">04</span><span class="s-t">Open <b>ClinVar</b>, scan 792 variants for the 93 pathogenic</span></li>
+          <li><span class="s-n">05</span><span class="s-t">Pull GO terms from <b>UniProt</b></span></li>
+          <li><span class="s-n">06</span><span class="s-t">Search <b>PubMed</b> for the recent literature</span></li>
+          <li><span class="s-n">07</span><span class="s-t">Stitch it into your notebook, by hand</span></li>
+        </ul>
+      </div>
+
+      <!-- the collapse -->
+      <div class="cj-bridge"><span class="cj-bridge-cmd">$ nfx cajal TH</span><span class="cj-bridge-arrow">→</span></div>
+
+      <!-- AUTOMATED — one command -->
+      <div class="cj-auto">
+        <div class="cj-col-head">
+          <span class="cj-tag auto">Automated</span>
+          <span class="cj-cost auto">4.1s · cited · reproducible</span>
+        </div>
+        <div class="cj-term">
+          <div class="cj-term-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <span class="cj-term-title">~/lab — nfx cajal TH</span>
+            <span class="cj-term-live">live</span>
           </div>
+          <div class="cj-term-body"><pre><span class="c-h">━━ GENE OVERVIEW ━━━━━━━━━━━━━━━━━━━</span>
+  <span class="c-k">Symbol</span>      TH
+  <span class="c-k">Ensembl</span>     ENSG00000180176
+  <span class="c-k">Location</span>    chr11:2.16 Mb (−) · GRCh38
+
+<span class="c-h">━━ TRANSCRIPTS ━━━━━━━━━━━━━━━━━━━━━</span>
+  14 total · canonical ENST…352909 · 497 aa <span class="c-star">★</span>
+
+<span class="c-h">━━ CLINICAL VARIANTS ━━━━━━━━━━━━━━━</span>
+  <span class="c-path">93 pathogenic</span> of 792 total · ClinVar
+
+<span class="c-h">━━ GENE ONTOLOGY ━━━━━━━━━━━━━━━━━━━</span>
+  GO:0004511 · tyrosine 3-monooxygenase
+
+<span class="c-ok">✓</span> Ensembl · ClinVar · UniProt · PubMed</pre></div>
         </div>
-
-        <h2 class="cj-head">Name a gene.<br/>Get its biology back —<br/><span class="cj-em">placed in tissue.</span></h2>
-
-        <p class="cj-lede">Cajal resolves the gene across Ensembl, ClinVar, UniProt and PubMed,
-        then maps where it sits in the section. No notebooks, no glue code, no tab-hopping.</p>
-
-        <div class="cj-case">
-          <div class="cj-case-k">The run</div>
-          <p><strong>TH</strong> — tyrosine hydroxylase, the enzyme that defines the
-          dopaminergic neurons lost in Parkinson's. One command resolves the gene and
-          surfaces its 93 pathogenic variants in&nbsp;~4&nbsp;seconds.</p>
-        </div>
-
-        <div class="cj-cmd"><span class="p">$</span> nfx cajal TH</div>
-
         <button class="cj-replay"
                 data-sci="cajal"
                 data-gif="gifs/nfx-sci-cajal.gif"
@@ -2108,44 +2185,11 @@
         </button>
       </div>
 
-      <!-- RIGHT — the real output -->
-      <div class="cj-right">
-        <div class="cj-term">
-          <div class="cj-term-bar">
-            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-            <span class="cj-term-title">~/lab — nfx cajal TH</span>
-            <span class="cj-term-live">live</span>
-          </div>
-          <div class="cj-term-body"><pre><span class="c-h">━━ GENE OVERVIEW ━━━━━━━━━━━━━━━━━━━━━━━━━</span>
-  <span class="c-k">Symbol</span>        TH
-  <span class="c-k">Ensembl ID</span>    ENSG00000180176
-  <span class="c-k">Description</span>   tyrosine hydroxylase
-  <span class="c-k">Location</span>      chr11:2,163,929–2,171,968 (−)
-  <span class="c-k">Assembly</span>      GRCh38
-
-<span class="c-h">━━ TRANSCRIPTS (14) ━━━━━━━━━━━━━━━━━━━━━━</span>
-  <span class="c-k">Protein-coding</span>  8       <span class="c-k">Non-coding</span>  6
-  <span class="c-k">Canonical</span>       ENST00000352909
-                  13 exons · 1,827 bp · 497 aa <span class="c-star">★</span>
-
-<span class="c-h">━━ SEQUENCE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>
-  <span class="c-k">Length</span>        8,040 bp      <span class="c-k">GC</span>  65.3%
-  <span class="c-k">CpG islands</span>   313 (O/E 0.37)
-
-<span class="c-h">━━ CLINICAL VARIANTS ━━━━━━━━━━━━━━━━━━━━━</span>
-  <span class="c-path">93 pathogenic</span> of 792 total · ClinVar
-  rs2133686936   stop_gained      <span class="c-path">pathogenic</span>
-  rs786204540    stop_gained      <span class="c-path">pathogenic</span>
-  rs1554922434   frameshift       <span class="c-path">pathogenic</span>
-
-<span class="c-h">━━ GENE ONTOLOGY ━━━━━━━━━━━━━━━━━━━━━━━━━</span>
-  GO:0004511   tyrosine 3-monooxygenase activity
-
-<span class="c-ok">✓</span> Ensembl · ClinVar · UniProt · PubMed     <span class="c-dim">4.1s</span></pre></div>
-        </div>
-      </div>
     </div>
+
+    <div class="cj-punch">You don't do the work you can automate.</div>
   </section>
+
 
 
   <!-- ═══ SLIDE 06b — LIVE CODE GENERATION ═══ -->
