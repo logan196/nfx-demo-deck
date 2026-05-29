@@ -3860,50 +3860,6 @@
     simRunning = false;
   }
 
-  // ─── Bioconductor Pipeline Simulation ──────────────────────────────
-  const BIOC_STEPS = [
-    { lines: ['  Loading FCS data…', '  65,016 events × 16 channels (BD FACSAria)'] },
-    { lines: ['  FlowSOM: 10×10 SOM → 100 clusters → 8 metaclusters', '  Silhouette: 0.392'] },
-    { lines: ['  Trajectory: Naive → TCM → TEM → TEMRA', '  Variance: PC1=68.1%, PC2=19.3%'] },
-    { lines: ['  KEGG: T cell receptor signaling p=1.2e-3', '  Reactome: Mitophagy p=3.1e-7'] },
-    { lines: ['  GSEA: NK cell cytotoxicity NES=2.53', '  T cell receptor signaling NES=2.11'] },
-    { lines: ['  ✅ 8 PNG + 3 interactive HTML → output/bioc_report/', '  Report complete!'] },
-  ];
-
-  let biocRunning = false;
-  async function runBiocPipeline() {
-    if (biocRunning) return;
-    biocRunning = true;
-    const btn = document.getElementById('bioc-run-btn');
-    const status = document.getElementById('bioc-status');
-    const output = document.getElementById('bioc-term-output');
-    btn.disabled = true;
-    btn.textContent = '◷ Running…';
-    output.textContent = '';
-    for (let i = 0; i < 6; i++) {
-      const el = document.getElementById('bs-' + i);
-      if (el) el.className = 'sim-step-item';
-    }
-    for (let si = 0; si < BIOC_STEPS.length; si++) {
-      const step = BIOC_STEPS[si];
-      const stepEl = document.getElementById('bs-' + si);
-      if (stepEl) stepEl.className = 'sim-step-item active';
-      status.textContent = 'Step ' + (si+1) + ' of ' + BIOC_STEPS.length;
-      for (const line of step.lines) {
-        await new Promise(r => setTimeout(r, 200 + Math.random() * 100));
-        output.textContent += line + '\n';
-        const body = document.getElementById('bioc-term-body');
-        if (body) body.scrollTop = body.scrollHeight;
-      }
-      if (stepEl) stepEl.className = 'sim-step-item done';
-      await new Promise(r => setTimeout(r, 400));
-    }
-    status.textContent = 'Complete';
-    btn.textContent = '↻ Replay';
-    btn.disabled = false;
-    biocRunning = false;
-  }
-
   function escHtml(s) {
     return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
