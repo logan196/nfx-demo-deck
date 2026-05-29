@@ -2238,29 +2238,6 @@
 
     <div class="codegen-grid">
 
-      <!-- Use case 1: Variant → Structure pipeline -->
-      <div class="codegen-card" onclick="runCodegenDemo('variant-structure')">
-        <div class="codegen-header">
-          <div class="cg-agent">Mendel → Franklin</div>
-          <div class="cg-title">Variant-to-Structure Pipeline</div>
-          <div class="cg-desc">Start from an rsID, resolve the gene, fetch the AlphaFold prediction, map the variant onto the 3D fold, check structural impact.</div>
-        </div>
-        <div class="codegen-term" id="cg-term-variant-structure">
-          <div><span class="cg-prompt">$</span> <span class="cg-cmd">nfx mendel rs104893877</span></div>
-          <div class="cg-dim">  Querying ClinVar + gnomAD + VEP...</div>
-          <div class="cg-out">  Gene: SNCA · p.Ala53Thr (A53T) · <span class="cg-ok">★ Pathogenic</span></div>
-          <div class="cg-out">  MAF: &lt; 0.0001 · CADD: 32.0 · SIFT: Deleterious</div>
-          <div class="cg-dim">  ── 0.9s | VEP + ClinVar ──</div>
-          <div style="height:8px"></div>
-          <div><span class="cg-prompt">$</span> <span class="cg-cmd">nfx rosalind SNCA --highlight A53T</span></div>
-          <div class="cg-dim">  Fetching AlphaFold AF-P37840-F1...</div>
-          <div class="cg-out">  pLDDT at pos 53: <span style="color:var(--gold)">72.1</span> (confident)</div>
-          <div class="cg-out">  Region: N-terminal repeat (aa 1-60) — adjacent to NAC fibril core</div>
-          <div class="cg-out">  A53T disrupts hydrophobic packing → <span class="cg-ok">aggregation-prone</span></div>
-          <div class="cg-dim">  ── 1.6s | AlphaFold + PISA ──</div>
-        </div>
-      </div>
-
       <!-- Use case 2: Spatial niche analysis -->
       <div class="codegen-card" onclick="runCodegenDemo('spatial-niche')">
         <div class="codegen-header">
@@ -2311,29 +2288,6 @@
         <div class="codegen-output">
           <div class="cg-out-label">↳ Output: FlowSOM star charts</div>
           <img src="img/bioc/flowsom_star_chart.png" alt="FlowSOM star chart" />
-        </div>
-      </div>
-
-      <!-- Use case 4: Evolutionary conservation -->
-      <div class="codegen-card" onclick="runCodegenDemo('evolution-brca')">
-        <div class="codegen-header">
-          <div class="cg-agent">Darwin · Evolution</div>
-          <div class="cg-title">Cross-Species Selection Scan</div>
-          <div class="cg-desc">BRCA1 across vertebrates — ortholog retrieval, dN/dS by domain, phylogenetic tree construction with bootstrap support.</div>
-        </div>
-        <div class="codegen-term" id="cg-term-evolution-brca">
-          <div><span class="cg-prompt">$</span> <span class="cg-cmd">nfx darwin BRCA1 --full</span></div>
-          <div class="cg-dim">  Fetching 6 orthologs from Ensembl Compara...</div>
-          <div class="cg-out">  H.sapiens · P.troglodytes · M.musculus · R.norvegicus · G.gallus · D.rerio</div>
-          <div class="cg-dim">  Running PAML codeml (branch-site model)...</div>
-          <div class="cg-out">  Global ω = 0.087 (strong purifying selection)</div>
-          <div class="cg-ok">    BRCT domain:  ω = 0.021 (ultra-conserved)</div>
-          <div class="cg-ok">    RING domain:  ω = 0.034 (ultra-conserved)</div>
-          <div style="color:var(--gold)">    Exon 11 (IDR): ω = 0.31 (relaxed constraint)</div>
-          <div class="cg-dim">  Building IQ-TREE phylogeny (GTR+G4, 1000 UFBoot)...</div>
-          <div class="cg-ok">  ((Human,Chimp)0.99,(Mouse,Rat)1.0,Chicken,Zebrafish);</div>
-          <div class="cg-ok">  ✓ Topology matches expected vertebrate phylogeny</div>
-          <div class="cg-dim">  ── 12.4s | Ensembl Compara + PAML + IQ-TREE ──</div>
         </div>
       </div>
 
@@ -4120,6 +4074,52 @@
 
   // ─── Experiment terminal simulation data ──────────────────────────
   const EXP_SIMS = {
+    'research': [
+      { t:'prompt', text:'$ nfx research "CRISPR base editing efficiency"' },
+      { t:'head', text:'  ━━ AUTORESEARCH ━━━━━━━━━━━━━━━━━━━━━━━━━━━━' },
+      { t:'dim', text:'  searching PubMed + Europe PMC...' },
+      { t:'ok',  text:'  ✓ pubmed_search  "base editing efficiency"      → 41 hits' },
+      { t:'ok',  text:'  ✓ pubmed_search  "adenine base editor in vivo"   → 18 hits' },
+      { t:'dim', text:'  screening 59 abstracts → 5 selected for deep read' },
+      { t:'blank', text:'' },
+      { t:'dim', text:'  reading papers...' },
+      { t:'ok',  text:'  ✓ paper_read  Komor et al., Nature 2016 — cytosine base editor' },
+      { t:'ok',  text:'  ✓ paper_read  Gaudelli et al., Nature 2017 — adenine base editor' },
+      { t:'ok',  text:'  ✓ paper_read  Anzalone et al., Nature 2019 — prime editing' },
+      { t:'blank', text:'' },
+      { t:'head', text:'  ━━ FINDINGS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' },
+      { t:'kv', text:'  Base editors install point mutations with no double-strand' },
+      { t:'kv', text:'  break, so indel rates stay far below HDR. Reported ranges:' },
+      { t:'kv', text:'    CBE (BE3/BE4)   ~20-75% C·G→T·A, narrow edit window' },
+      { t:'kv', text:'    ABE (ABE7.10)   up to ~50% A·T→G·C, indels <0.1%' },
+      { t:'kv', text:'    ABE8e           ~10x faster deaminase kinetics' },
+      { t:'kv', text:'    Prime editing   all 12 substitutions, usually lower yield' },
+      { t:'ok', text:'  ✓ Efficiency is locus-, window- and delivery-dependent' },
+      { t:'blank', text:'' },
+      { t:'ok', text:'  ✓ file_write  crispr_base_editing_brief.md  (1,180 words · 5 cites)' },
+      { t:'dim', text:'  ── 38.4s | PubMed + Europe PMC ──' },
+    ],
+    'audit': [
+      { t:'prompt', text:'$ nfx audit 10.1038/s41586-024-07487-w' },
+      { t:'dim', text:'  Resolving DOI via Crossref...' },
+      { t:'head', text:'  ━━ AUDIT: Abramson et al., Nature 2024 ━━━━━━' },
+      { t:'kv', text:'  Title   Accurate structure prediction of biomolecular' },
+      { t:'kv', text:'          interactions with AlphaFold 3' },
+      { t:'dim', text:'  Extracting central claims · checking the public record...' },
+      { t:'blank', text:'' },
+      { t:'ok',   text:'  ✓ Benchmarks  SOTA on PoseBusters & antibody–antigen (independently noted)' },
+      { t:'ok',   text:'  ✓ Data        training/eval targets described (PDB-derived)' },
+      { t:'warn', text:'  ⚠ Code        inference code + weights NOT released at publication' },
+      { t:'warn', text:'                (rate-limited web server only) → limits reproduction' },
+      { t:'kv',   text:'                resolved ~6 mo later: code under non-commercial licence' },
+      { t:'ok',   text:'  ✓ Stats       per-prediction confidence reported (pLDDT · PAE · pTM)' },
+      { t:'blank', text:'' },
+      { t:'head', text:'  ━━ VERDICT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' },
+      { t:'kv', text:'  High-impact and well-benchmarked. The reproducibility gap' },
+      { t:'kv', text:'  at publication (withheld code/weights) was the main flag —' },
+      { t:'kv', text:'  partially closed by the later code release.' },
+      { t:'dim', text:'  ── 11.2s | Crossref + OpenAlex + repository check ──' },
+    ],
     'exp-parkinson': [
       { t:'prompt', text:'$ nfx variant rs104893877' },
       { t:'dim', text:'  Querying Ensembl VEP...' },
