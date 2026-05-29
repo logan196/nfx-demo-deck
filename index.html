@@ -656,7 +656,7 @@
   .codegen-header .cg-agent { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; color:var(--lavender); }
   .codegen-header .cg-title { font-size:15px; font-weight:700; color:var(--ink-0); margin-top:4px; }
   .codegen-header .cg-desc { font-size:11px; color:var(--ink-2); margin-top:2px; line-height:1.4; }
-  .codegen-term { padding:14px 18px; font-family:'JetBrains Mono',monospace; font-size:11px; line-height:1.5; color:var(--ink-1); background:rgba(0,0,0,.3); max-height:280px; overflow-y:auto; }
+  .codegen-term { padding:12px 18px; font-family:'JetBrains Mono',monospace; font-size:10.5px; line-height:1.42; color:var(--ink-1); background:rgba(0,0,0,.3); max-height:215px; overflow-y:auto; }
   .codegen-term .cg-prompt { color:var(--green); }
   .codegen-term .cg-cmd { color:var(--ink-0); }
   .codegen-term .cg-out { color:var(--ink-2); }
@@ -2233,7 +2233,7 @@
     <div class="section-head">
       <div class="num">06b — What the agents actually produce</div>
       <h2>Real <span class="grad-text">terminal output</span>, not mockups.</h2>
-      <p class="sub">Each scientist agent generates live, reproducible analysis from public APIs. Each card shows a representative terminal session from real API data. Every output is sourced, not hallucinated.</p>
+      <p class="sub">Live, reproducible analysis from public APIs — sourced, not hallucinated.</p>
     </div>
 
     <div class="codegen-grid">
@@ -2256,10 +2256,6 @@
           <div style="color:var(--gold)">    MKI67+ prolif ↔ CD8+ TILs      z = -1.8  (depleted)</div>
           <div class="cg-dim">  Saved: niche_map.html (interactive)</div>
           <div class="cg-dim">  ── 6.2s | Squidpy + Scanpy + Xenium ──</div>
-        </div>
-        <div class="codegen-output">
-          <div class="cg-out-label">↳ Output: neighborhood enrichment</div>
-          <img src="img/bioc/pathway_heatmap.png" alt="Spatial niche heatmap" />
         </div>
       </div>
 
@@ -2285,18 +2281,78 @@
           <div class="cg-ok">  Enrichr: T cell exhaustion pathway p=3.2e-8</div>
           <div class="cg-dim">  ── 8.7s | FlowKit + FlowSOM + Enrichr ──</div>
         </div>
-        <div class="codegen-output">
-          <div class="cg-out-label">↳ Output: FlowSOM star charts</div>
-          <img src="img/bioc/flowsom_star_chart.png" alt="FlowSOM star chart" />
-        </div>
       </div>
 
     </div><!-- /codegen-grid -->
 
-    <div class="cmd-hint" style="margin-top:2vh;">
-      <span class="dot-pulse"></span>
-      Every output above reflects real API data — sourced and reproducible
+    <style>
+      .gb-card{position:relative;grid-column:1/-1;margin-top:14px;cursor:pointer}
+      .gb-card .codegen-header{padding:10px 18px 8px}
+      .gb-wrap{background:#06050c;border-radius:0 0 14px 14px;padding:10px 18px 12px}
+      .gb-bar{display:flex;justify-content:space-between;align-items:baseline;font-family:'IBM Plex Mono',monospace;font-size:12px;margin-bottom:6px}
+      .gb-bar .gb-cmd{color:#a78bfa} .gb-bar .gb-cmd b{color:#64e682;font-weight:500}
+      .gb-bar .gb-meta{color:#6a6188;font-size:11px}
+      .gb-svg{width:100%;height:auto;display:block}
+      .gb-foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 18px;margin-top:8px;
+        font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6a6188}
+      .gb-foot .lg{display:inline-flex;align-items:center;gap:5px;margin-right:14px}
+      .gb-foot .sw{width:10px;height:10px;border-radius:2px;display:inline-block}
+    </style>
+    <div class="codegen-card cmd-card gb-card" data-cmd="browser" data-gif="gifs/nfx-browser.gif">
+      <div class="codegen-header">
+        <div class="cg-agent">Watson · Genomics</div>
+        <div class="cg-title">Genome Browser — UCSC-style, in the terminal</div>
+        <div class="cg-desc">Resolve any locus and render gene models + regulatory features from Ensembl. Shown: the <b>EGFR</b> locus on chr7 (GRCh38).</div>
+      </div>
+      <div class="gb-wrap">
+        <div class="gb-bar"><span class="gb-cmd"><b>$</b> nfx browser chr7:55,000,000-55,200,000</span><span class="gb-meta">200 kb · GRCh38 · Ensembl REST</span></div>
+        <svg class="gb-svg" viewBox="0 0 1000 124" preserveAspectRatio="xMidYMid meet" font-family="'IBM Plex Mono',monospace">
+          <!-- ruler -->
+          <line x1="20" y1="30" x2="980" y2="30" stroke="#2a2740" stroke-width="1"/>
+          <g fill="#98a1b1" font-size="11" text-anchor="middle">
+            <line x1="20"  y1="26" x2="20"  y2="34" stroke="#4a4660"/><text x="34"  y="18">55.00M</text>
+            <line x1="260" y1="26" x2="260" y2="34" stroke="#4a4660"/><text x="260" y="18">55.05M</text>
+            <line x1="500" y1="26" x2="500" y2="34" stroke="#4a4660"/><text x="500" y="18">55.10M</text>
+            <line x1="740" y1="26" x2="740" y2="34" stroke="#4a4660"/><text x="740" y="18">55.15M</text>
+            <line x1="980" y1="26" x2="980" y2="34" stroke="#4a4660"/><text x="966" y="18">55.20M</text>
+          </g>
+          <!-- promoter at EGFR TSS -->
+          <rect x="110" y="44" width="3" height="30" fill="#ffb43c"/>
+          <!-- EGFR (protein-coding, + strand) -->
+          <line x1="111" y1="58" x2="980" y2="58" stroke="#5B8DEF" stroke-width="1.4"/>
+          <g fill="#5B8DEF">
+            <rect x="111" y="51" width="8" height="14" rx="1"/><rect x="150" y="51" width="7" height="14" rx="1"/><rect x="196" y="51" width="11" height="14" rx="1"/><rect x="244" y="51" width="7" height="14" rx="1"/><rect x="292" y="51" width="9" height="14" rx="1"/><rect x="345" y="51" width="7" height="14" rx="1"/><rect x="398" y="51" width="10" height="14" rx="1"/><rect x="452" y="51" width="7" height="14" rx="1"/><rect x="508" y="51" width="9" height="14" rx="1"/><rect x="566" y="51" width="7" height="14" rx="1"/><rect x="622" y="51" width="10" height="14" rx="1"/><rect x="682" y="51" width="7" height="14" rx="1"/><rect x="742" y="51" width="9" height="14" rx="1"/><rect x="804" y="51" width="7" height="14" rx="1"/><rect x="864" y="51" width="10" height="14" rx="1"/><rect x="926" y="51" width="8" height="14" rx="1"/>
+          </g>
+          <g stroke="#5B8DEF" stroke-width="1.2" fill="none" opacity=".75">
+            <path d="M133 55 L138 58 L133 61"/><path d="M270 55 L275 58 L270 61"/><path d="M425 55 L430 58 L425 61"/><path d="M590 55 L595 58 L590 61"/><path d="M770 55 L775 58 L770 61"/><path d="M895 55 L900 58 L895 61"/>
+          </g>
+          <path d="M980 52 L992 58 L980 64 Z" fill="#5B8DEF"/>
+          <text x="111" y="80" fill="#9fc0ff" font-size="12" font-style="italic">EGFR</text>
+          <text x="150" y="80" fill="#6a6188" font-size="10">protein-coding · + · 28 exons</text>
+          <!-- SEC61G (protein-coding, +, upstream, clipped at left) -->
+          <path d="M20 92 L8 98 L20 104 Z" fill="#5B8DEF"/>
+          <line x1="20" y1="98" x2="140" y2="98" stroke="#5B8DEF" stroke-width="1.4"/>
+          <g fill="#5B8DEF"><rect x="22" y="92" width="9" height="12" rx="1"/><rect x="64" y="92" width="8" height="12" rx="1"/><rect x="110" y="92" width="11" height="12" rx="1"/></g>
+          <text x="20" y="120" fill="#9fc0ff" font-size="11" font-style="italic">SEC61G</text>
+          <!-- EGFR-AS1 (lncRNA, - strand, antisense at 3' end) -->
+          <line x1="812" y1="98" x2="966" y2="98" stroke="#64e682" stroke-width="1.4"/>
+          <g fill="#64e682"><rect x="812" y="92" width="9" height="12" rx="1"/><rect x="862" y="92" width="8" height="12" rx="1"/><rect x="916" y="92" width="10" height="12" rx="1"/><rect x="956" y="92" width="10" height="12" rx="1"/></g>
+          <g stroke="#64e682" stroke-width="1.2" fill="none" opacity=".8"><path d="M845 95 L840 98 L845 101"/><path d="M905 95 L900 98 L905 101"/></g>
+          <text x="812" y="120" fill="#8ff0ad" font-size="11" font-style="italic">EGFR-AS1</text>
+          <text x="884" y="120" fill="#6a6188" font-size="10">lncRNA · −</text>
+        </svg>
+        <div class="gb-foot">
+          <span>
+            <span class="lg"><span class="sw" style="background:#5B8DEF"></span>protein-coding</span>
+            <span class="lg"><span class="sw" style="background:#64e682"></span>lncRNA</span>
+            <span class="lg"><span class="sw" style="background:#ffb43c"></span>promoter / enhancer</span>
+          </span>
+          <span>2 protein-coding · 1 lncRNA · 71 regulatory features</span>
+        </div>
+      </div>
+      <div class="play-hint" style="position:absolute;top:12px;right:14px;">▶</div>
     </div>
+
   </section>
 
   <!-- ═══ SLIDE 7.5 - POWER-USER CLI PATTERNS ═══ -->
