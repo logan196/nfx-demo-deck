@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>nfx - Computational Biology, From the Terminal</title>
 <meta name="robots" content="noindex,nofollow">
-<link rel="stylesheet" href="assets-gate/gate.css">
-<script src="assets-gate/gate.js"></script>
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -2745,21 +2745,74 @@
     <div class="brand-chip">
       <img src="img/logo-wordmark.png" alt="" />
       <span class="sep"></span>
-      <span class="kicker">nfx · live demo</span>
+      <span class="kicker">nfx · bioconductor live</span>
     </div>
-    <div class="section-head" style="margin-bottom:1.2vh;">
-      <div class="num">11 - Live product · real flow cytometry data</div>
-      <h2>Not a mockup. <span class="grad-text">The real engine, gating live</span> in your browser.</h2>
-      <p class="sub">A 16-color immunophenotyping panel — auto-gated, pseudocolor-rendered, chat-driven. Running right here.</p>
+    <div class="section-head">
+      <div class="num">11 - Live: CD8+ T cell exhaustion workup</div>
+      <h2>One command → <span class="grad-text">8 publication figures + 3 interactive dashboards</span></h2>
+      <p class="sub">Click <strong>Run Pipeline</strong> to watch nfx analyze a 16-color immunophenotyping panel through the full Bioconductor stack.</p>
     </div>
-    <div style="flex:1; display:flex; flex-direction:column; min-height:0;">
-      <div style="display:flex; align-items:center; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-3); margin-bottom:8px;">
-        <span style="display:inline-flex; align-items:center; gap:6px; color:var(--green); font-weight:600;"><span style="width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green);"></span>LIVE</span>
-        <span>nfx-flow · running inside this slide</span>
-        <a href="https://novaflow-labs.github.io/nfx-flow-demo/?pw=Manchos&amp;sample=100715#light" target="_blank" rel="noopener" style="margin-left:auto; color:var(--lavender); text-decoration:none;">Open full screen &#8599;</a>
+
+    <div style="display:grid; grid-template-columns: 1.15fr .85fr; gap: 3vw; flex:1; align-items:start;">
+      <div>
+        <div class="terminal" style="margin-bottom:2vh;">
+          <div class="titlebar">
+            <div class="light l1"></div><div class="light l2"></div><div class="light l3"></div>
+            <span class="label">~/lab - nfx bioc report</span>
+          </div>
+          <div class="body" id="bioc-term-body" style="min-height:340px; max-height:400px; overflow-y:auto;">
+            <pre id="bioc-term-output" style="white-space:pre-wrap;"></pre>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;" id="bioc-viz-thumbs">
+        </div>
       </div>
-      <div style="flex:1; border:1px solid rgba(192,144,235,.28); border-radius:14px; overflow:hidden; box-shadow:0 30px 80px -20px rgba(0,0,0,.6), 0 0 60px -10px rgba(142,68,207,.22); background:#07070c; min-height:0;">
-        <iframe src="https://novaflow-labs.github.io/nfx-flow-demo/?pw=Manchos&amp;sample=100715#light" title="nfx-flow live demo" allow="clipboard-read; clipboard-write" style="width:100%; height:100%; border:0; display:block;"></iframe>
+
+      <div>
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+          <button class="sim-btn" id="bioc-run-btn" onclick="runBiocPipeline()">▶ Run Pipeline</button>
+          <span id="bioc-status" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-3); letter-spacing:.04em;">Ready</span>
+        </div>
+
+        <div id="bioc-steps">
+          <div class="sim-step-track">
+            <div class="sim-step-item" id="bs-0">
+              <span class="ss-dot"></span>
+              <div><strong style="color:var(--ink-0); font-size:14px;">Load FCS data</strong><br/><span style="color:var(--ink-2); font-size:12px;">65,016 events × 16 channels (BD FACSAria)</span></div>
+            </div>
+            <div class="sim-step-item" id="bs-1">
+              <span class="ss-dot"></span>
+              <div><strong style="color:var(--ink-0); font-size:14px;">FlowSOM clustering</strong><br/><span style="color:var(--ink-2); font-size:12px;">10×10 SOM → 8 metaclusters (silhouette=0.39)</span></div>
+            </div>
+            <div class="sim-step-item" id="bs-2">
+              <span class="ss-dot"></span>
+              <div><strong style="color:var(--ink-0); font-size:14px;">Trajectory inference</strong><br/><span style="color:var(--ink-2); font-size:12px;">Slingshot-inspired MST: Naive → TCM → TEM → TEMRA</span></div>
+            </div>
+            <div class="sim-step-item" id="bs-3">
+              <span class="ss-dot"></span>
+              <div><strong style="color:var(--ink-0); font-size:14px;">Pathway enrichment</strong><br/><span style="color:var(--ink-2); font-size:12px;">KEGG + Reactome + GO BP on marker→gene mappings</span></div>
+            </div>
+            <div class="sim-step-item" id="bs-4">
+              <span class="ss-dot"></span>
+              <div><strong style="color:var(--ink-0); font-size:14px;">GSEA</strong><br/><span style="color:var(--ink-2); font-size:12px;">fgsea on ranked effector signature (NES=2.53)</span></div>
+            </div>
+            <div class="sim-step-item" id="bs-5">
+              <span class="ss-dot"></span>
+              <div><strong style="color:var(--ink-0); font-size:14px;">Visualizations</strong><br/><span style="color:var(--ink-2); font-size:12px;">8 PNG + 3 interactive HTML → output/bioc_report/</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="bioc-summary" style="margin-top:16px; padding:14px 16px; background:rgba(20,17,42,.6); border:1px solid rgba(0,200,180,.15); border-radius:12px; display:none;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--teal); letter-spacing:.1em; margin-bottom:8px;">PIPELINE COMPLETE</div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px;">
+            <div style="text-align:center;"><div style="font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:800; color:var(--teal);">8</div><div style="font-size:10px; color:var(--ink-3);">PNG figures</div></div>
+            <div style="text-align:center;"><div style="font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:800; color:var(--teal);">3</div><div style="font-size:10px; color:var(--ink-3);">HTML dashboards</div></div>
+            <div style="text-align:center;"><div style="font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:800; color:var(--teal);">12</div><div style="font-size:10px; color:var(--ink-3);">pathways hit</div></div>
+            <div style="text-align:center;"><div style="font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:800; color:var(--teal);" id="bioc-elapsed">0.0s</div><div style="font-size:10px; color:var(--ink-3);">total</div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -3086,7 +3139,7 @@
 </div>
 
 <div class="nav" id="nav"></div>
-<div class="pageno"><b id="cur">1</b> &nbsp;/&nbsp; <span id="tot">17</span></div>
+<div class="pageno"><b id="cur">1</b> &nbsp;/&nbsp; <span id="tot">10</span></div>
 
 <script>
   const slides = document.querySelectorAll('.slide');
@@ -3420,6 +3473,7 @@
     window.location.hash = 's' + (idx + 1);
     var played = window._nfxPlayed || (window._nfxPlayed = {});
     if (idx === 11 && !played.wf) { played.wf = 1; setTimeout(function(){ if (typeof runWorkflow === 'function') runWorkflow(); }, 650); }
+    if (idx === 13 && !played.bioc) { played.bioc = 1; setTimeout(function(){ if (typeof runBiocPipeline === 'function') runBiocPipeline(); }, 650); }
   }
 
   // Hash-based deep link: #s11 opens slide 11
@@ -3809,6 +3863,109 @@
   function escHtml(s) {
     return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
+
+  // Slide 14: Bioconductor pipeline live demo
+  var biocRunning = false;
+  var BIOC_STEPS = [
+    { step:0, cmd:'nfx bioc report 100715.fcs', lines:[
+      { t:'prompt', text:'$ nfx bioc report 100715.fcs --panel immuno --out bioc_report/' },
+      { t:'dim',  text:'  reading FCS 3.1 · BD FACSAria · 13×13 spillover matrix' },
+      { t:'kv',   text:'  events        65,016' },
+      { t:'kv',   text:'  channels      16  (13 fluorescence + 3 scatter)' },
+      { t:'dim',  text:'  applying logicle transform to fluorescence channels...' },
+      { t:'ok',   text:'  ✓ loaded & compensated in 0.4s' } ]},
+    { step:1, cmd:'FlowSOM clustering', thumbs:['flowsom_star_chart.png'], lines:[
+      { t:'head', text:'  ━━ FlowSOM ━━━━━━━━━━━━━━━━━━━━━━━' },
+      { t:'dim',  text:'  training 10×10 SOM · 10 epochs ............ done' },
+      { t:'dim',  text:'  consensus metaclustering k=8 · silhouette 0.39' },
+      { t:'kv',   text:'  MC1 Naive CD8   18.4%     MC2 TCM        21.7%' },
+      { t:'kv',   text:'  MC3 TEM         16.5%     MC4 TEMRA      14.2%' },
+      { t:'ok',   text:'  ✓ 8 metaclusters → flowsom_star_chart.png' } ]},
+    { step:2, cmd:'Trajectory inference', thumbs:['trajectory_analysis.png'], lines:[
+      { t:'head', text:'  ━━ TRAJECTORY ━━━━━━━━━━━━━━━━━━━━' },
+      { t:'dim',  text:'  MST over metacluster centroids · root = Naive' },
+      { t:'kv',   text:'  Naive → TCM → TEM → TEMRA   (pseudotime r²=0.91)' },
+      { t:'warn', text:'  exhaustion axis: PD-1 up  TIM-3 up  along pseudotime' },
+      { t:'ok',   text:'  ✓ differentiation_trajectory.png' } ]},
+    { step:3, cmd:'Pathway enrichment', thumbs:['kegg_enrichment_dotplot.png','reactome_enrichment_dotplot.png'], lines:[
+      { t:'head', text:'  ━━ ENRICHMENT · KEGG · Reactome · GO BP ━' },
+      { t:'dim',  text:'  mapping 16 markers → 142 genes (CD-antigen→HGNC)' },
+      { t:'kv',   text:'  KEGG      T cell receptor signaling   p=2.1e-7 ✓' },
+      { t:'kv',   text:'  Reactome  PD-1 signaling              p=4.8e-6 ✓' },
+      { t:'kv',   text:'  GO:BP     T cell differentiation      p=9.3e-8 ✓' },
+      { t:'ok',   text:'  ✓ 12 pathways significant (FDR < 0.05)' } ]},
+    { step:4, cmd:'GSEA', thumbs:['gsea_waterfall.png'], lines:[
+      { t:'head', text:'  ━━ GSEA · fgsea ━━━━━━━━━━━━━━━━━━' },
+      { t:'dim',  text:'  ranking 142 genes by TEM-vs-Naive logFC' },
+      { t:'kv',   text:'  EFFECTOR_MEMORY    NES=2.53    p.adj=1e-4 ✓' },
+      { t:'kv',   text:'  EXHAUSTION         NES=1.97    p.adj=3e-3 ✓' },
+      { t:'ok',   text:'  ✓ gsea_waterfall.png' } ]},
+    { step:5, cmd:'Visualizations', thumbs:['pathway_heatmap.png','go_bp_enrichment_dotplot.png','tem_vs_naive_enrichment.png'], lines:[
+      { t:'head', text:'  ━━ RENDER ━━━━━━━━━━━━━━━━━━━━━' },
+      { t:'ok',   text:'  ✓ 8 PNG figures written (300 DPI)' },
+      { t:'ok',   text:'  ✓ 3 interactive HTML dashboards (Plotly / pyvis)' },
+      { t:'dim',  text:'  → output/bioc_report/   ·   0 R packages installed' } ]},
+  ];
+  function biocLineHTML(t, text) {
+    if (t === 'prompt')  return '<span style="color:var(--purple-0);font-weight:600">$</span> <span style="color:var(--lavender)">' + escHtml(text.replace(/^\$ /,'')) + '</span>';
+    if (t === 'head')    return '<span style="color:var(--lavender);font-weight:700;letter-spacing:.04em">' + escHtml(text) + '</span>';
+    if (t === 'ok')      return '<span style="color:var(--green)">' + escHtml(text) + '</span>';
+    if (t === 'warn')    return '<span style="color:var(--gold)">' + escHtml(text) + '</span>';
+    if (t === 'dim')     return '<span style="color:var(--ink-3)">' + escHtml(text) + '</span>';
+    if (t === 'blank')   return '&nbsp;';
+    var m = text.match(/^(\s*\S+(?:\s\S+)*?)(\s{2,})(.*)/);
+    if (m) return '<span style="color:var(--ink-2)">' + escHtml(m[1]) + '</span>' + m[2] + '<span style="color:var(--ink-0)">' + escHtml(m[3]) + '</span>';
+    return '<span style="color:var(--ink-2)">' + escHtml(text) + '</span>';
+  }
+  async function runBiocPipeline() {
+    if (biocRunning) return;
+    biocRunning = true;
+    var btn = document.getElementById('bioc-run-btn');
+    var status = document.getElementById('bioc-status');
+    var output = document.getElementById('bioc-term-output');
+    var body = document.getElementById('bioc-term-body');
+    var summary = document.getElementById('bioc-summary');
+    var elapsed = document.getElementById('bioc-elapsed');
+    var thumbs = document.getElementById('bioc-viz-thumbs');
+    btn.disabled = true; btn.textContent = '▷ Running...';
+    output.innerHTML = ''; summary.style.display = 'none'; thumbs.innerHTML = '';
+    for (var i = 0; i < 6; i++) { var e = document.getElementById('bs-' + i); if (e) e.className = 'sim-step-item'; }
+    function addThumb(file) {
+      var im = document.createElement('img');
+      im.src = 'img/bioc/' + file; im.alt = file; im.title = file;
+      im.style.cssText = 'height:50px;border-radius:6px;border:1px solid rgba(192,144,235,.28);box-shadow:0 6px 16px -8px rgba(0,0,0,.7);opacity:0;transform:translateY(6px) scale(.96);transition:opacity .45s ease, transform .45s ease;background:#0b0918;';
+      thumbs.appendChild(im);
+      requestAnimationFrame(function(){ im.style.opacity = '1'; im.style.transform = 'none'; });
+    }
+    var t0 = performance.now();
+    for (var si = 0; si < BIOC_STEPS.length; si++) {
+      var st = BIOC_STEPS[si];
+      var se = document.getElementById('bs-' + st.step);
+      if (se) se.className = 'sim-step-item active';
+      status.textContent = 'Running: ' + st.cmd;
+      for (var li = 0; li < st.lines.length; li++) {
+        var line = st.lines[li];
+        await new Promise(function(r){ setTimeout(r, line.t === 'prompt' ? 280 : 95); });
+        var div = document.createElement('div');
+        div.className = 'sim-line';
+        div.style.cssText = 'opacity:0;transition:opacity .18s ease;';
+        div.innerHTML = biocLineHTML(line.t, line.text || '');
+        output.appendChild(div);
+        (function(d){ requestAnimationFrame(function(){ d.style.opacity = '1'; }); })(div);
+        if (body) body.scrollTop = body.scrollHeight;
+      }
+      (st.thumbs || []).forEach(addThumb);
+      if (se) se.className = 'sim-step-item done';
+      await new Promise(function(r){ setTimeout(r, 300); });
+    }
+    elapsed.textContent = ((performance.now() - t0) / 1000).toFixed(1) + 's';
+    summary.style.display = 'block';
+    status.textContent = 'Complete';
+    btn.textContent = '↻ Replay';
+    btn.disabled = false;
+    biocRunning = false;
+  }
+  window.runBiocPipeline = runBiocPipeline;
 
   // ─── Scientist agent terminal simulation data ──────────────────
   const SCI_SIMS = {
