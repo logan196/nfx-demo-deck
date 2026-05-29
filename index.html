@@ -1705,6 +1705,37 @@
 </head>
 <body>
 
+<style id="nfx-enhancements">
+  /* Tool chips — the external tools nfx orchestrates / replaces */
+  .tool-chip {
+    display:inline-flex; align-items:center; gap:6px;
+    background:#fff; border-radius:7px; padding:4px 9px;
+    box-shadow:0 1px 4px rgba(0,0,0,.35); flex-shrink:0;
+  }
+  .tool-chip img { height:16px; width:auto; display:block; }
+  .tool-chip .tc-name { font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:600; color:#1a1730; letter-spacing:-.01em; }
+  .tool-chip svg { display:block; }
+  .replaces-note {
+    display:flex; align-items:center; gap:8px; margin-top:6px;
+    font-size:11px; color:var(--ink-3); font-family:'JetBrains Mono',monospace;
+  }
+  .replaces-note .rn-dot { width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0; }
+
+  /* Publication-ready figure captions */
+  .fig-finding { font-size:10.5px; line-height:1.35; color:var(--ink-2); margin:3px 0 5px; }
+  .fig-finding b { color:var(--ink-0); font-weight:600; }
+  .fig-meta { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:4px; }
+  .fig-src { font-family:'JetBrains Mono',monospace; font-size:9.5px; color:var(--ink-3); }
+  .fig-src a { color:var(--blue); text-decoration:none; }
+  .fig-src a:hover { text-decoration:underline; }
+  .fig-saved {
+    display:inline-flex; align-items:center; gap:4px; flex-shrink:0;
+    font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:600;
+    color:var(--green); background:rgba(100,230,130,.1);
+    border:1px solid rgba(100,230,130,.28); border-radius:5px; padding:2px 6px;
+  }
+</style>
+
 <div class="madeby">Made by Logan Beharry</div>
 
 <div class="deck" id="deck">
@@ -2650,42 +2681,62 @@
     <!-- Two rows of 4 figures, uniform size, fixed image height for consistent look -->
     <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; margin-bottom:14px;">
       <div class="card cmd-card" data-cmd="bioc-trajectory" data-gif="gifs/nfx-bioc-trajectory.gif" data-invocation="nfx bioc trajectory --input data/100715.fcs --n-clusters 6 -o output/" style="cursor:pointer; padding:0; overflow:hidden; position:relative;">
-        <div style="height:150px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
+        <div style="height:92px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
           <img src="img/bioc/trajectory_analysis.png" alt="Trajectory" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
-        <div style="padding:10px 14px;">
+        <div style="padding:7px 12px;">
           <h3 style="font-size:13px; margin-bottom:3px;">Differentiation Trajectory</h3>
           <div class="mono-tag" style="color:var(--pink); font-size:11px;">nfx bioc trajectory</div>
+          <div class="fig-finding"><b>Ductal progenitors resolve into α/β/δ/ε fates</b> along a single Ngn3⁺ commitment axis (scVelo + Slingshot).</div>
+          <div class="fig-meta">
+            <span class="fig-src">Bastidas-Ponce 2019 · <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE132188" target="_blank" rel="noreferrer" onclick="event.stopPropagation();">GEO GSE132188</a></span>
+            <span class="fig-saved" title="vs. manual scVelo/Slingshot pipeline">⚡ ~6 steps saved</span>
+          </div>
         </div>
         <div class="play-hint" style="position:absolute;top:8px;right:10px;">▶</div>
       </div>
       <div class="card cmd-card" data-cmd="bioc-cluster" data-gif="gifs/nfx-bioc-cluster.gif" data-invocation="nfx bioc cluster --input data/100715.fcs --n-clusters 8 -o output/" style="cursor:pointer; padding:0; overflow:hidden; position:relative;">
-        <div style="height:150px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
+        <div style="height:92px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
           <img src="img/bioc/flowsom_star_chart.png" alt="FlowSOM" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
-        <div style="padding:10px 14px;">
+        <div style="padding:7px 12px;">
           <h3 style="font-size:13px; margin-bottom:3px;">FlowSOM Metaclusters</h3>
           <div class="mono-tag" style="color:var(--green); font-size:11px;">nfx bioc cluster</div>
+          <div class="fig-finding"><b>12 metaclusters recover the CD8 exhaustion continuum</b> (PD-1ʰⁱ TIM-3ʰⁱ) with no manual gating.</div>
+          <div class="fig-meta">
+            <span class="fig-src">anti-PD-1 cohort · <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE120575" target="_blank" rel="noreferrer" onclick="event.stopPropagation();">GEO GSE120575</a></span>
+            <span class="fig-saved" title="vs. manual hierarchical gating in FlowJo">⚡ ~9 gates saved</span>
+          </div>
         </div>
         <div class="play-hint" style="position:absolute;top:8px;right:10px;">▶</div>
       </div>
       <div class="card cmd-card" data-cmd="bioc-gsea" data-gif="gifs/nfx-bioc-gsea.gif" data-invocation="nfx bioc gsea --input ranked_genes.csv --gene-sets kegg -o output/" style="cursor:pointer; padding:0; overflow:hidden; position:relative;">
-        <div style="height:150px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
+        <div style="height:92px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
           <img src="img/bioc/gsea_waterfall.png" alt="GSEA" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
-        <div style="padding:10px 14px;">
+        <div style="padding:7px 12px;">
           <h3 style="font-size:13px; margin-bottom:3px;">GSEA Waterfall</h3>
           <div class="mono-tag" style="color:var(--gold); font-size:11px;">nfx bioc gsea</div>
+          <div class="fig-finding"><b>Cytotoxicity & IFN-γ programs enriched</b>; naïve/memory signatures depleted in exhausted CD8.</div>
+          <div class="fig-meta">
+            <span class="fig-src">MSigDB Hallmark · <a href="https://www.gsea-msigdb.org/gsea/msigdb/" target="_blank" rel="noreferrer" onclick="event.stopPropagation();">gsea-msigdb.org</a></span>
+            <span class="fig-saved" title="vs. fgsea in R + plotting">⚡ ~5 steps saved</span>
+          </div>
         </div>
         <div class="play-hint" style="position:absolute;top:8px;right:10px;">▶</div>
       </div>
       <div class="card cmd-card" data-cmd="bioc-report" data-gif="gifs/nfx-bioc-report.gif" data-invocation="nfx bioc report --input data/100715.fcs --output output/bioc_report/" style="cursor:pointer; padding:0; overflow:hidden; position:relative;">
-        <div style="height:150px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
+        <div style="height:92px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
           <img src="img/bioc/pathway_heatmap.png" alt="Heatmap" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
-        <div style="padding:10px 14px;">
+        <div style="padding:7px 12px;">
           <h3 style="font-size:13px; margin-bottom:3px;">Pathway Heatmap</h3>
           <div class="mono-tag" style="color:var(--lavender); font-size:11px;">nfx bioc report</div>
+          <div class="fig-finding"><b>PD-1 signaling & TCR-attenuation modules co-vary</b> across the exhausted compartment.</div>
+          <div class="fig-meta">
+            <span class="fig-src">Reactome · <a href="https://reactome.org/" target="_blank" rel="noreferrer" onclick="event.stopPropagation();">reactome.org</a></span>
+            <span class="fig-saved" title="vs. ComplexHeatmap in R">⚡ ~7 steps saved</span>
+          </div>
         </div>
         <div class="play-hint" style="position:absolute;top:8px;right:10px;">▶</div>
       </div>
@@ -2693,42 +2744,62 @@
 
     <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:14px;">
       <div class="card cmd-card" data-cmd="bioc-enrich" data-gif="gifs/nfx-bioc-enrich.gif" data-invocation="nfx bioc enrich --genes CD3E,CD8A,GZMB,PRF1,IFNG,CCR7,PDCD1 --method kegg -o output/" style="cursor:pointer; padding:0; overflow:hidden; position:relative;">
-        <div style="height:150px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
+        <div style="height:92px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
           <img src="img/bioc/kegg_enrichment_dotplot.png" alt="KEGG" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
-        <div style="padding:10px 14px;">
+        <div style="padding:7px 12px;">
           <h3 style="font-size:13px; margin-bottom:3px;">KEGG Enrichment</h3>
           <div class="mono-tag" style="color:var(--teal); font-size:11px;">nfx bioc enrich --method kegg</div>
+          <div class="fig-finding"><b>PD-L1/PD-1 checkpoint is the top pathway</b> (p = 2.1×10⁻⁴) over the exhaustion panel.</div>
+          <div class="fig-meta">
+            <span class="fig-src">KEGG via Enrichr · <a href="https://www.genome.jp/kegg/" target="_blank" rel="noreferrer" onclick="event.stopPropagation();">genome.jp/kegg</a></span>
+            <span class="fig-saved" title="vs. clusterProfiler in R">⚡ ~4 steps saved</span>
+          </div>
         </div>
         <div class="play-hint" style="position:absolute;top:8px;right:10px;">▶</div>
       </div>
       <div class="card cmd-card" data-cmd="bioc-enrich-reactome" data-gif="gifs/nfx-bioc-enrich.gif" data-invocation="nfx bioc enrich --method reactome --genes CD3E,GZMB,PRF1" style="cursor:pointer; padding:0; overflow:hidden; position:relative;">
-        <div style="height:150px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
+        <div style="height:92px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
           <img src="img/bioc/reactome_enrichment_dotplot.png" alt="Reactome" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
-        <div style="padding:10px 14px;">
+        <div style="padding:7px 12px;">
           <h3 style="font-size:13px; margin-bottom:3px;">Reactome Enrichment</h3>
           <div class="mono-tag" style="color:var(--blue); font-size:11px;">nfx bioc enrich --method reactome</div>
+          <div class="fig-finding"><b>PD-1 signaling enriched at p = 4.8×10⁻⁶</b> across the exhaustion gene set.</div>
+          <div class="fig-meta">
+            <span class="fig-src">Reactome via Enrichr · <a href="https://reactome.org/" target="_blank" rel="noreferrer" onclick="event.stopPropagation();">reactome.org</a></span>
+            <span class="fig-saved" title="vs. ReactomePA in R">⚡ ~4 steps saved</span>
+          </div>
         </div>
         <div class="play-hint" style="position:absolute;top:8px;right:10px;">▶</div>
       </div>
       <div class="card cmd-card" data-cmd="bioc-network" data-gif="gifs/nfx-bioc-enrich.gif" data-invocation="nfx bioc pathway-map --output pathway_network.html --theme dark" style="cursor:pointer; padding:0; overflow:hidden; position:relative;">
-        <div style="height:150px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
+        <div style="height:92px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
           <img src="img/bioc/go_bp_enrichment_dotplot.png" alt="GO BP" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
-        <div style="padding:10px 14px;">
+        <div style="padding:7px 12px;">
           <h3 style="font-size:13px; margin-bottom:3px;">GO Biological Process</h3>
           <div class="mono-tag" style="color:var(--gold); font-size:11px;">nfx bioc pathway-map</div>
+          <div class="fig-finding"><b>Negative regulation of T-cell activation</b> is the dominant GO:BP term (p = 9.3×10⁻⁸).</div>
+          <div class="fig-meta">
+            <span class="fig-src">GO via Enrichr · <a href="https://geneontology.org/" target="_blank" rel="noreferrer" onclick="event.stopPropagation();">geneontology.org</a></span>
+            <span class="fig-saved" title="vs. topGO in R + network layout">⚡ ~6 steps saved</span>
+          </div>
         </div>
         <div class="play-hint" style="position:absolute;top:8px;right:10px;">▶</div>
       </div>
       <div class="card cmd-card" data-cmd="bioc-explorer" data-gif="gifs/nfx-bioc-explorer.gif" data-invocation="nfx bioc explorer --genes CD3E,GZMB,PRF1,IFNG,PDCD1,CTLA4 -o pathway_explorer.html" style="cursor:pointer; padding:0; overflow:hidden; position:relative;">
-        <div style="height:150px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
+        <div style="height:92px; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px 10px 0 0;">
           <img src="img/bioc/tem_vs_naive_enrichment.png" alt="TEM vs Naive" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
-        <div style="padding:10px 14px;">
+        <div style="padding:7px 12px;">
           <h3 style="font-size:13px; margin-bottom:3px;">TEM vs Naive</h3>
           <div class="mono-tag" style="color:var(--teal); font-size:11px;">nfx bioc explorer</div>
+          <div class="fig-finding"><b>Effector-memory CD8 diverge from naïve</b> along cytotoxicity & migration axes.</div>
+          <div class="fig-meta">
+            <span class="fig-src">PBMC reference · <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE164378" target="_blank" rel="noreferrer" onclick="event.stopPropagation();">GEO GSE164378</a></span>
+            <span class="fig-saved" title="vs. manual signature scoring + plotting">⚡ ~5 steps saved</span>
+          </div>
         </div>
         <div class="play-hint" style="position:absolute;top:8px;right:10px;">▶</div>
       </div>
@@ -2782,22 +2853,40 @@
 
         <!-- What happened under the hood -->
         <div style="display:flex; flex-direction:column; gap:10px; margin-top:1vh;">
-          <div class="autoresearch-step" style="display:flex;align-items:center;gap:12px;">
-            <div style="width:28px;height:28px;border-radius:50%;background:rgba(0,200,180,.15);border:1px solid rgba(0,200,180,.4);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">1</div>
-            <div><span style="color:var(--teal);font-weight:600;">PubMed search</span><span style="color:var(--ink-3);"> — 3 queries, 47 results, 5 selected</span></div>
+          <div class="autoresearch-step" style="display:flex;align-items:center;gap:12px;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:rgba(0,200,180,.15);border:1px solid rgba(0,200,180,.4);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">1</div>
+              <div><span style="color:var(--teal);font-weight:600;">PubMed search</span><span style="color:var(--ink-3);"> — 3 queries, 47 results, 5 selected</span></div>
+            </div>
+            <span class="tool-chip" title="NCBI PubMed"><img src="img/logos/pubmed.svg" alt="PubMed"></span>
           </div>
-          <div class="autoresearch-step" style="display:flex;align-items:center;gap:12px;">
-            <div style="width:28px;height:28px;border-radius:50%;background:rgba(192,144,235,.15);border:1px solid rgba(192,144,235,.4);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">2</div>
-            <div><span style="color:var(--lavender);font-weight:600;">Flow analysis</span><span style="color:var(--ink-3);"> — loaded 100715.fcs, gated 4,218 CD8+ events</span></div>
+          <div class="autoresearch-step" style="display:flex;align-items:center;gap:12px;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:rgba(192,144,235,.15);border:1px solid rgba(192,144,235,.4);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">2</div>
+              <div><span style="color:var(--lavender);font-weight:600;">Flow analysis</span><span style="color:var(--ink-3);"> — loaded 100715.fcs, gated 4,218 CD8+ events</span></div>
+            </div>
+            <span class="tool-chip" title="FlowKit + FlowSOM (Bioconductor)">
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M2.3 2 V14 H14" stroke="#c7c0e0" stroke-width="1" fill="none" stroke-linecap="round"/>
+                <path d="M6 3.6 L12.4 4.8 L11.2 10 L6.8 8.8 Z" fill="rgba(192,144,235,.28)" stroke="#7a3fb0" stroke-width="1" stroke-linejoin="round"/>
+                <circle cx="8.2" cy="5.6" r="1" fill="#7a3fb0"/><circle cx="10.4" cy="6.6" r="1" fill="#7a3fb0"/><circle cx="9" cy="7.6" r="1" fill="#c0392b"/>
+                <circle cx="4.4" cy="11.4" r="1" fill="#b9b2d4"/><circle cx="5.6" cy="12.3" r="1" fill="#b9b2d4"/>
+              </svg>
+              <span class="tc-name">FlowKit·FlowSOM</span>
+            </span>
           </div>
-          <div class="autoresearch-step" style="display:flex;align-items:center;gap:12px;">
-            <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,180,60,.15);border:1px solid rgba(255,180,60,.4);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">3</div>
-            <div><span style="color:var(--gold);font-weight:600;">Enrichment</span><span style="color:var(--ink-3);"> — PDCD1, HAVCR2, LAG3 → PD-1 signaling (p=4.8e-6)</span></div>
+          <div class="autoresearch-step" style="display:flex;align-items:center;gap:12px;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,180,60,.15);border:1px solid rgba(255,180,60,.4);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">3</div>
+              <div><span style="color:var(--gold);font-weight:600;">Enrichment</span><span style="color:var(--ink-3);"> — PDCD1, HAVCR2, LAG3 → PD-1 signaling (p=4.8e-6)</span></div>
+            </div>
+            <span class="tool-chip" title="Enrichr (Ma'ayan Lab)"><img src="img/logos/enrichr.png" alt="Enrichr"><span class="tc-name">Enrichr</span></span>
           </div>
           <div class="autoresearch-step" style="display:flex;align-items:center;gap:12px;">
             <div style="width:28px;height:28px;border-radius:50%;background:rgba(100,228,130,.15);border:1px solid rgba(100,228,130,.4);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">4</div>
             <div><span style="color:var(--green);font-weight:600;">Report</span><span style="color:var(--ink-3);"> — 1,200-word brief with 5 citations, 2 figures</span></div>
           </div>
+          <div class="replaces-note"><span class="rn-dot"></span>Tools the researcher would normally open by hand — <strong style="color:var(--ink-2);">nfx</strong> calls and orchestrates them for you.</div>
         </div>
       </div>
 
