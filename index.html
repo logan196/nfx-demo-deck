@@ -2765,183 +2765,103 @@
   </section>
 
   <!-- ═══ SLIDE 12 - BIOCONDUCTOR USE CASES ═══ -->
-  <section class="slide slide-content">
+  <section class="slide slide-content" id="slide-autoresearch">
     <div class="brand-chip">
       <img src="img/logo-wordmark.png" alt="" />
       <span class="sep"></span>
-      <span class="kicker">nfx · bioconductor use cases</span>
-    </div>
-    <div class="section-head">
-      <div class="num">12 - Who uses this</div>
-      <h2>Real-world workflows,<br/><span class="grad-text">from the command line.</span></h2>
+      <span class="kicker">nfx · autoresearch</span>
     </div>
 
-    <div class="use-case-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px; flex:1;">
-      <button class="card use-case-card" data-usecase="checkpoint" style="border-left:3px solid var(--teal); cursor:pointer; text-align:left; display:flex; flex-direction:column; appearance:none; -webkit-appearance:none; color:inherit; font:inherit;">
-        <h3 style="color:var(--teal); margin-bottom:10px;">🧪 Checkpoint immunotherapy</h3>
-        <p style="margin-bottom:12px;">Track CD8+ exhaustion markers pre/post anti-PD1. Map differential expression to KEGG and Reactome pathways.</p>
-        <div class="terminal" style="margin:0;">
-          <div class="titlebar" style="padding:6px 12px;"><div class="light l1" style="width:8px;height:8px;"></div><div class="light l2" style="width:8px;height:8px;"></div><div class="light l3" style="width:8px;height:8px;"></div></div>
-          <div class="body" style="padding:10px 14px; font-size:11px;"><pre><span class="term-prompt">$</span> <span class="term-cmd">nfx bioc enrich</span> <span class="term-arg">--genes</span> PDCD1,HAVCR2,LAG3,TIGIT,TOX \
-    <span class="term-arg">--method</span> kegg <span class="term-arg">-o</span> checkpoint_response/
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:3vw; flex:1; align-items:start; padding-top:6vh;">
 
-  <span style="color:#00c8b4;">━━ KEGG Pathway Enrichment ━━━━━━━━━━━━━</span>
-  5 input genes → 3 significant pathways
+      <!-- LEFT: the question + what nfx does -->
+      <div style="display:flex; flex-direction:column; gap:2.5vh;">
+        <div class="kicker">One command. Full investigation.</div>
+        <h2 style="font-size:clamp(22px,2.2vw,34px); line-height:1.25;">A postdoc asks:<br/><span class="grad-text">&ldquo;Why are my CD8 T cells exhausted after anti-PD1?&rdquo;</span></h2>
+        <p style="color:var(--ink-2); font-size:clamp(14px,1.2vw,17px); max-width:520px;">She types one command. nfx searches PubMed, pulls her FCS data, gates CD8+ T cells, runs pathway enrichment on the exhaustion markers, cross-references three papers, and writes a cited report. <strong style="color:var(--ink-0);">42 seconds.</strong></p>
 
-  <span style="color:#ffb43c;">PD-L1/PD-1 checkpoint</span>  p=2.1e-04  ★★★
-  <span style="color:#ffb43c;">T cell receptor signal</span>  p=8.3e-03  ★★
-  <span style="color:#ffb43c;">Cell adhesion molecules</span> p=1.2e-02  ★★
-
-  <span style="color:#6a6188;">── Saved: enrichment_dotplot.png ──</span></pre>
+        <!-- What happened under the hood -->
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:1vh;">
+          <div class="autoresearch-step" style="display:flex;align-items:center;gap:12px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(0,200,180,.15);border:1px solid rgba(0,200,180,.4);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">1</div>
+            <div><span style="color:var(--teal);font-weight:600;">PubMed search</span><span style="color:var(--ink-3);"> — 3 queries, 47 results, 5 selected</span></div>
+          </div>
+          <div class="autoresearch-step" style="display:flex;align-items:center;gap:12px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(192,144,235,.15);border:1px solid rgba(192,144,235,.4);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">2</div>
+            <div><span style="color:var(--lavender);font-weight:600;">Flow analysis</span><span style="color:var(--ink-3);"> — loaded 100715.fcs, gated 4,218 CD8+ events</span></div>
+          </div>
+          <div class="autoresearch-step" style="display:flex;align-items:center;gap:12px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,180,60,.15);border:1px solid rgba(255,180,60,.4);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">3</div>
+            <div><span style="color:var(--gold);font-weight:600;">Enrichment</span><span style="color:var(--ink-3);"> — PDCD1, HAVCR2, LAG3 → PD-1 signaling (p=4.8e-6)</span></div>
+          </div>
+          <div class="autoresearch-step" style="display:flex;align-items:center;gap:12px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(100,228,130,.15);border:1px solid rgba(100,228,130,.4);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">4</div>
+            <div><span style="color:var(--green);font-weight:600;">Report</span><span style="color:var(--ink-3);"> — 1,200-word brief with 5 citations, 2 figures</span></div>
           </div>
         </div>
-        <div class="click-hint" style="margin-top:12px; font-family:JetBrains Mono,monospace; font-size:10px; color:var(--green); letter-spacing:.04em;">▶ click for output + paper + dataset</div>
-      </button>
+      </div>
 
-      <button class="card use-case-card" data-usecase="cart" style="border-left:3px solid var(--gold); cursor:pointer; text-align:left; display:flex; flex-direction:column; appearance:none; -webkit-appearance:none; color:inherit; font:inherit;">
-        <h3 style="color:var(--gold); margin-bottom:10px;">🏭 CAR-T manufacturing QC</h3>
-        <p style="margin-bottom:12px;">Detect batch-to-batch population drift with FlowSOM clustering + differential abundance testing.</p>
-        <div class="terminal" style="margin:0;">
-          <div class="titlebar" style="padding:6px 12px;"><div class="light l1" style="width:8px;height:8px;"></div><div class="light l2" style="width:8px;height:8px;"></div><div class="light l3" style="width:8px;height:8px;"></div></div>
-          <div class="body" style="padding:10px 14px; font-size:11px;"><pre><span class="term-prompt">$</span> <span class="term-cmd">nfx bioc cluster</span> <span class="term-arg">-i</span> lot_combined.fcs \
-    <span class="term-arg">--n-clusters</span> 12 <span class="term-arg">-o</span> car_t_qc/
+      <!-- RIGHT: live terminal -->
+      <div>
+        <div class="terminal" style="margin:0; max-height:72vh;">
+          <div class="titlebar" style="padding:8px 14px;">
+            <div class="light l1"></div><div class="light l2"></div><div class="light l3"></div>
+            <span style="margin-left:14px;font-size:11px;color:var(--ink-3);font-family:'JetBrains Mono',monospace;">~/lab</span>
+          </div>
+          <div class="body" id="autoresearch-term" style="padding:16px 20px; font-size:12.5px; line-height:1.7; max-height:64vh; overflow-y:auto;">
+            <pre id="autoresearch-output" style="margin:0;"><span class="term-prompt">$</span> <span class="term-cmd">nfx research</span> <span style="color:var(--ink-0);">"Why are CD8 T cells exhausted post anti-PD1 in our HIV cohort?"</span>
 
-  <span style="color:#00c8b4;">━━ FlowSOM Clustering ━━━━━━━━━━━━━━━━━━</span>
-  45,000 events → 100 clusters → 12 metaclusters
-  Silhouette: <span style="color:#64e682;">0.412</span>
+<span style="color:var(--lavender);font-weight:700;">  ━━ AUTORESEARCH ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>
 
-  <span style="color:#6a6188;">Saved: flowsom_stars.png</span>
-  <span style="color:#6a6188;">Saved: metacluster_medians.csv</span>
+  <span style="color:var(--ink-3);">searching PubMed...</span>
+  <span style="color:var(--teal);">  ✓ pubmed_search</span>  <span style="color:var(--ink-2);">"CD8 exhaustion anti-PD1 HIV"        → 23 results</span>
+  <span style="color:var(--teal);">  ✓ pubmed_search</span>  <span style="color:var(--ink-2);">"PD-1 blockade T cell dysfunction"   → 14 results</span>
+  <span style="color:var(--teal);">  ✓ pubmed_search</span>  <span style="color:var(--ink-2);">"TOX exhaustion progenitor terminal" → 10 results</span>
+  <span style="color:var(--ink-3);">  screening 47 papers → 5 selected for full read</span>
 
-<span class="term-prompt">$</span> <span class="term-cmd">nfx bioc diffcyt</span> <span class="term-arg">--contrast</span> Lot3-Lot1
-  <span style="color:#ff6496;">⚠ MC4 shifted (p_adj=0.003, log2FC=1.8)</span></pre>
+  <span style="color:var(--ink-3);">reading papers...</span>
+  <span style="color:var(--teal);">  ✓ paper_read</span>  <span style="color:var(--ink-2);">Wherry &amp; Kurachi, Nat Rev Immunol 2015</span>
+  <span style="color:var(--teal);">  ✓ paper_read</span>  <span style="color:var(--ink-2);">Khan et al., Nature 2019 (TOX)</span>
+  <span style="color:var(--teal);">  ✓ paper_read</span>  <span style="color:var(--ink-2);">Beltra et al., Immunity 2020</span>
+
+  <span style="color:var(--ink-3);">analyzing local data...</span>
+  <span style="color:var(--lavender);">  ✓ flow_analyze</span>  <span style="color:var(--ink-2);">100715.fcs → 65,016 events, BD FACSAria</span>
+  <span style="color:var(--ink-2);">    Singlets 92.1% → Live 40.3% → CD3+CD8+ 4,218 (16.2%)</span>
+  <span style="color:var(--gold);">    ⚠ LOW_VIABILITY: 40.3% — consistent with chronic infection</span>
+
+  <span style="color:var(--lavender);">  ✓ enrichment</span>  <span style="color:var(--ink-2);">PDCD1,HAVCR2,LAG3,TIGIT,TOX,CD244</span>
+  <span style="color:var(--ink-2);">    KEGG:      PD-L1/PD-1 checkpoint     p=2.1e-04  ★★★</span>
+  <span style="color:var(--ink-2);">    Reactome:  PD-1 signaling             p=4.8e-06  ★★★</span>
+  <span style="color:var(--ink-2);">    GO:BP:     neg regulation of T cell    p=9.3e-08  ★★★</span>
+
+  <span style="color:var(--ink-3);">writing report...</span>
+  <span style="color:var(--green);">  ✓ file_write</span>  <span style="color:var(--ink-2);">cd8_exhaustion_report.md (1,247 words)</span>
+  <span style="color:var(--green);">  ✓ file_write</span>  <span style="color:var(--ink-2);">figures/exhaustion_pathway.png</span>
+  <span style="color:var(--green);">  ✓ file_write</span>  <span style="color:var(--ink-2);">figures/cd8_memory_quadrant.png</span>
+
+<span style="color:var(--lavender);font-weight:700;">  ━━ FINDINGS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>
+
+  <span style="color:var(--ink-0);">  The CD8+ T cells in subject AB02 show a terminally exhausted</span>
+  <span style="color:var(--ink-0);">  phenotype (PD-1<sup>hi</sup> TIM-3<sup>hi</sup> TOX<sup>hi</sup>) despite low viremia (2,024 cp/mL).</span>
+  <span style="color:var(--ink-0);">  This is consistent with Beltra et al. (2020): progenitor</span>
+  <span style="color:var(--ink-0);">  exhausted cells (TCF1+) fail to regenerate effectors after</span>
+  <span style="color:var(--ink-0);">  PD-1 blockade in chronic (vs acute) infection.</span>
+
+  <span style="color:var(--ink-0);">  Your flow data confirms: CD27<sup>lo</sup> CCR7<sup>-</sup> dominates the CD8+</span>
+  <span style="color:var(--ink-0);">  compartment (61.4%), suggesting terminal effector accumulation</span>
+  <span style="color:var(--ink-0);">  rather than memory renewal.</span>
+
+  <span style="color:var(--ink-0);font-weight:600;">  Recommendation:</span> <span style="color:var(--ink-1);">Run trajectory analysis on the CD8+</span>
+  <span style="color:var(--ink-1);">  compartment to quantify the progenitor → terminal axis.</span>
+  <span style="color:var(--ink-1);">  Compare AB02 (controller) vs AB03 (high viremia) to test</span>
+  <span style="color:var(--ink-1);">  whether viral load drives the exhaustion gradient.</span>
+
+  <span style="color:var(--ink-3);">  5 citations · 2 figures · 42.1s · 8,204 tokens</span>
+
+<span class="term-prompt">$</span> <span style="color:var(--ink-3);">▌</span></pre>
           </div>
         </div>
-        <div class="click-hint" style="margin-top:12px; font-family:JetBrains Mono,monospace; font-size:10px; color:var(--green); letter-spacing:.04em;">▶ click for output + paper + dataset</div>
-      </button>
-
-      <button class="card use-case-card" data-usecase="trajectory" style="border-left:3px solid var(--pink); cursor:pointer; text-align:left; display:flex; flex-direction:column; appearance:none; -webkit-appearance:none; color:inherit; font:inherit;">
-        <h3 style="color:var(--pink); margin-bottom:10px;">🔬 Differentiation trajectory</h3>
-        <p style="margin-bottom:12px;">Map T cell maturation from Naive through memory to senescence. Pseudotime + pathway overlay.</p>
-        <div class="terminal" style="margin:0;">
-          <div class="titlebar" style="padding:6px 12px;"><div class="light l1" style="width:8px;height:8px;"></div><div class="light l2" style="width:8px;height:8px;"></div><div class="light l3" style="width:8px;height:8px;"></div></div>
-          <div class="body" style="padding:10px 14px; font-size:11px;"><pre><span class="term-prompt">$</span> <span class="term-cmd">nfx bioc trajectory</span> <span class="term-arg">-i</span> patient_001.fcs \
-    <span class="term-arg">--n-clusters</span> 6 <span class="term-arg">-o</span> trajectory/
-
-  <span style="color:#00c8b4;">━━ Trajectory Analysis ━━━━━━━━━━━━━━━━━</span>
-  2,300 events → 6 metaclusters
-  Path: <span style="color:#c090eb;">Naive → TCM → TEM → TEMRA</span>
-  PC1: <span style="color:#64e682;">68.1%</span>  PC2: <span style="color:#64e682;">19.3%</span>
-
-  <span style="color:#6a6188;">Saved: trajectory.png</span>
-  <span style="color:#6a6188;">── 1.8s | Slingshot-inspired MST ──</span></pre>
-          </div>
-        </div>
-        <div class="click-hint" style="margin-top:12px; font-family:JetBrains Mono,monospace; font-size:10px; color:var(--green); letter-spacing:.04em;">▶ click for output + paper + dataset</div>
-      </button>
-
-      <button class="card use-case-card" data-usecase="citeseq" style="border-left:3px solid #64b4ff; cursor:pointer; text-align:left; display:flex; flex-direction:column; appearance:none; -webkit-appearance:none; color:inherit; font:inherit;">
-        <h3 style="color:#64b4ff; margin-bottom:10px;">🔗 Multi-panel + scRNA-seq</h3>
-        <p style="margin-bottom:12px;">Bridge flow cytometry surface markers with CITE-seq transcriptomes. AnnData ↔ SingleCellExperiment.</p>
-        <div class="terminal" style="margin:0;">
-          <div class="titlebar" style="padding:6px 12px;"><div class="light l1" style="width:8px;height:8px;"></div><div class="light l2" style="width:8px;height:8px;"></div><div class="light l3" style="width:8px;height:8px;"></div></div>
-          <div class="body" style="padding:10px 14px; font-size:11px;"><pre><span class="term-prompt">$</span> <span class="term-cmd">nfx bioc convert</span> <span class="term-arg">-i</span> panel.fcs <span class="term-arg">-o</span> panel.h5ad
-
-  <span style="color:#00c8b4;">━━ FCS → AnnData ━━━━━━━━━━━━━━━━━━━━━━━</span>
-  82,140 events × 14 markers (Cytek Aurora)
-  <span style="color:#6a6188;">Saved: panel.h5ad (12.4 MB)</span>
-
-<span class="term-prompt">$</span> <span class="term-cmd">nfx bioc integrate</span> <span class="term-arg">--flow</span> panel.h5ad \
-    <span class="term-arg">--cite</span> pbmc_citeseq.h5ad
-  Anchor markers: <span style="color:#c090eb;">CD3, CD4, CD8, CD45RO, CCR7</span>
-  <span style="color:#64e682;">✓ Matched 11/14 flow markers to ADT</span></pre>
-          </div>
-        </div>
-        <div class="click-hint" style="margin-top:12px; font-family:JetBrains Mono,monospace; font-size:10px; color:var(--green); letter-spacing:.04em;">▶ click for output + paper + dataset</div>
-      </button>
-
-      <button class="card use-case-card" data-usecase="biomarker" style="border-left:3px solid #00c8b4; cursor:pointer; text-align:left; display:flex; flex-direction:column; appearance:none; -webkit-appearance:none; color:inherit; font:inherit;">
-        <h3 style="color:#00c8b4; margin-bottom:10px;">📈 Clinical trial biomarker</h3>
-        <p style="margin-bottom:12px;">GSEA on responder-vs-nonresponder ranked genes. Identify response-associated immune pathways.</p>
-        <div class="terminal" style="margin:0;">
-          <div class="titlebar" style="padding:6px 12px;"><div class="light l1" style="width:8px;height:8px;"></div><div class="light l2" style="width:8px;height:8px;"></div><div class="light l3" style="width:8px;height:8px;"></div></div>
-          <div class="body" style="padding:10px 14px; font-size:11px;"><pre><span class="term-prompt">$</span> <span class="term-cmd">nfx bioc gsea</span> <span class="term-arg">-i</span> R_vs_NR_ranked.csv \
-    <span class="term-arg">--gene-sets</span> hallmark <span class="term-arg">-o</span> trial/
-
-  <span style="color:#00c8b4;">━━ GSEA - MSigDB Hallmark ━━━━━━━━━━━━━━</span>
-  4,217 ranked genes → 9 significant sets
-
-  <span style="color:#ffb43c;">Interferon γ response</span>   NES= 2.81  ★★★
-  <span style="color:#ffb43c;">Allograft rejection</span>     NES= 2.44  ★★★
-  <span style="color:#ffb43c;">Inflammatory response</span>   NES= 1.97  ★★
-
-  <span style="color:#6a6188;">Saved: gsea_waterfall.png</span></pre>
-          </div>
-        </div>
-        <div class="click-hint" style="margin-top:12px; font-family:JetBrains Mono,monospace; font-size:10px; color:var(--green); letter-spacing:.04em;">▶ click for output + paper + dataset</div>
-      </button>
-
-      <button class="card use-case-card" data-usecase="explorer" style="border-left:3px solid #c090eb; cursor:pointer; text-align:left; display:flex; flex-direction:column; appearance:none; -webkit-appearance:none; color:inherit; font:inherit;">
-        <h3 style="color:#c090eb; margin-bottom:10px;">🖥️ Lab meeting explorer</h3>
-        <p style="margin-bottom:12px;">Self-contained HTML dashboard for lab meeting. Searchable, clickable pathway graph - no Python, no R.</p>
-        <div class="terminal" style="margin:0;">
-          <div class="titlebar" style="padding:6px 12px;"><div class="light l1" style="width:8px;height:8px;"></div><div class="light l2" style="width:8px;height:8px;"></div><div class="light l3" style="width:8px;height:8px;"></div></div>
-          <div class="body" style="padding:10px 14px; font-size:11px;"><pre><span class="term-prompt">$</span> <span class="term-cmd">nfx bioc explorer</span> <span class="term-arg">--genes</span> \
-    CD3E,GZMB,PRF1,IFNG,PDCD1,CTLA4 \
-    <span class="term-arg">-o</span> explorer.html
-
-  <span style="color:#00c8b4;">━━ Interactive Pathway Explorer ━━━━━━━━</span>
-  6 genes → 12 KEGG + 9 Reactome pathways
-  Force-directed graph: vis.js v9.1
-
-  <span style="color:#6a6188;">Saved: explorer.html (7,304 bytes)</span>
-  ✅ <span style="color:#64e682;">Open in browser - works offline</span></pre>
-          </div>
-        </div>
-        <div class="click-hint" style="margin-top:12px; font-family:JetBrains Mono,monospace; font-size:10px; color:var(--green); letter-spacing:.04em;">▶ click for output + paper + dataset</div>
-      </button>
-
-      <button class="card use-case-card" data-usecase="cytof" style="border-left:3px solid #ffb43c; cursor:pointer; text-align:left; display:flex; flex-direction:column; appearance:none; -webkit-appearance:none; color:inherit; font:inherit;">
-        <h3 style="color:#ffb43c; margin-bottom:10px;">🌌 CyTOF (40+ markers)</h3>
-        <p style="margin-bottom:12px;">High-dimensional mass cytometry. FlowSOM + UMAP discovery on 38 markers, automatic population annotation.</p>
-        <div class="terminal" style="margin:0;">
-          <div class="titlebar" style="padding:6px 12px;"><div class="light l1" style="width:8px;height:8px;"></div><div class="light l2" style="width:8px;height:8px;"></div><div class="light l3" style="width:8px;height:8px;"></div></div>
-          <div class="body" style="padding:10px 14px; font-size:11px;"><pre><span class="term-prompt">$</span> <span class="term-cmd">nfx bioc cluster</span> <span class="term-arg">-i</span> mass_cytometry.fcs \
-    <span class="term-arg">--n-clusters</span> 20 <span class="term-arg">--umap</span> <span class="term-arg">-o</span> cytof/
-
-  <span style="color:#00c8b4;">━━ Mass Cytometry - Bodenmiller BCR-XL ━━</span>
-  172,791 events × 38 markers
-  100-SOM → 20 metaclusters
-  UMAP: 38D → 2D in 4.2s
-  Silhouette: <span style="color:#64e682;">0.518</span>
-
-  <span style="color:#6a6188;">Saved: cytof_stars.png · umap.png · annot.csv</span></pre>
-          </div>
-        </div>
-        <div class="click-hint" style="margin-top:12px; font-family:JetBrains Mono,monospace; font-size:10px; color:var(--green); letter-spacing:.04em;">▶ click for output + paper + dataset</div>
-      </button>
-
-      <button class="card use-case-card" data-usecase="gating" style="border-left:3px solid #ff6496; cursor:pointer; text-align:left; display:flex; flex-direction:column; appearance:none; -webkit-appearance:none; color:inherit; font:inherit;">
-        <h3 style="color:#ff6496; margin-bottom:10px;">✔ Automated gating validation</h3>
-        <p style="margin-bottom:12px;">Cross-check manual gates against pathway-coherent automated gates. Catch operator drift before it hits a report.</p>
-        <div class="terminal" style="margin:0;">
-          <div class="titlebar" style="padding:6px 12px;"><div class="light l1" style="width:8px;height:8px;"></div><div class="light l2" style="width:8px;height:8px;"></div><div class="light l3" style="width:8px;height:8px;"></div></div>
-          <div class="body" style="padding:10px 14px; font-size:11px;"><pre><span class="term-prompt">$</span> <span class="term-cmd">nfx bioc validate-gates</span> <span class="term-arg">-i</span> sample.fcs \
-    <span class="term-arg">--manual</span> manual.gates <span class="term-arg">-o</span> qc/
-
-  <span style="color:#00c8b4;">━━ Gate Validation ━━━━━━━━━━━━━━━━━━━━━</span>
-  Manual gates: <span style="color:#c090eb;">CD4_TEM, CD8_TEM, Treg</span>
-  Auto-gates:   FlowSOM-derived (8 metaclusters)
-
-  <span style="color:#64e682;">✓ CD4_TEM ↔ MC3   Jaccard 0.91</span>
-  <span style="color:#64e682;">✓ CD8_TEM ↔ MC7   Jaccard 0.88</span>
-  <span style="color:#ff6496;">⚠ Treg   ↔ MC5   Jaccard 0.61  ← drift</span>
-
-  <span style="color:#6a6188;">Saved: gate_concordance.png</span></pre>
-          </div>
-        </div>
-        <div class="click-hint" style="margin-top:12px; font-family:JetBrains Mono,monospace; font-size:10px; color:var(--green); letter-spacing:.04em;">▶ click for output + paper + dataset</div>
-      </button>
+      </div>
     </div>
   </section>
 
